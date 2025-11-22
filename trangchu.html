@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanOak - Nội thất văn phòng cao cấp</title>
+    <meta name="description" content="UrbanOak - Nội thất văn phòng cao cấp với chất liệu tự nhiên và thiết kế tinh tế" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="trangchu.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loading-screen">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>UrbanOak</p>
+        </div>
+    </div>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="trangchu.html">
+                        <img src="images/logochunobg.png" alt="UrbanOak Logo">
+                    </a>
+                </div>
+                <nav class="menu-nordic" id="menu">
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Về chúng tôi</a></li>
+                        <li class="has-dropdown">
+                            <a href="#products">Sản phẩm <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html">Bàn làm việc</a></li>
+                                <li><a href="#ghe-van-phong">Ghế văn phòng</a></li>
+                                <li><a href="#tu-ho-so">Tủ hồ sơ</a></li>
+                                <li><a href="#noi-that-phong-hop">Nội thất phòng họp</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#collections">Bộ sưu tập</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                        <li><a href="#showroom">Showroom</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Slideshow -->
+    <section class="banner-slideshow">
+        <div class="slides-container" id="slidesContainer">
+            <div class="slide">
+                <img src="https://icadvietnam.vn/wp-content/uploads/2024/03/phong-lam-viec-giam-doc-hien-dai-1-1.jpg " alt="Nội thất văn phòng cao cấp">
+            </div>
+            <div class="slide">
+                <img src="https://www.mrfurniture.ae/storage/blogs/original/1730783652-blogs.jpg" alt="Bàn làm việc cao cấp">
+            </div>
+            <div class="slide">
+                <img src="images/bannerlogo.png" alt="Ghế văn phòng cao cấp">
+            </div>
+        </div>
+        
+        <!-- Dots Navigation -->
+        <div class="slide-nav">
+            <div class="slide-dot active" data-index="0"></div>
+            <div class="slide-dot" data-index="1"></div>
+            <div class="slide-dot" data-index="2"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-light" id="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>UrbanOak - Tinh Hoa Nội Thất Văn Phòng</h2>
+                <p>Với hơn 10 năm kinh nghiệm, UrbanOak tự hào mang đến những giải pháp nội thất văn phòng chất lượng cao, kết hợp giữa vẻ đẹp tự nhiên và sự tinh tế trong từng đường nét.</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <img src="https://assets.wfcdn.com/im/08525879/resize-h600-w600%5Ecompr-r85/2781/278122031/Writing+Desk%2C+29.52%22+H+x+62.99%22+W+x+25.59%22+D.jpg" alt="Bàn làm việc">
+                    </div>
+                    <div class="category-info">
+                        <h3>Bàn Làm Việc</h3>
+                        <p>Thiết kế tối giản, chất liệu gỗ tự nhiên, tối ưu không gian</p>
+                        <a href="products.html">Khám phá <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <img src="https://assets.wfcdn.com/im/74862914/resize-h600-w600%5Ecompr-r85/2508/250860082/Ludwik+Executive+Chair.jpg" alt="Ghế văn phòng">
+                    </div>
+                    <div class="category-info">
+                        <h3>Ghế Văn Phòng</h3>
+                        <p>Thoải mái tối đa, thiết kế công thái học, đa dạng mẫu mã</p>
+                        <a href="#">Khám phá <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.yZJJcc_NZXiIh3LpI2AEzgHaHa?w=760&h=760&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tủ hồ sơ">
+                    </div>
+                    <div class="category-info">
+                        <h3>Tủ Hồ Sơ</h3>
+                        <p>Lưu trữ thông minh, thiết kế tối giản, tiết kiệm không gian</p>
+                        <a href="#">Khám phá <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/95976b144521211.628de97ee29f2.jpg" alt="Phòng họp">
+                    </div>
+                    <div class="category-info">
+                        <h3>Phòng Họp</h3>
+                        <p>Không gian chuyên nghiệp, đẳng cấp với nội thất cao cấp</p>
+                        <a href="#">Khám phá <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <img src="https://image.made-in-china.com/2f0j00WoRVPUzqOmrg/Ladder-Shelf-Wooden-Storage-Display-Industrial-Bookcase.jpg" alt="Kệ sách">
+                    </div>
+                    <div class="category-info">
+                        <h3>Kệ Sách & Trang Trí</h3>
+                        <p>Tô điểm không gian làm việc thêm sang trọng và ấm áp</p>
+                        <a href="#">Khám phá <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4c5389125429593.611950ca4f402.jpg" alt="Nội thất cao cấp">
+                    </div>
+                    <div class="category-info">
+                        <h3>Giải Pháp Toàn Diện</h3>
+                        <p>Thiết kế trọn gói không gian văn phòng theo yêu cầu</p>
+                        <a href="#">Khám phá <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow-section">
+        <div class="slideshow-container">
+            <div class="video-slide active">
+                <img src="https://noithatantin.com/wp-content/uploads/2023/02/Van-phong-sang-trong-4.png" alt="Slide 1">
+            </div>
+            <div class="video-slide">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.MSusvXuV8avpU633iXY0BQHaEK?w=1500&h=844&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Slide 2">
+            </div>
+            <div class="video-slide">
+                <img src="https://www.sua.com.my/wp-content/uploads/2021/07/sua-interior-design-ksl-director-room-4.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+            <h2>Tinh Hoa Chất Liệu Gỗ Tự Nhiên</h2>
+            <p>Mỗi sản phẩm của UrbanOak đều được chế tác từ gỗ tự nhiên cao cấp, qua quá trình xử lý tỉ mỉ để tạo ra những sản phẩm nội thất không chỉ đẹp mà còn bền vững với thời gian.</p>
+            <p>Chúng tôi sử dụng gỗ tự nhiên được khai thác có trách nhiệm, đảm bảo thân thiện với môi trường và an toàn cho sức khỏe người sử dụng.</p>
+            <a href="#about" class="btn btn-primary" style="margin-top: 20px;">Tìm hiểu thêm</a>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sản Phẩm Tiêu Biểu</h2>
+                <p>Khám phá các sản phẩm nội thất văn phòng cao cấp - sự kết hợp hoàn hảo giữa vẻ đẹp tự nhiên và công năng vượt trội</p>
+            </div>
+            <div class="product-showcase">
+                <div class="product-image">
+                    <img src="https://assets.wfcdn.com/im/08525879/resize-h600-w600%5Ecompr-r85/2781/278122031/Writing+Desk%2C+29.52%22+H+x+62.99%22+W+x+25.59%22+D.jpg" alt="Bàn làm việc Executive">
+                </div>
+                <div class="product-info">
+                    <h2>Bàn Làm Việc Executive</h2>
+                    <p>Thiết kế tối giản với chất liệu gỗ sồi tự nhiên cao cấp, kết hợp với kim loại sang trọng. Bàn làm việc được thiết kế với công năng tối ưu, phù hợp với không gian làm việc hiện đại.</p>
+                    
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-ruler-combined"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Thiết Kế Tối Ưu</h4>
+                                <p>Đường nét tinh tế, tối ưu không gian làm việc</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Chất Liệu Tự Nhiên</h4>
+                                <p>Gỗ sồi tự nhiên cao cấp, thân thiện với môi trường</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Tùy Chỉnh Linh Hoạt</h4>
+                                <p>Đa dạng kích thước và màu sắc theo yêu cầu</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Bảo Hành Dài Hạn</h4>
+                                <p>Bảo hành 5 năm cho tất cả sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="products.html" class="btn btn-primary">Xem sản phẩm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dự Án Tiêu Biểu</h2>
+                <p>Các dự án nội thất văn phòng cao cấp mà UrbanOak đã thực hiện cho các doanh nghiệp hàng đầu</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://thietkevanphong.pro/wp-content/uploads/2020/09/van-phong-giam-doc1.jpg" alt="Dự án TechCorp">
+                    </div>
+                    <div class="project-overlay">
+                        <h3>TechCorp Headquarters</h3>
+                        <p>Thiết kế văn phòng hiện đại với không gian mở và nội thất gỗ cao cấp</p>
+                        <a href="#" class="project-link">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://thietkevanphong.pro/wp-content/uploads/2020/07/@chu-tich-2.jpg" alt="Dự án FinBank">
+                    </div>
+                    <div class="project-overlay">
+                        <h3>FinBank Executive Office</h3>
+                        <p>Không gian làm việc sang trọng với nội thất gỗ tự nhiên cao cấp</p>
+                        <a href="#" class="project-link">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://thietkevanphong.pro/wp-content/uploads/2020/07/van-phong-quan-ly.jpg" alt="Dự án StartUp Hub">
+                    </div>
+                    <div class="project-overlay">
+                        <h3>StartUp Hub Innovation Center</h3>
+                        <p>Thiết kế sáng tạo với không gian linh hoạt và nội thất đa năng</p>
+                        <a href="#" class="project-link">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="section" id="collections">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tại Sao Chọn UrbanOak?</h2>
+                <p>UrbanOak không chỉ cung cấp nội thất, chúng tôi mang đến giải pháp không gian làm việc tối ưu cho doanh nghiệp của bạn</p>
+            </div>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-image">
+                        <img src="https://nordic.vn/wp-content/uploads/2025/04/anh-web-05-scaled.webp" alt="Đội ngũ thiết kế">
+                    </div>
+                    <div class="reason-content">
+                        <h3>Đội ngũ thiết kế Việt giàu kinh nghiệm</h3>
+                        <p>Được đào tạo bài bản tại các trường danh tiếng trong nước và quốc tế, kế thừa sự thấu hiểu văn hóa bản địa và tư duy thiết kế hiện đại. Mỗi thiết kế đều được đăng ký sở hữu trí tuệ, khẳng định sự sáng tạo độc quyền và giá trị bền vững của sản phẩm.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-image">
+                        <img src="https://nordic.vn/wp-content/uploads/2025/04/cth-08-scaled.webp" alt="Chuẩn công thái học">
+                    </div>
+                    <div class="reason-content">
+                        <h3>Chuẩn công thái học cho người Việt</h3>
+                        <p>Nội thất UrbanOak được nghiên cứu kỹ lưỡng để tối ưu tư thế người, tựa lưng và độ cao phù hợp với thể trạng người Việt. Điều này giúp mang lại trải nghiệm sử dụng thoải mái, hỗ trợ cột sống và giảm áp lực lên cơ thể khi thư giãn hay làm việc.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-image">
+                        <img src="https://nordic.vn/wp-content/uploads/2025/04/anh-web-06-scaled.webp" alt="Chất liệu nhập khẩu">
+                    </div>
+                    <div class="reason-content">
+                        <h3>Chất liệu nhập khẩu, tiêu chuẩn sản xuất Châu Âu</h3>
+                        <p>UrbanOak sử dụng chất liệu cao cấp nhập khẩu như da bò Ý, vải Bồ Đào Nha… với độ bền và tính thẩm mỹ vượt trội. Được sản xuất theo tiêu chuẩn Châu Âu, từng đường nét đạt độ hoàn thiện cao, từ kết cấu vững chắc đến bề mặt mượt mà, tinh tế.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-image">
+                        <img src="https://nordic.vn/wp-content/uploads/2025/04/anh-web-07-scaled.webp" alt="Thời gian sản xuất">
+                    </div>
+                    <div class="reason-content">
+                        <h3>Thời gian sản xuất tối ưu so với nhập khẩu</h3>
+                        <p>Sản phẩm UrbanOak được sản xuất trong nước theo quy trình tối ưu, giúp rút ngắn thời gian chờ hàng 2/3 so với nhập khẩu. Khách hàng vừa sở hữu nội thất đạt chuẩn chất lượng quốc tế một cách nhanh chóng hơn, vừa tiết kiệm chi phí vận chuyển.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Liên Hệ Với Chúng Tôi</h2>
+                <p>Hãy để UrbanOak đồng hành cùng doanh nghiệp của bạn trong việc kiến tạo không gian làm việc lý tưởng</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>UrbanOak - Nội Thất Văn Phòng Cao Cấp</h3>
+                    <p>Với triết lý "Chất lượng tạo nên giá trị", UrbanOak cam kết mang đến những giải pháp nội thất tối ưu, tạo cảm hứng sáng tạo cho không gian làm việc của bạn.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Địa chỉ</h4>
+                                <p>Tầng 5, Tòa nhà Icon4, 243A Đê La Thành, Đống Đa, Hà Nội</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Điện thoại</h4>
+                                <p>024 1234 5678 - 0901 234 567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@urbanoak.vn</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Giờ làm việc</h4>
+                                <p>Thứ 2 - Thứ 7: 8:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.597933651076!2d105.82611580936421!3d21.008748188387703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac800f450807%3A0x419a49bcd94b693a!2zSOG7jWMgVmnhu4duIE5nw6JuIEjDoG5n!5e0!3m2!1svi!2s!4v1758826495629!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="UrbanOak Logo">
+                    </div>
+                    <p>UrbanOak - Thương hiệu nội thất văn phòng cao cấp với thiết kế tinh tế, chất liệu tự nhiên. Chúng tôi cam kết mang đến không gian làm việc đẳng cấp, truyền cảm hứng sáng tạo cho doanh nghiệp Việt.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Về chúng tôi</a></li>
+                        <li><a href="#products">Sản phẩm</a></li>
+                        <li><a href="#collections">Bộ sưu tập</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Sản phẩm</h3>
+                    <ul>
+                        <li><a href="products.html">Bàn làm việc</a></li>
+                        <li><a href="#ghe-van-phong">Ghế văn phòng</a></li>
+                        <li><a href="#tu-ho-so">Tủ hồ sơ</a></li>
+                        <li><a href="#noi-that-phong-hop">Nội thất phòng họp</a></li>
+                        <li><a href="#noi-that-quan-ly">Nội thất quản lý</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 UrbanOak. Tất cả các quyền được bảo lưu. Thiết kế bởi UrbanOak Team.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Comparison -->
+    <div id="comparison-panel" class="comparison-panel">
+        <div class="comparison-header">
+            <h3>So sánh sản phẩm</h3>
+            <button id="clear-comparison">Xóa tất cả</button>
+        </div>
+        <div id="comparison-items" class="comparison-items">
+            <p>Chưa có sản phẩm nào để so sánh</p>
+        </div>
+        <button id="compare-btn" class="btn btn-primary" style="display:none;">So sánh ngay</button>
+    </div>
+    
+    <!-- Image Zoom Modal -->
+    <div id="imageZoomModal" class="image-zoom-modal">
+        <span class="close-zoom">&times;</span>
+        <div class="zoom-content">
+            <img id="zoomImage" src="" alt="">
+        </div>
+    </div>
+    
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <div class="floating-btn fb-btn" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="floating-btn zalo-btn" title="Zalo">
+        </div>
+        <div class="floating-btn call-btn" title="Gọi ngay">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="floating-btn scroll-top-btn" title="Lên đầu trang">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+
+    <script src="trangchu.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* --- CUBERTO ULTIMATE CURSOR --- */
+/* Ẩn chuột mặc định trên PC */
+@media (min-width: 992px) {
+    body, a, button, input, textarea, .btn { cursor: none !important; }
+}
+
+/* Container chính */
+#magic-cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+/* Vòng tròn chính (The Ball) */
+#ball {
+    position: fixed;
+    top: 0; left: 0;
+    width: 10px; height: 10px;
+    border: 1px solid #000; /* Viền đen mặc định */
+    background: #000; /* Nhân đen mặc định */
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    /* Transition cực quan trọng để tạo độ biến hình mượt */
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                background-color 0.3s, 
+                border-color 0.3s,
+                opacity 0.3s;
+    /* Hiệu ứng đảo màu ma thuật */
+    mix-blend-mode: exclusion; 
+    background-color: white; /* Exclusion cần màu trắng để đảo ngược */
+}
+
+/* TRẠNG THÁI 1: Hover vào Link/Text thường (Vòng tròn to ra, rỗng ruột) */
+#ball.hovered {
+    width: 50px; height: 50px;
+    background: transparent !important; /* Rỗng ruột */
+    border-color: white;
+    mix-blend-mode: exclusion;
+}
+
+/* TRẠNG THÁI 2: Magnetic (Dính vào nút) */
+#ball.magnetic {
+    background: white !important; /* Đặc ruột */
+    border-color: transparent;
+    mix-blend-mode: difference; /* Đảo màu mạnh hơn cho nút */
+    /* Kích thước sẽ được JS tính toán tự động theo nút */
+}

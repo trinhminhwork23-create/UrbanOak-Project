@@ -6,10 +6,23 @@
     <title>UrbanOak - Nội thất văn phòng cao cấp</title>
     <meta name="description" content="UrbanOak - Nội thất văn phòng cao cấp với chất liệu tự nhiên và thiết kế tinh tế" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="trangchu.css">
+    <link rel="stylesheet" href="cursor-fix.css">
 </head>
 <body>
+    <div id="magic-cursor">
+        <div id="ball"></div>
+    </div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="indicator-dot"></div>
+        <div class="indicator-dot"></div>
+        <div class="indicator-dot"></div>
+        <div class="indicator-dot"></div>
+        <div class="indicator-dot"></div>
+    </div>
     <!-- Loading Animation -->
     <div id="loading-screen">
         <div class="loading-spinner">
@@ -21,68 +34,234 @@
     <div id="scroll-progress"></div>
     
     <!-- Header -->
-    <header id="header">
+    <header id="header" class="header-transparent">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="trangchu.html">
-                        <img src="images/logochunobg.png" alt="UrbanOak Logo">
+                    <a href="index.html">
+                        <h1 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
                     </a>
                 </div>
-                <nav class="menu-nordic" id="menu">
+                
+                <nav class="menu-luxury" id="menu">
                     <ul>
                         <li><a href="#home">Trang chủ</a></li>
-                        <li><a href="#about">Về chúng tôi</a></li>
-                        <li class="has-dropdown">
-                            <a href="#products">Sản phẩm <i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="products.html">Bàn làm việc</a></li>
-                                <li><a href="#ghe-van-phong">Ghế văn phòng</a></li>
-                                <li><a href="#tu-ho-so">Tủ hồ sơ</a></li>
-                                <li><a href="#noi-that-phong-hop">Nội thất phòng họp</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#collections">Bộ sưu tập</a></li>
+                        <li><a href="#about">Câu chuyện</a></li>
+                        <li><a href="#products">Bộ sưu tập</a></li>
                         <li><a href="#projects">Dự án</a></li>
-                        <li><a href="#showroom">Showroom</a></li>
-                        <li><a href="#contact">Liên hệ</a></li>
+                        <li><a href="#contact" class="btn-nav-contact">Liên hệ</a></li>
                     </ul>
                 </nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
+                
+                <div class="header-actions">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Banner Slideshow -->
-    <section class="banner-slideshow">
-        <div class="slides-container" id="slidesContainer">
-            <div class="slide">
-                <img src="https://icadvietnam.vn/wp-content/uploads/2024/03/phong-lam-viec-giam-doc-hien-dai-1-1.jpg " alt="Nội thất văn phòng cao cấp">
+    <section class="hero-video-section" id="home">
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="images/videobanner.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay-dark"></div>
+        </div>
+        <div class="liquid-shapes">
+            <div class="liquid-blob blob-1"></div>
+            <div class="liquid-blob blob-2"></div>
+            <div class="liquid-blob blob-3"></div>
+        </div>
+        <div class="scroll-down">
+            <span>Khám phá thêm</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    <div class="marquee-strip">
+    <div class="marquee-content">
+        <span>URBANOAK LUXURY</span>
+        <span class="divider">•</span>
+        <span>ITALIAN LEATHER</span>
+        <span class="divider">•</span>
+        <span>SOLID WOOD CRAFTSMANSHIP</span>
+        <span class="divider">•</span>
+        <span>TIMELESS DESIGN</span>
+        <span class="divider">•</span>
+        <span>URBANOAK LUXURY</span>
+        <span class="divider">•</span>
+        <span>ITALIAN LEATHER</span>
+        <span class="divider">•</span>
+        <span>SOLID WOOD CRAFTSMANSHIP</span>
+        <span class="divider">•</span>
+    </div>
+</div>
+<section class="art-gallery-section" id="about">
+    <div class="watermark-text">URBANOAK</div>
+    <div class="container">
+        <div class="art-block block-left">
+            <div class="art-image reveal-image">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/36b898106979895.5f9c34d35bd02.jpg" alt="Craftsmanship">
             </div>
-            <div class="slide">
-                <img src="https://www.mrfurniture.ae/storage/blogs/original/1730783652-blogs.jpg" alt="Bàn làm việc cao cấp">
+            <div class="art-content glass-panel-floating fade-in-up">
+                <span class="art-subtitle">01. THE MATERIAL</span>
+                <h2>Gỗ Sồi & <br>Sự Tĩnh Lặng</h2>
+                <p>Chúng tôi không chọn gỗ, chúng tôi lắng nghe nó. Mỗi thớ gỗ sồi được tuyển chọn từ những cánh rừng già Bắc Âu, mang trong mình câu chuyện của thời gian và sự bền bỉ.</p>
+                <a href="#products" class="link-underline">Khám phá chất liệu</a>
             </div>
-            <div class="slide">
-                <img src="images/bannerlogo.png" alt="Ghế văn phòng cao cấp">
+        </div>
+
+        <div class="art-block block-right">
+            <div class="art-content glass-panel-floating fade-in-up" style="z-index: 2;">
+                <span class="art-subtitle">02. THE DESIGN</span>
+                <h2>Tối Giản Là<br>Đỉnh Cao</h2>
+                <p>Loại bỏ mọi chi tiết thừa thãi. UrbanOak theo đuổi triết lý "Less is More" - nơi công năng hòa quyện tuyệt đối cùng thẩm mỹ, tạo nên không gian làm việc khơi nguồn cảm hứng.</p>
+                <a href="#projects" class="link-underline">Xem dự án mẫu</a>
+            </div>
+            <div class="art-image reveal-image">
+                <img src="https://images.squarespace-cdn.com/content/v1/56c7553f86db4343d995ac6c/1595963560706-0QZ5QZ5QZ5QZ5QZ5QZ5Q/Office+Interior+Design+Singapore.jpg" alt="Minimalist Design">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="asym-collection" id="products">
+    <div class="container">
+        <div class="section-header-split">
+            <h2>Bộ Sưu Tập <br> <span class="text-outline">2024</span></h2>
+            <p>Phá vỡ quy chuẩn văn phòng truyền thống.</p>
+        </div>
+        
+        <div class="asym-grid">
+            <div class="asym-item item-large reveal-image">
+                <a href="#" class="img-hover-zoom">
+                    <img src="https://assets.wfcdn.com/im/08525879/resize-h600-w600%5Ecompr-r85/2781/278122031/Writing+Desk%2C+29.52%22+H+x+62.99%22+W+x+25.59%22+D.jpg" alt="Executive Desk">
+                    <div class="item-overlay">
+                        <h3>The Executive Desk</h3>
+                        <span>$1,200</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="asym-item item-small mt-50 reveal-image" style="transition-delay: 0.2s;">
+                <a href="#" class="img-hover-zoom">
+                    <img src="https://assets.wfcdn.com/im/74862914/resize-h600-w600%5Ecompr-r85/2508/250860082/Ludwik+Executive+Chair.jpg" alt="Lounge Chair">
+                    <div class="item-overlay">
+                        <h3>Lounge Chair</h3>
+                        <span>$850</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="asym-item item-medium mt-minus-30 reveal-image" style="transition-delay: 0.4s;">
+                <a href="#" class="img-hover-zoom">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/95976b144521211.628de97ee29f2.jpg" alt="Meeting Table">
+                    <div class="item-overlay">
+                        <h3>Meeting Hub</h3>
+                        <span>$2,400</span>
+                    </div>
+                </a>
             </div>
         </div>
         
-        <!-- Dots Navigation -->
-        <div class="slide-nav">
-            <div class="slide-dot active" data-index="0"></div>
-            <div class="slide-dot" data-index="1"></div>
-            <div class="slide-dot" data-index="2"></div>
+        <div class="center-btn-container">
+             <a href="products.html" class="btn-circle-text">
+                <span>VIEW ALL PRODUCTS • VIEW ALL PRODUCTS •</span>
+            </a>
+        </div>
+    </div>
+</section>
+<section class="partners-section">
+    <div class="container">
+        <p class="section-label-center">TRUSTED BY VISIONARIES</p>
+        <div class="partner-grid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Partner 1" class="partner-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Partner 2" class="partner-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Partner 3" class="partner-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Partner 4" class="partner-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Partner 5" class="partner-logo">
+        </div>
+    </div>
+</section>
+
+<section class="projects-dark-mode" id="projects">
+    <div class="container">
+        <div class="project-header">
+            <h2 class="reveal-text">Selected <br> <em>Masterpieces</em></h2>
+            <a href="#" class="btn-view-all">View All Projects</a>
+        </div>
+
+        <div class="project-row">
+            <div class="project-info">
+                <span class="p-year">2024</span>
+                <h3>The Sky Tower<br>Headquarters</h3>
+                <p>Thiết kế không gian điều hành cấp cao với 100% gỗ Óc chó (Walnut) nhập khẩu Bắc Mỹ. Sự giao thoa giữa quyền lực và nghệ thuật đương đại.</p>
+                <a href="#" class="p-link">Xem chi tiết</a>
+            </div>
+            <div class="project-visual reveal-image">
+                <img src="https://images.squarespace-cdn.com/content/v1/56c7553f86db4343d995ac6c/1595963560706-0QZ5QZ5QZ5QZ5QZ5QZ5Q/Office+Interior+Design+Singapore.jpg" alt="Sky Tower">
+            </div>
+        </div>
+
+        <div class="project-row reverse">
+            <div class="project-info">
+                <span class="p-year">2023</span>
+                <h3>VinFast<br>Global Office</h3>
+                <p>Không gian mở (Open Space) kết hợp các pod làm việc riêng tư. Sử dụng tông màu gỗ sồi sáng (White Oak) để kích thích sự sáng tạo.</p>
+                <a href="#" class="p-link">Xem chi tiết</a>
+            </div>
+            <div class="project-visual reveal-image">
+                <img src="https://thietkevanphong.pro/wp-content/uploads/2020/09/van-phong-giam-doc1.jpg" alt="VinFast Office">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter-minimal" id="contact">
+    <div class="container">
+        <div class="newsletter-wrapper">
+            <h2>Đừng bỏ lỡ<br>cảm hứng mới</h2>
+            <form class="minimal-form">
+                <input type="email" placeholder="Email của bạn..." required>
+                <button type="submit">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            <p class="n-note">Nhận các xu hướng thiết kế và ưu đãi độc quyền. Không spam.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Brand Story Section -->
+    <section class="brand-story-section" id="about">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text fade-in">
+                    <span class="story-label">OUR STORY</span>
+                    <h2 class="story-title">Câu Chuyện Về<br>Sự Hoàn Hảo</h2>
+                    <p class="story-desc">Từ năm 2014, UrbanOak đã không ngừng theo đuổi sứ mệnh mang đến những không gian làm việc đẳng cấp thượng lưu. Mỗi sản phẩm của chúng tôi là kết quả của sự tận tâm, đam mê và tay nghề thủ công tinh xảo.</p>
+                    <p class="story-desc">Chúng tôi tin rằng nội thất không chỉ là đồ vật, mà là nghệ thuật sống - nơi mà mỗi đường nét, mỗi chi tiết đều kể một câu chuyện về sự tinh tế và đẳng cấp.</p>
+                    <a href="#" class="btn-luxury-text">Đọc Câu Chuyện Đầy Đủ <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="story-image fade-in">
+                    <div class="glass-frame">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4c5389125429593.611950ca4f402.jpg" alt="UrbanOak Story">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section section-light" id="about">
+    <!-- Premium Values Section -->
+    <section class="section section-light">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>UrbanOak - Tinh Hoa Nội Thất Văn Phòng</h2>
-                <p>Với hơn 10 năm kinh nghiệm, UrbanOak tự hào mang đến những giải pháp nội thất văn phòng chất lượng cao, kết hợp giữa vẻ đẹp tự nhiên và sự tinh tế trong từng đường nét.</p>
+                <span class="section-label">PREMIUM VALUES</span>
+                <h2>Giá Trị Đẳng Cấp</h2>
+                <p>Những giá trị cốt lõi tạo nên sự khác biệt của UrbanOak</p>
             </div>
             <div class="category-grid">
                 <div class="category-card fade-in">
@@ -144,6 +323,78 @@
                         <p>Thiết kế trọn gói không gian văn phòng theo yêu cầu</p>
                         <a href="#">Khám phá <i class="fas fa-arrow-right"></i></a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Membership CTA -->
+    <section class="membership-section" id="membership">
+        <div class="membership-bg"></div>
+        <div class="container">
+            <div class="membership-header">
+                <span class="membership-label">EXCLUSIVE MEMBERSHIP</span>
+                <h2 class="membership-main-title">Trở Thành Thành Viên<br>Đặc Quyền UrbanOak</h2>
+                <p class="membership-subtitle">Tham gia cộng đồng những người sành điệu và tận hưởng đặc quyền độc quyền</p>
+            </div>
+            
+            <div class="membership-tiers">
+                <div class="tier-card tier-silver">
+                    <div class="tier-badge">SILVER</div>
+                    <div class="tier-icon"><i class="fas fa-star"></i></div>
+                    <h3 class="tier-name">Thành Viên Bạc</h3>
+                    <div class="tier-price">
+                        <span class="price-amount">Miễn Phí</span>
+                        <span class="price-period">/ Năm</span>
+                    </div>
+                    <ul class="tier-benefits">
+                        <li><i class="fas fa-check"></i> Giảm 5% mọi đơn hàng</li>
+                        <li><i class="fas fa-check"></i> Newsletter hàng tháng</li>
+                        <li><i class="fas fa-check"></i> Tích điểm thưởng</li>
+                        <li><i class="fas fa-check"></i> Hỗ trợ ưu tiên</li>
+                    </ul>
+                    <a href="#" class="tier-btn">Đăng Ký Ngay</a>
+                </div>
+
+                <div class="tier-card tier-gold featured">
+                    <div class="featured-badge">PHỔ BIẾN NHẤT</div>
+                    <div class="tier-badge">GOLD</div>
+                    <div class="tier-icon"><i class="fas fa-crown"></i></div>
+                    <h3 class="tier-name">Thành Viên Vàng</h3>
+                    <div class="tier-price">
+                        <span class="price-amount">5.000.000₫</span>
+                        <span class="price-period">/ Năm</span>
+                    </div>
+                    <ul class="tier-benefits">
+                        <li><i class="fas fa-check"></i> Giảm 15% mọi đơn hàng</li>
+                        <li><i class="fas fa-check"></i> Truy cập sớm bộ sưu tập mới</li>
+                        <li><i class="fas fa-check"></i> Tư vấn thiết kế miễn phí</li>
+                        <li><i class="fas fa-check"></i> Sự kiện VIP độc quyền</li>
+                        <li><i class="fas fa-check"></i> Giao hàng miễn phí</li>
+                        <li><i class="fas fa-check"></i> Bảo hành mở rộng 3 năm</li>
+                    </ul>
+                    <a href="#" class="tier-btn tier-btn-gold">Đăng Ký Ngay</a>
+                    <p class="tier-note">Giới hạn 100 thành viên/năm</p>
+                </div>
+
+                <div class="tier-card tier-platinum">
+                    <div class="tier-badge">PLATINUM</div>
+                    <div class="tier-icon"><i class="fas fa-gem"></i></div>
+                    <h3 class="tier-name">Thành Viên Bạch Kim</h3>
+                    <div class="tier-price">
+                        <span class="price-amount">15.000.000₫</span>
+                        <span class="price-period">/ Năm</span>
+                    </div>
+                    <ul class="tier-benefits">
+                        <li><i class="fas fa-check"></i> Giảm 25% mọi đơn hàng</li>
+                        <li><i class="fas fa-check"></i> Thiết kế riêng độc quyền</li>
+                        <li><i class="fas fa-check"></i> Tư vấn 1-1 với designer</li>
+                        <li><i class="fas fa-check"></i> Ưu tiên sản xuất</li>
+                        <li><i class="fas fa-check"></i> Bảo hành trọn đời</li>
+                        <li><i class="fas fa-check"></i> Concierge service 24/7</li>
+                    </ul>
+                    <a href="#" class="tier-btn">Liên Hệ Ngay</a>
+                    <p class="tier-note">Chỉ 20 suất/năm</p>
                 </div>
             </div>
         </div>
@@ -380,57 +631,41 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="images/logo.png" alt="UrbanOak Logo">
-                    </div>
-                    <p>UrbanOak - Thương hiệu nội thất văn phòng cao cấp với thiết kế tinh tế, chất liệu tự nhiên. Chúng tôi cam kết mang đến không gian làm việc đẳng cấp, truyền cảm hứng sáng tạo cho doanh nghiệp Việt.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3 class="footer-heading">Liên kết nhanh</h3>
-                    <ul>
-                        <li><a href="#home">Trang chủ</a></li>
-                        <li><a href="#about">Về chúng tôi</a></li>
-                        <li><a href="#products">Sản phẩm</a></li>
-                        <li><a href="#collections">Bộ sưu tập</a></li>
-                        <li><a href="#projects">Dự án</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3 class="footer-heading">Sản phẩm</h3>
-                    <ul>
-                        <li><a href="products.html">Bàn làm việc</a></li>
-                        <li><a href="#ghe-van-phong">Ghế văn phòng</a></li>
-                        <li><a href="#tu-ho-so">Tủ hồ sơ</a></li>
-                        <li><a href="#noi-that-phong-hop">Nội thất phòng họp</a></li>
-                        <li><a href="#noi-that-quan-ly">Nội thất quản lý</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3 class="footer-heading">Hỗ trợ</h3>
-                    <ul>
-                        <li><a href="#">Hướng dẫn mua hàng</a></li>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Câu hỏi thường gặp</a></li>
-                        <li><a href="#">Tuyển dụng</a></li>
-                        <li><a href="#contact">Liên hệ</a></li>
-                    </ul>
-                </div>
+<footer class="mega-footer">
+    <div class="footer-top">
+        <div class="footer-cta">
+            <h3>
+                Sẵn sàng nâng tầm<br>
+                <span>không gian của bạn?</span>
+            </h3>
+            <a href="#contact" class="btn-circle-large">Let's Talk</a>
+        </div>
+        <div class="footer-nav-groups">
+            <div class="nav-col">
+                <h4>Explore</h4>
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Bộ sưu tập</a>
+                <a href="#about">Câu chuyện</a>
+                <a href="#projects">Dự án</a>
+                <a href="#membership">Thành viên</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 UrbanOak. Tất cả các quyền được bảo lưu. Thiết kế bởi UrbanOak Team.</p>
+            <div class="nav-col">
+                <h4>Connect</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">LinkedIn</a>
+                <a href="#contact">Liên hệ</a>
             </div>
         </div>
-    </footer>
+    </div>
+    
+    <div class="footer-big-text">URBANOAK</div>
+    
+    <div class="footer-bottom-bar">
+        <span>© 2024 UrbanOak. All rights reserved.</span>
+        <span>Designed by Mtr & Gemini & Claude</span>
+    </div>
+</footer>
 
     <!-- Product Comparison -->
     <div id="comparison-panel" class="comparison-panel">
@@ -466,7 +701,7 @@
             <i class="fas fa-arrow-up"></i>
         </div>
     </div>
-
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="trangchu.js" defer></script>
 </body>
 </html>

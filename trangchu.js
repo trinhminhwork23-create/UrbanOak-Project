@@ -1,3 +1,9 @@
+// Hide loading immediately
+const loadingScreen = document.getElementById('loading-screen');
+if (loadingScreen) {
+    loadingScreen.style.display = 'none';
+}
+
 // Header scroll effect for transparent header
 window.addEventListener('scroll', function() {
     const header = document.getElementById('header');
@@ -307,7 +313,7 @@ window.addEventListener('scroll', function() {
 
 // 1. INIT SMOOTH SCROLL (LENIS)
 const lenis = new Lenis({
-    duration: 1.2,
+    duration: 0.8,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smooth: true
 });
@@ -327,13 +333,8 @@ requestAnimationFrame(raf);
 class MagicCursor {
     constructor() {
         if (window.innerWidth <= 992) return;
-
-        this.pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        this.speed = 0.15;
         
         this.ball = document.getElementById("ball");
-        this.body = document.querySelector("body");
         
         if (this.ball) {
             this.init();
@@ -342,21 +343,10 @@ class MagicCursor {
 
     init() {
         window.addEventListener("mousemove", (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
+            this.ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
         });
 
-        this.animate();
         this.initClickables();
-    }
-
-    animate() {
-        this.pos.x += (this.mouse.x - this.pos.x) * this.speed;
-        this.pos.y += (this.mouse.y - this.pos.y) * this.speed;
-
-        this.ball.style.transform = `translate3d(${this.pos.x}px, ${this.pos.y}px, 0) translate(-50%, -50%)`;
-
-        requestAnimationFrame(this.animate.bind(this));
     }
 
     initClickables() {
@@ -364,29 +354,15 @@ class MagicCursor {
         
         clickables.forEach(el => {
             el.addEventListener("mouseenter", () => {
-                this.body.classList.add("hide-custom-cursor");
-                el.style.transition = "transform 0.2s ease-out";
-                el.addEventListener("mousemove", this.handleButtonPull);
+                this.ball.classList.add('explore');
+                this.ball.innerHTML = '<span>Explore</span>';
             });
 
             el.addEventListener("mouseleave", () => {
-                this.body.classList.remove("hide-custom-cursor");
-                el.style.transform = "translate(0, 0)";
-                el.removeEventListener("mousemove", this.handleButtonPull);
+                this.ball.classList.remove('explore');
+                this.ball.innerHTML = '';
             });
         });
-    }
-
-    handleButtonPull(e) {
-        const el = e.currentTarget;
-        const rect = el.getBoundingClientRect();
-        const elCenterX = rect.left + rect.width / 2;
-        const elCenterY = rect.top + rect.height / 2;
-
-        const pullX = (e.clientX - elCenterX) * 0.2;
-        const pullY = (e.clientY - elCenterY) * 0.2;
-
-        el.style.transform = `translate(${pullX}px, ${pullY}px)`;
     }
 }
 

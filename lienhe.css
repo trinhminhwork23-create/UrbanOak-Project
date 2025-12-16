@@ -1,0 +1,120 @@
+/* --- Style riêng cho trang Liên Hệ --- */
+
+/* Page Header chung cho trang con */
+.page-header {
+    padding-top: 160px; /* Đẩy nội dung xuống khỏi Header cố định */
+    padding-bottom: 60px;
+    background: var(--gray-light);
+    text-align: center;
+}
+
+.page-header p {
+    max-width: 600px;
+    margin: 20px auto 0;
+    color: var(--text-light);
+}
+
+/* Layout chia đôi */
+.contact-split-section {
+    padding: 80px 0 120px;
+    background: var(--white);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.contact-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cột thông tin */
+.contact-info-box .info-group {
+    margin-bottom: 40px;
+}
+
+.contact-info-box .info-group h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-info-box .info-group h4::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.contact-info-box .info-group p {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Cột Form */
+.contact-form-box {
+    background: var(--white);
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--gray-medium);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Input Styles */
+.custom-input {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--text-dark);
+    transition: var(--transition);
+    outline: none;
+    border-radius: 0;
+}
+
+.custom-input:focus {
+    border-bottom-color: var(--accent);
+}
+
+.custom-input::placeholder {
+    color: #aaa;
+    font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .contact-form-box {
+        padding: 30px 20px;
+    }
+}

@@ -1,25 +1,38 @@
 // ===== CHINHSACH.JS - The UrbanOak Standard =====
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. Custom Cursor (from cursor-fix.css)
-    const ball = document.getElementById('ball');
-    if (ball) {
-        document.addEventListener('mousemove', (e) => {
-            ball.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+// Magic Cursor from common.js
+class MagicCursor {
+    constructor() {
+        if (window.innerWidth <= 992) return;
+        this.ball = document.getElementById("ball");
+        if (this.ball) this.init();
+    }
+    init() {
+        window.addEventListener("mousemove", (e) => {
+            this.ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
         });
-        
-        document.querySelectorAll('a, button, .btn, input, textarea, select').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                ball.classList.add('explore');
-                ball.innerHTML = '<span>Explore</span>';
+        this.initClickables();
+        document.addEventListener("mouseleave", () => { this.ball.style.opacity = "0"; });
+        document.addEventListener("mouseenter", () => { this.ball.style.opacity = "1"; });
+    }
+    initClickables() {
+        const clickables = document.querySelectorAll('a, button, .btn, .warranty-card, .service-card, .detail-item');
+        clickables.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                this.ball.classList.add('explore');
+                this.ball.innerHTML = '<span>Explore</span>';
             });
-            el.addEventListener('mouseleave', () => {
-                ball.classList.remove('explore');
-                ball.innerHTML = '';
+            el.addEventListener("mouseleave", () => {
+                this.ball.classList.remove('explore');
+                this.ball.innerHTML = '';
             });
         });
     }
+}
+
+window.addEventListener('load', () => { new MagicCursor(); });
+
+document.addEventListener('DOMContentLoaded', function() {
     
     // 2. Fade-in animations on scroll
     const observerOptions = {

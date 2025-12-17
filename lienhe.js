@@ -1,25 +1,40 @@
 // ===== LIENHE.JS - The Visionary's Desk =====
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. Custom Cursor (from cursor-fix.css)
-    const ball = document.getElementById('ball');
-    if (ball) {
-        document.addEventListener('mousemove', (e) => {
-            ball.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+// Magic Cursor from common.js
+class MagicCursor {
+    constructor() {
+        if (window.innerWidth <= 992) return;
+        this.ball = document.getElementById("ball");
+        if (this.ball) this.init();
+    }
+    init() {
+        window.addEventListener("mousemove", (e) => {
+            this.ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
         });
-        
-        document.querySelectorAll('a, button, .btn, input, textarea, select').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                ball.classList.add('explore');
-                ball.innerHTML = '<span>Explore</span>';
+        this.initClickables();
+        document.addEventListener("mouseleave", () => { this.ball.style.opacity = "0"; });
+        document.addEventListener("mouseenter", () => { this.ball.style.opacity = "1"; });
+    }
+    initClickables() {
+        const clickables = document.querySelectorAll('a, button, .btn, input, textarea, select, .tab-btn, .form-input');
+        clickables.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                this.ball.classList.add('explore');
+                if (!el.matches('input, textarea, select')) {
+                    this.ball.innerHTML = '<span>Explore</span>';
+                }
             });
-            el.addEventListener('mouseleave', () => {
-                ball.classList.remove('explore');
-                ball.innerHTML = '';
+            el.addEventListener("mouseleave", () => {
+                this.ball.classList.remove('explore');
+                this.ball.innerHTML = '';
             });
         });
     }
+}
+
+window.addEventListener('load', () => { new MagicCursor(); });
+
+document.addEventListener('DOMContentLoaded', function() {
     
     // 2. Fade-in animations
     const fades = document.querySelectorAll('.fade-in');
@@ -97,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 
-    // 5. Form Submission - Partner Form
+    // 6. Form Submission - Partner Form
     const partnerForm = document.getElementById('partner-form');
     if (partnerForm) {
         partnerForm.addEventListener('submit', handlePartnerSubmit);
@@ -138,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 
-    // 6. Private Tour Button
+    // 7. Private Tour Button
     const privateTourBtn = document.querySelector('.btn-private-tour');
     if (privateTourBtn) {
         privateTourBtn.addEventListener('click', () => {
@@ -146,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 7. Download Button
+    // 8. Download Button
     const downloadBtn = document.querySelector('.btn-download');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
@@ -154,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 8. Click-to-Action for contact info
+    // 9. Click-to-Action for contact info
     const phoneElement = document.querySelector('.highlight-phone');
     if (phoneElement) {
         phoneElement.style.cursor = 'pointer';
@@ -163,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 9. Scroll animations
+    // 10. Scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'

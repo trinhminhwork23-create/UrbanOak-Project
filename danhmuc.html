@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - UrbanOak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="danhmuc.css">
+</head>
+<body>
+    <header id="header" class="header-solid">
+        <div class="container header-content">
+            <a href="trangchu.html" class="brand-logo" style="font-family:'Playfair Display'; font-size:1.8rem; font-weight:600;">UrbanOak.</a>
+            <nav class="menu-luxury">
+                <ul>
+                    <li><a href="trangchu.html">Trang chủ</a></li>
+                    <li><a href="danhmuc.html" style="color:var(--primary-color);">Sản phẩm</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <ul class="filter-bar" id="category-filters">
+        <li class="active" data-category="all">All</li>
+        <li data-category="chair">Chairs</li>
+        <li data-category="desk">Desks</li>
+        <li data-category="shelf">Shelves</li>
+        <li data-category="lamp">Lamps</li>
+        <li data-category="accessory">Accessories</li>
+    </ul>
+
+    <main>
+        <section class="page-hero">
+            <h1 class="hero-title">The 2025 Collection</h1>
+        </section>
+
+        <div id="product-list" class="archive-grid"></div>
+    </main>
+
+    <footer class="mega-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-cta">
+                    <h3>Khám phá bộ sưu tập nội thất cao cấp</h3>
+                    <p style="color:#999;">Thiết kế tinh tế, chất lượng vượt trội</p>
+                </div>
+                <div class="footer-nav-groups">
+                    <div class="nav-col">
+                        <h4>Sản phẩm</h4>
+                        <a href="#">Ghế công thái học</a>
+                        <a href="#">Bàn làm việc</a>
+                        <a href="#">Tủ & Kệ</a>
+                        <a href="#">Phụ kiện</a>
+                    </div>
+                    <div class="nav-col">
+                        <h4>Hỗ trợ</h4>
+                        <a href="#">Liên hệ</a>
+                        <a href="#">Chính sách bảo hành</a>
+                        <a href="#">Hướng dẫn lắp đặt</a>
+                        <a href="#">Câu hỏi thường gặp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>&copy; 2025 UrbanOak. All rights reserved.</p>
+                <p>Crafted with passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="magic-cursor">
+        <div id="ball"><span></span></div>
+    </div>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="danhmuc.js"></script>
+</body>
+</html>

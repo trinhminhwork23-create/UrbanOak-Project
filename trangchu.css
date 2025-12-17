@@ -2054,18 +2054,6 @@ footer {
    ========================================= */
 
 /* --- HYBRID LUXURY CURSOR CSS --- */
-
-/* 1. Ẩn con trỏ mặc định chỉ trên nền BODY */
-@media (min-width: 992px) {
-    body { 
-        cursor: none; /* Chỉ ẩn ở body nền */
-    }
-    /* QUAN TRỌNG: Khôi phục con trỏ bàn tay khi hover vào đồ click được */
-    a, button, .btn, input, textarea, .partner-logo, .menu-luxury a { 
-        cursor: pointer !important; 
-    }
-}
-
 /* 2. Container chính của cursor custom */
 #magic-cursor {
     position: fixed;

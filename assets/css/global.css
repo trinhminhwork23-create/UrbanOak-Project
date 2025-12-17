@@ -1,0 +1,203 @@
+/* ---  RESET & BASIC SETUP --- */
+:root {
+    --primary-color: #8B7355;
+    --text-dark: #212529;
+    --white: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', sans-serif; /* Hoặc font ông dùng */
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+/* Global shared styles for layout, buttons, loader, cursor, modals */
+/* --- HEADER & MENU STYLE --- */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- TRẠNG THÁI 1: TRONG SUỐT (Chỉ dành cho Trang Chủ lúc chưa cuộn) --- */
+.header-transparent {
+    background: transparent;
+    box-shadow: none;
+}
+.header-transparent .brand-logo,
+.header-transparent .menu-luxury a,
+.header-transparent .header-actions i,
+.header-transparent .mobile-menu-btn {
+    color: #fff !important; /* Chữ màu TRẮNG */
+}
+/* Hiệu ứng gạch chân menu khi ở nền tối */
+.header-transparent .menu-luxury a::after { background: #fff; }
+
+
+/* --- TRẠNG THÁI 2: NỀN TRẮNG (Dành cho Trang con HOẶC Trang chủ khi cuộn) --- */
+.header-solid {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 10px 0 !important; /* Thu gọn lại xíu cho đẹp */
+}
+.header-solid .brand-logo,
+.header-solid .menu-luxury a,
+.header-solid .header-actions i,
+.header-solid .mobile-menu-btn {
+    color: #212529 !important; /* Chữ màu ĐEN */
+}
+/* Hiệu ứng gạch chân menu khi ở nền trắng */
+.header-solid .menu-luxury a::after { background: #8B7355; }
+
+
+/* --- MENU STYLE CHUNG --- */
+.menu-luxury ul { display: flex; gap: 40px; list-style: none; }
+.menu-luxury a {
+    text-transform: uppercase; font-size: 13px; letter-spacing: 2px;
+    font-weight: 500; text-decoration: none; position: relative; transition: 0.3s;
+}
+.menu-luxury a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 0; height: 1px; transition: 0.3s;
+}
+.menu-luxury a:hover::after { width: 100%; }
+.header-actions { display: flex; gap: 20px; font-size: 18px; cursor: pointer; }
+.mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .menu-luxury { display: none; }
+    .mobile-menu-btn { display: block; }
+}
+/* Container */
+.container{max-width:1200px;margin:0 auto;padding:0 18px;box-sizing:border-box}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:6px;border:0;background:#1a1a1a;color:#fff;text-decoration:none;cursor:pointer;transition:transform 0.28s cubic-bezier(.2,1,.3,1)}
+.btn-primary{background:#8B7355;color:#fff}
+.btn-circle-large{padding:18px 28px;border-radius:999px}
+
+.center-btn-container{text-align:center;margin-top:30px}
+
+/* Loading screen (shared) */
+#loading-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0b0b;z-index:100000;transition:opacity .3s;}
+#loading-screen.hidden{opacity:0;pointer-events:none;display:none}
+.loading-spinner .spinner{width:60px;height:60px;border-radius:50%;border:4px solid rgba(255,255,255,0.08);border-top-color:#fff;animation:spin 1s linear infinite}
+.loading-spinner p{color:#fff;margin-top:10px;font-weight:600}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Floating buttons */
+.floating-buttons{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:9999}
+.floating-btn{width:44px;height:44px;border-radius:8px;background:#fff;color:#1a1a1a;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.12);cursor:pointer}
+
+/* Image zoom modal */
+.image-zoom-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);z-index:100000}
+.image-zoom-modal .zoom-content img{max-width:90vw;max-height:90vh;object-fit:contain}
+.image-zoom-modal .close-zoom{position:absolute;right:24px;top:24px;color:#fff;font-size:28px;cursor:pointer}
+
+/* Glass frame */
+.glass-frame{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px;border-radius:8px}
+
+/* Reveal helpers */
+.reveal-image{overflow:hidden}
+.reveal-text{opacity:0;transform:translateY(8px);transition:all .5s}
+
+/* --- Custom cursor (shared) --- */
+@media (min-width:992px){
+	body{cursor:none}
+	a,button,.btn,input,textarea,.partner-logo,.menu-luxury a{cursor:pointer!important}
+}
+#magic-cursor{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999}
+#ball{position:fixed;top:0;left:0;width:20px;height:20px;background:transparent;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform .08s, width .18s, height .18s, background .18s;mix-blend-mode:normal;border:2px solid #8B7355;box-sizing:border-box}
+#ball.explore{width:80px;height:80px;background:rgba(139,115,85,0.08);border:1px solid #8B7355}
+#ball.explore span{color:#8B7355;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+
+/* small utility */
+.no-scroll{overflow:hidden}
+/* ---  MEGA FOOTER --- */
+.mega-footer { background: #0a0a0a; color: #fff; padding: 80px 0 0; position: relative; }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding-bottom: 50px; }
+.footer-cta h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; }
+.footer-nav-groups { display: flex; gap: 80px; }
+.nav-col h4 { color: #666; margin-bottom: 20px; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
+.nav-col a { display: block; margin-bottom: 12px; color: #ccc; font-size: 14px; }
+.nav-col a:hover { color: var(--primary-color); padding-left: 5px; }
+.footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; color: #666; font-size: 13px; display: flex; justify-content: space-between; }
+/* ======================================================
+   MAGIC CURSOR (EXPLORE MODE) - CLEAN VERSION
+   ====================================================== */
+
+/* 1. Ẩn con trỏ thật ở MỌI NƠI trên PC */
+@media (min-width: 992px) {
+    *, body, a, button, .btn, input, textarea, i {
+        cursor: none !important;
+    }
+}
+
+/* 2. Khung bao ngoài (để cố định vị trí) */
+#magic-cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none; /* Để bấm xuyên qua được */
+    z-index: 999999;
+}
+
+/* 3. Con trỏ ảo (Vòng tròn) */
+#ball {
+    position: fixed; /* Dùng fixed để không bị trôi khi cuộn */
+    top: 0; left: 0;
+    width: 20px; height: 20px;
+    border: 2px solid #8B7355; /* Màu viền */
+    border-radius: 50%;
+    
+    /* Căn giữa tâm vào mũi chuột */
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* QUAN TRỌNG: Không để transition cho transform để chuột chạy tức thì */
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+/* 4. Trạng thái HOVER (Explore) */
+#ball.explore {
+    width: 80px; height: 80px;
+    background: rgba(139, 115, 85, 0.1); /* Nền mờ */
+    border: 1px solid #8B7355;
+}
+
+/* Chữ Explore bên trong */
+#ball.explore span {
+    color: #8B7355;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ẩn trên Mobile */
+@media (max-width: 992px) {
+    #magic-cursor { display: none; }
+}

@@ -399,3 +399,4 @@ indicatorDots.forEach((dot, index) => {
         }
     });
 });
+// End of trangchu.js

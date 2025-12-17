@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chính sách - UrbanOak</title>
+    <title>Chính sách & Điều khoản - UrbanOak</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="trangchu.css">
+    <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="chinhsach.css">
     <link rel="stylesheet" href="cursor-fix.css">
 </head>
@@ -17,242 +17,333 @@
         <div id="ball"></div>
     </div>
 
-    <!-- Loading Animation -->
-    <div id="loading-screen">
-        <div class="loading-spinner">
-            <div class="spinner"></div>
-            <p>UrbanOak</p>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header id="header" class="header-transparent">
+    <!-- Hero Section -->
+    <section class="policy-hero">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="trangchu.html">
-                        <h1 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
-                    </a>
-                </div>
-                
-                <nav class="menu-luxury" id="menu">
-                    <ul>
-                        <li><a href="trangchu.html#home">Trang chủ</a></li>
-                        <li><a href="trangchu.html#about">Câu chuyện</a></li>
-                        <li><a href="trangchu.html#products">Bộ sưu tập</a></li>
-                        <li><a href="trangchu.html#projects">Dự án</a></li>
-                        <li><a href="lienhe.html" class="btn-nav-contact">Liên hệ</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="header-actions">
-                    <a href="#"><i class="fas fa-search"></i></a>
-                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section class="page-header">
-        <div class="container">
-            <div class="section-title fade-in">
-                <span class="art-subtitle" style="color: var(--accent);">POLICIES & TERMS</span>
-                <h2>Chính Sách <br>& Điều Khoản</h2>
-                <p>Cam kết minh bạch và bảo vệ quyền lợi khách hàng trong mọi giao dịch.</p>
+            <div class="hero-content fade-in">
+                <span class="hero-label">THE URBANOAK STANDARD</span>
+                <h1 class="hero-title">Cam Kết Chất Lượng<br>& Dịch Vụ</h1>
+                <p class="hero-subtitle">Sự minh bạch là thước đo của đẳng cấp. Dưới đây là cách chúng tôi bảo vệ khoản đầu tư của bạn.</p>
             </div>
         </div>
     </section>
 
+    <!-- Main Content -->
     <section class="policy-content">
         <div class="container">
-            <div class="policy-wrapper fade-in">
+            
+            <!-- Section 01: Chính sách bảo hành -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Chính Sách Bảo Hành</h2>
+                        <p class="section-subtitle">Cam kết bảo vệ khoản đầu tư của bạn với chính sách bảo hành toàn diện</p>
+                    </div>
+                </div>
                 
-                <div class="policy-sidebar">
-                    <div class="policy-nav">
-                        <h4>Danh mục chính sách</h4>
+                <div class="warranty-grid">
+                    <div class="warranty-card">
+                        <div class="warranty-years">10</div>
+                        <h3>Gỗ Tự Nhiên</h3>
+                        <p class="warranty-desc">Bảo hành kết cấu khung gỗ sồi/óc chó nguyên khối</p>
+                    </div>
+                    
+                    <div class="warranty-card">
+                        <div class="warranty-years">2</div>
+                        <h3>Da & Vải Bọc</h3>
+                        <p class="warranty-desc">Bảo hành bề mặt da bò Ý, vải cao cấp nhập khẩu</p>
+                    </div>
+                    
+                    <div class="warranty-card">
+                        <div class="warranty-years">1</div>
+                        <h3>Phụ Kiện</h3>
+                        <p class="warranty-desc">Bảo hành 1 đổi 1 piston, ray trượt, bản lề</p>
+                    </div>
+                </div>
+
+                <div class="policy-details">
+                    <div class="detail-item">
+                        <h4><i class="fas fa-check-circle"></i> Điều kiện được bảo hành</h4>
                         <ul>
-                            <li><a href="#baohanh" class="policy-link active">Chính sách bảo hành</a></li>
-                            <li><a href="#doitra" class="policy-link">Chính sách đổi trả</a></li>
-                            <li><a href="#vanchuyen" class="policy-link">Chính sách vận chuyển</a></li>
-                            <li><a href="#thanhtoan" class="policy-link">Chính sách thanh toán</a></li>
-                            <li><a href="#baomat" class="policy-link">Chính sách bảo mật</a></li>
+                            <li>Sản phẩm còn nguyên tem bảo hành và hóa đơn mua hàng hợp lệ</li>
+                            <li>Lỗi kỹ thuật do nhà sản xuất, không phải do tác động bên ngoài</li>
+                            <li>Sử dụng đúng mục đích và tuân thủ hướng dẫn bảo quản</li>
+                            <li>Thông báo lỗi trong vòng 48 giờ kể từ khi phát hiện</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4><i class="fas fa-times-circle"></i> Không áp dụng bảo hành khi</h4>
+                        <ul>
+                            <li>Hư hỏng do thiên tai, hỏa hoạn, ngập nước, động đất</li>
+                            <li>Sử dụng sai công năng hoặc vượt quá tải trọng quy định</li>
+                            <li>Đã tự ý sửa chữa hoặc sửa chữa bởi đơn vị thứ ba không được ủy quyền</li>
+                            <li>Hao mòn tự nhiên theo thời gian (trầy xước nhẹ, bạc màu)</li>
                         </ul>
                     </div>
                 </div>
+            </div>
 
-                <div class="policy-main">
-                    
-                    <div id="baohanh" class="policy-section active">
-                        <h3>Chính Sách Bảo Hành</h3>
-                        <div class="policy-item">
-                            <h5>1. Thời gian bảo hành</h5>
-                            <p>• Sản phẩm gỗ tự nhiên: <strong>5 năm</strong></p>
-                            <p>• Phụ kiện kim loại: <strong>3 năm</strong></p>
-                            <p>• Đệm ghế, vải bọc: <strong>2 năm</strong></p>
+            <!-- Section 02: Quy trình bảo hành -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Quy Trình Bảo Hành</h2>
+                        <p class="section-subtitle">4 bước đơn giản để được hỗ trợ bảo hành nhanh chóng</p>
+                    </div>
+                </div>
+                
+                <div class="warranty-process">
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <span class="step-num">1</span>
+                            <h5>Liên hệ</h5>
+                            <p>Gọi hotline hoặc email thông báo lỗi kèm hình ảnh</p>
                         </div>
-                        
-                        <div class="policy-item">
-                            <h5>2. Điều kiện bảo hành</h5>
-                            <p>• Sản phẩm còn nguyên tem bảo hành</p>
-                            <p>• Lỗi do nhà sản xuất, không do tác động bên ngoài</p>
-                            <p>• Sử dụng đúng mục đích và hướng dẫn</p>
+                        <div class="process-step">
+                            <span class="step-num">2</span>
+                            <h5>Khảo sát</h5>
+                            <p>Kỹ thuật viên đến khảo sát trong 24-48h</p>
                         </div>
-                        
-                        <div class="policy-item">
-                            <h5>3. Quy trình bảo hành</h5>
-                            <p>• Liên hệ hotline: <span class="highlight">024 1234 5678</span></p>
-                            <p>• Cung cấp thông tin sản phẩm và hóa đơn</p>
-                            <p>• Kỹ thuật viên kiểm tra và xử lý trong 24h</p>
+                        <div class="process-step">
+                            <span class="step-num">3</span>
+                            <h5>Xác nhận</h5>
+                            <p>Xác nhận bảo hành và lên phương án xử lý</p>
+                        </div>
+                        <div class="process-step">
+                            <span class="step-num">4</span>
+                            <h5>Hoàn tất</h5>
+                            <p>Sửa chữa/thay thế trong 3-7 ngày làm việc</p>
                         </div>
                     </div>
-
-                    <div id="doitra" class="policy-section">
-                        <h3>Chính Sách Đổi Trả</h3>
-                        <div class="policy-item">
-                            <h5>1. Thời gian đổi trả</h5>
-                            <p>• Đổi trả trong vòng <strong>30 ngày</strong> kể từ ngày nhận hàng</p>
-                            <p>• Sản phẩm đặt làm riêng: không áp dụng đổi trả</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>2. Điều kiện đổi trả</h5>
-                            <p>• Sản phẩm còn nguyên vẹn, chưa sử dụng</p>
-                            <p>• Còn đầy đủ bao bì, phụ kiện đi kèm</p>
-                            <p>• Có hóa đơn mua hàng hợp lệ</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>3. Chi phí đổi trả</h5>
-                            <p>• Lỗi từ UrbanOak: <strong>miễn phí</strong> vận chuyển</p>
-                            <p>• Đổi ý khách hàng: khách hàng chịu phí vận chuyển</p>
-                        </div>
-                    </div>
-
-                    <div id="vanchuyen" class="policy-section">
-                        <h3>Chính Sách Vận Chuyển</h3>
-                        <div class="policy-item">
-                            <h5>1. Khu vực giao hàng</h5>
-                            <p>• Nội thành Hà Nội, TP.HCM: <strong>miễn phí</strong></p>
-                            <p>• Các tỉnh thành khác: phí theo khoảng cách</p>
-                            <p>• Đơn hàng từ 50 triệu: miễn phí toàn quốc</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>2. Thời gian giao hàng</h5>
-                            <p>• Sản phẩm có sẵn: 3-5 ngày làm việc</p>
-                            <p>• Sản phẩm đặt làm: 15-30 ngày</p>
-                            <p>• Dự án lớn: thỏa thuận riêng</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>3. Dịch vụ lắp đặt</h5>
-                            <p>• Miễn phí lắp đặt tại nhà khách hàng</p>
-                            <p>• Đội ngũ kỹ thuật chuyên nghiệp</p>
-                            <p>• Hướng dẫn sử dụng và bảo quản</p>
-                        </div>
-                    </div>
-
-                    <div id="thanhtoan" class="policy-section">
-                        <h3>Chính Sách Thanh Toán</h3>
-                        <div class="policy-item">
-                            <h5>1. Hình thức thanh toán</h5>
-                            <p>• Tiền mặt khi nhận hàng (COD)</p>
-                            <p>• Chuyển khoản ngân hàng</p>
-                            <p>• Thẻ tín dụng/ghi nợ</p>
-                            <p>• Trả góp 0% lãi suất (đơn từ 20 triệu)</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>2. Quy trình thanh toán</h5>
-                            <p>• Đặt cọc 30% khi xác nhận đơn hàng</p>
-                            <p>• Thanh toán 70% còn lại khi giao hàng</p>
-                            <p>• Dự án lớn: thanh toán theo tiến độ</p>
-                        </div>
-                    </div>
-
-                    <div id="baomat" class="policy-section">
-                        <h3>Chính Sách Bảo Mật</h3>
-                        <div class="policy-item">
-                            <h5>1. Thu thập thông tin</h5>
-                            <p>• Chỉ thu thập thông tin cần thiết cho giao dịch</p>
-                            <p>• Có sự đồng ý của khách hàng</p>
-                            <p>• Bảo mật tuyệt đối thông tin cá nhân</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>2. Sử dụng thông tin</h5>
-                            <p>• Xử lý đơn hàng và giao hàng</p>
-                            <p>• Hỗ trợ khách hàng</p>
-                            <p>• Gửi thông tin khuyến mãi (nếu đồng ý)</p>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <h5>3. Bảo vệ thông tin</h5>
-                            <p>• Mã hóa SSL cho mọi giao dịch</p>
-                            <p>• Không chia sẻ với bên thứ ba</p>
-                            <p>• Tuân thủ luật bảo vệ dữ liệu cá nhân</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+
+            <!-- Section 03: Vận chuyển & Lắp đặt -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Vận Chuyển & Lắp Đặt</h2>
+                        <p class="section-subtitle">Dịch vụ giao hàng chuyên nghiệp, lắp đặt tận nơi miễn phí</p>
+                    </div>
+                </div>
+                
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-truck"></i></div>
+                        <h4>Phí vận chuyển</h4>
+                        <p><strong>Nội thành HN, HCM:</strong> Miễn phí đơn từ 20 triệu</p>
+                        <p><strong>Tỉnh thành khác:</strong> Hỗ trợ 30-50% chi phí</p>
+                        <p><strong>Đơn trên 100 triệu:</strong> Miễn phí toàn quốc</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Thời gian giao hàng</h4>
+                        <p><strong>Sản phẩm có sẵn:</strong> 3-5 ngày làm việc</p>
+                        <p><strong>Sản phẩm đặt đóng:</strong> 15-25 ngày</p>
+                        <p><strong>Dự án lớn:</strong> Theo tiến độ thỏa thuận</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h4>Lắp đặt miễn phí</h4>
+                        <p>Kỹ thuật viên chuyên nghiệp</p>
+                        <p>Vệ sinh sạch sẽ sau thi công</p>
+                        <p>Hướng dẫn sử dụng chi tiết</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 04: Chính sách đổi trả -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Chính Sách Đổi Trả</h2>
+                        <p class="section-subtitle">Linh hoạt và minh bạch trong mọi tình huống</p>
+                    </div>
+                </div>
+                
+                <div class="policy-details">
+                    <div class="detail-item">
+                        <h4><i class="fas fa-sync-alt"></i> Đổi trả ngay lập tức</h4>
+                        <p>Khách hàng có quyền từ chối nhận hàng tại cửa nếu:</p>
+                        <ul>
+                            <li>Sản phẩm giao không đúng chủng loại, mã sản phẩm</li>
+                            <li>Sai kích thước, màu sắc, chất liệu so với hợp đồng</li>
+                            <li>Có hư hỏng, vỡ vụn, trầy xước rõ ràng do vận chuyển</li>
+                            <li>Thiếu phụ kiện, linh kiện theo bộ sản phẩm</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4><i class="fas fa-calendar-alt"></i> Đổi trả trong 7 ngày</h4>
+                        <p>Sau khi nhận hàng, khách hàng có thể đổi trả nếu:</p>
+                        <ul>
+                            <li>Phát hiện lỗi kỹ thuật ẩn (rạn nứt, lỏng keo)</li>
+                            <li>Sản phẩm không phù hợp với không gian thực tế</li>
+                            <li>Chất lượng không đáp ứng cam kết</li>
+                        </ul>
+                        <p><strong>Điều kiện:</strong> Sản phẩm chưa qua sử dụng, còn nguyên bao bì</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 05: Quy định thanh toán -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Quy Định Thanh Toán</h2>
+                        <p class="section-subtitle">Linh hoạt, minh bạch và an toàn cho mọi giao dịch</p>
+                    </div>
+                </div>
+                
+                <div class="payment-flow">
+                    <div class="payment-step">
+                        <div class="step-number">40%</div>
+                        <h4>Đặt cọc</h4>
+                        <p>Thanh toán sau khi ký hợp đồng hoặc xác nhận đơn hàng</p>
+                        <span class="payment-note">Bắt đầu sản xuất/chuẩn bị hàng</span>
+                    </div>
+                    <div class="payment-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="payment-step">
+                        <div class="step-number">60%</div>
+                        <h4>Thanh toán còn lại</h4>
+                        <p>Sau khi nghiệm thu và bàn giao sản phẩm</p>
+                        <span class="payment-note">Trước khi vận chuyển hoặc lắp đặt</span>
+                    </div>
+                </div>
+                
+                <div class="payment-methods">
+                    <h4>Hình thức thanh toán</h4>
+                    <div class="method-list">
+                        <span><i class="fas fa-money-bill-wave"></i> Tiền mặt</span>
+                        <span><i class="fas fa-university"></i> Chuyển khoản ngân hàng</span>
+                        <span><i class="fas fa-credit-card"></i> Thẻ tín dụng/Ghi nợ</span>
+                        <span><i class="fas fa-file-invoice"></i> Hóa đơn VAT (10%)</span>
+                    </div>
+                </div>
+                
+                <div class="policy-details">
+                    <div class="detail-item">
+                        <h4><i class="fas fa-percentage"></i> Chính sách thanh toán đặc biệt</h4>
+                        <ul>
+                            <li><strong>Đơn hàng dưới 30 triệu:</strong> Thanh toán 100% trước khi giao hàng</li>
+                            <li><strong>Đơn hàng từ 30-100 triệu:</strong> Cọc 40%, còn lại 60% khi giao hàng</li>
+                            <li><strong>Đơn hàng trên 100 triệu:</strong> Cọc 30%, thanh toán 40% khi hoàn thiện 70%, còn lại 30% sau lắp đặt</li>
+                            <li><strong>Dự án doanh nghiệp:</strong> Linh hoạt theo thỏa thuận hợp đồng</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4><i class="fas fa-handshake"></i> Cam kết với khách hàng</h4>
+                        <ul>
+                            <li>Hoàn cọc 100% nếu UrbanOak hủy đơn hoặc không thể giao hàng đúng tiến độ</li>
+                            <li>Miễn phí xuất hóa đơn VAT cho mọi đơn hàng</li>
+                            <li>Hỗ trợ trả góp 0% lãi suất qua thẻ tín dụng (từ 3-12 tháng)</li>
+                            <li>Giữ giá trong 30 ngày kể từ khi báo giá</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 06: Chính sách bảo mật -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Bảo Mật & Riêng Tư</h2>
+                        <p class="section-subtitle">Bảo vệ thông tin và quyền riêng tư của khách hàng</p>
+                    </div>
+                </div>
+                
+                <div class="privacy-box">
+                    <div class="privacy-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Dữ liệu cá nhân</h4>
+                            <p>UrbanOak cam kết chỉ sử dụng thông tin (Tên, SĐT, Địa chỉ) cho mục đích giao hàng và bảo hành. Chúng tôi nói <strong>"KHÔNG"</strong> với việc bán dữ liệu khách hàng.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h4>Bảo mật dự án</h4>
+                            <p>Đối với khách hàng Doanh nghiệp, mọi bản vẽ thiết kế và sơ đồ văn phòng được coi là tài liệu mật. Chúng tôi cam kết không chia sẻ hoặc đăng tải lên mạng xã hội nếu chưa có văn bản đồng ý từ Quý khách.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <i class="fas fa-user-shield"></i>
+                        <div>
+                            <h4>Quyền được quên</h4>
+                            <p>Khách hàng có quyền yêu cầu chúng tôi xóa toàn bộ thông tin cá nhân khỏi hệ thống bất cứ lúc nào sau khi kết thúc thời hạn bảo hành.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 07: Điều khoản sử dụng -->
+            <div class="policy-section fade-in">
+                <div class="section-header">
+                    <span class="section-number">07</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Điều Khoản Sử Dụng</h2>
+                        <p class="section-subtitle">Quy định chung khi sử dụng dịch vụ của UrbanOak</p>
+                    </div>
+                </div>
+                
+                <div class="policy-details">
+                    <div class="detail-item">
+                        <h4><i class="fas fa-file-contract"></i> Chấp nhận điều khoản</h4>
+                        <p>Bằng việc sử dụng dịch vụ, mua sản phẩm hoặc ký hợp đồng với UrbanOak, khách hàng đồng ý tuân thủ toàn bộ các điều khoản và chính sách đã nêu. Nếu không đồng ý, vui lòng không tiếp tục sử dụng dịch vụ.</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4><i class="fas fa-gavel"></i> Giải quyết tranh chấp</h4>
+                        <p>Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng và hòa giải. Nếu không đạt được thỏa thuận, tranh chấp sẽ được giải quyết tại Tòa án có thẩm quyền tại Hà Nội, Việt Nam.</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4><i class="fas fa-sync"></i> Thay đổi điều khoản</h4>
+                        <p>UrbanOak có quyền thay đổi, bổ sung các điều khoản và chính sách bất kỳ lúc nào. Phiên bản mới nhất sẽ được cập nhật trên website và có hiệu lực ngay khi đăng tải.</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4><i class="fas fa-balance-scale"></i> Luật áp dụng</h4>
+                        <p>Các điều khoản này được điều chỉnh bởi pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. Mọi giao dịch đều tuân thủ theo quy định pháp luật hiện hành.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section fade-in">
+                <h3>Cần hỗ trợ thêm?</h3>
+                <p>Liên hệ bộ phận Chăm sóc khách hàng để được giải đáp chi tiết</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>024 1234 5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@urbanoak.vn</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>T2-T7: 08:00 - 18:00</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="mega-footer">
-        <div class="footer-top">
-            <div class="footer-cta">
-                <h3>
-                    Sẵn sàng nâng tầm<br>
-                    <span>không gian của bạn?</span>
-                </h3>
-                <a href="lienhe.html" class="btn-circle-large">Let's Talk</a>
-            </div>
-            <div class="footer-nav-groups">
-                <div class="nav-col">
-                    <h4>Explore</h4>
-                    <a href="trangchu.html#home">Trang chủ</a>
-                    <a href="trangchu.html#products">Bộ sưu tập</a>
-                    <a href="trangchu.html#about">Câu chuyện</a>
-                    <a href="trangchu.html#projects">Dự án</a>
-                    <a href="trangchu.html#membership">Thành viên</a>
-                </div>
-                <div class="nav-col">
-                    <h4>Connect</h4>
-                    <a href="#">Instagram</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="lienhe.html">Liên hệ</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-big-text">URBANOAK</div>
-        
-        <div class="footer-bottom-bar">
-            <span>© 2024 UrbanOak. All rights reserved.</span>
-            <span>Designed by Mtr & Gemini & Claude</span>
-        </div>
-    </footer>
-
-    <!-- Floating Buttons -->
-    <div class="floating-buttons">
-        <div class="floating-btn fb-btn" title="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </div>
-        <div class="floating-btn zalo-btn" title="Zalo">
-        </div>
-        <div class="floating-btn call-btn" title="Gọi ngay">
-            <i class="fas fa-phone"></i>
-        </div>
-        <div class="floating-btn scroll-top-btn" title="Lên đầu trang">
-            <i class="fas fa-arrow-up"></i>
-        </div>
-    </div>
 
     <script src="chinhsach.js"></script>
 </body>

@@ -1,0 +1,194 @@
+/* login.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../images/anhlogin.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+}
+
+/* Nút quay về trang chủ */
+.back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #5c3a1d;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    background: rgba(255,255,255,0.3);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.back-home:hover { opacity: 1; background: rgba(255,255,255,0.6); }
+
+/* Khung chứa form */
+.form-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(92, 58, 29, 0.15);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    position: relative;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Brand / Logo */
+.brand { text-align: center; margin-bottom: 30px; }
+.brand-logo { font-size: 40px; color: #5c3a1d; margin-bottom: 10px; }
+.brand h1 {
+    color: #5c3a1d;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif; /* Font tiêu đề Luxury */
+    letter-spacing: 1px;
+}
+.brand p { color: #666; font-size: 14px; margin-top: 5px; }
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e8c89a;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    color: #5c3a1d;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.tab.active {
+    background: #5c3a1d;
+    color: #fff;
+}
+
+/* Forms */
+.form { display: none; }
+.form.active { display: block; animation: slideIn 0.3s ease; }
+
+@keyframes slideIn { from { opacity: 0; } to { opacity: 1; } }
+
+.form-header { text-align: center; margin-bottom: 25px; }
+.form-header h2 {
+    color: #5c3a1d;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #563826;
+    font-size: 14px;
+    font-weight: 500;
+}
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e8c89a;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+.input-group input:focus { border-color: #5c3a1d; }
+
+.forgot-password { text-align: right; margin-bottom: 20px; }
+.forgot-password a {
+    color: #5c3a1d;
+    font-size: 14px;
+    text-decoration: none;
+    opacity: 0.8;
+}
+.forgot-password a:hover { opacity: 1; text-decoration: underline; }
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: #5c3a1d;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background: #4a2e16;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(92, 58, 29, 0.2);
+}
+
+.form-footer { margin-top: 20px; text-align: center; font-size: 14px; color: #666; }
+.form-footer a { color: #5c3a1d; text-decoration: none; font-weight: 600; }
+.form-footer a:hover { text-decoration: underline; }
+
+/* Password Requirements Box */
+.requirements {
+    margin-top: 15px;
+    padding: 15px;
+    background: #fff8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #666;
+    border: 1px solid #f2e6d9;
+}
+.requirements h3 {
+    color: #5c3a1d;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.requirements ul { list-style: none; }
+.requirements li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.requirements li i { font-size: 12px; color: #ccc; }
+
+/* Khi đạt yêu cầu mật khẩu */
+.requirements li.valid { color: #27ae60; font-weight: 500; }
+.requirements li.valid i { color: #27ae60; }
+
+/* Messages */
+.message { margin: 15px 0; padding: 10px; border-radius: 6px; font-size: 14px; display: none; text-align: center; }
+.message.error { background: #ffe3e3; color: #e53e3e; border: 1px solid #ffa4a4; display: block; }
+.message.success { background: #e6ffed; color: #2f855a; border: 1px solid #b7e4c7; display: block; }
+
+@media (max-width: 480px) {
+    .form-container { padding: 30px 20px; }
+}

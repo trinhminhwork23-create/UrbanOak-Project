@@ -1,124 +1,64 @@
-// ===== CHINHSACH.JS - Policy Page JavaScript =====
+// ===== CHINHSACH.JS - The UrbanOak Standard =====
+
+// Magic Cursor from common.js
+class MagicCursor {
+    constructor() {
+        if (window.innerWidth <= 992) return;
+        this.ball = document.getElementById("ball");
+        if (this.ball) this.init();
+    }
+    init() {
+        window.addEventListener("mousemove", (e) => {
+            this.ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+        });
+        this.initClickables();
+        document.addEventListener("mouseleave", () => { this.ball.style.opacity = "0"; });
+        document.addEventListener("mouseenter", () => { this.ball.style.opacity = "1"; });
+    }
+    initClickables() {
+        const clickables = document.querySelectorAll('a, button, .btn, .warranty-card, .service-card, .detail-item');
+        clickables.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                this.ball.classList.add('explore');
+                this.ball.innerHTML = '<span>Explore</span>';
+            });
+            el.addEventListener("mouseleave", () => {
+                this.ball.classList.remove('explore');
+                this.ball.innerHTML = '';
+            });
+        });
+    }
+}
+
+window.addEventListener('load', () => { new MagicCursor(); });
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Loading Screen
-    const loader = document.getElementById('loading-screen');
-    const fades = document.querySelectorAll('.fade-in');
-    
-    setTimeout(() => {
-        if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-                fades.forEach(el => el.classList.add('visible'));
-            }, 300);
-        }
-    }, 300);
+    // 2. Fade-in animations on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-    // 2. Custom Cursor
-    const ball = document.getElementById('ball');
-    if (ball && window.innerWidth > 992) {
-        document.addEventListener('mousemove', (e) => {
-            ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-        });
-        
-        document.querySelectorAll('a, button, .btn').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                ball.classList.add('explore');
-                ball.innerHTML = '<span>Explore</span>';
-            });
-            el.addEventListener('mouseleave', () => {
-                ball.classList.remove('explore');
-                ball.innerHTML = '';
-            });
-        });
-    }
-
-    // 3. Mobile Menu
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('menu');
-    if (mobileBtn && menu) {
-        mobileBtn.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            mobileBtn.innerHTML = menu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-    }
-
-    // 4. Policy Navigation
-    const policyLinks = document.querySelectorAll('.policy-link');
-    const policySections = document.querySelectorAll('.policy-section');
-    
-    policyLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Remove active class from all links and sections
-            policyLinks.forEach(l => l.classList.remove('active'));
-            policySections.forEach(s => s.classList.remove('active'));
-            
-            // Add active class to clicked link
-            link.classList.add('active');
-            
-            // Show corresponding section
-            const targetId = link.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            
-            // Smooth scroll to section (for mobile)
-            if (window.innerWidth <= 992) {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
     });
 
-    // 5. Header Scroll Effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // 6. Floating Buttons
-    const scrollTopBtn = document.querySelector('.scroll-top-btn');
-    const callBtn = document.querySelector('.call-btn');
-    const fbBtn = document.querySelector('.fb-btn');
-    
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-    
-    if (callBtn) {
-        callBtn.addEventListener('click', () => {
-            window.location.href = 'tel:02412345678';
-        });
-    }
-    
-    if (fbBtn) {
-        fbBtn.addEventListener('click', () => {
-            window.open('https://facebook.com/urbanoak', '_blank');
-        });
-    }
-
-    // 7. Smooth Scroll for Anchor Links
+    // 3. Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -126,25 +66,99 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 8. Auto-highlight Navigation on Scroll
-    window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY + 200;
+    // 4. Warranty card hover effects
+    const warrantyCards = document.querySelectorAll('.warranty-card');
+    warrantyCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // 5. Service item animation
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // 6. Number counter animation for warranty years
+    const animateNumber = (element, target, duration = 2000) => {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
         
-        policySections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                // Remove active from all links
-                policyLinks.forEach(link => link.classList.remove('active'));
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 16);
+    };
+
+    // Trigger number animation when warranty cards are visible
+    const warrantyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                const yearElement = entry.target.querySelector('.warranty-years');
+                const targetNumber = parseInt(yearElement.textContent);
                 
-                // Add active to corresponding link
-                const correspondingLink = document.querySelector(`a[href="#${sectionId}"]`);
-                if (correspondingLink) {
-                    correspondingLink.classList.add('active');
+                if (!isNaN(targetNumber)) {
+                    yearElement.textContent = '0';
+                    animateNumber(yearElement, targetNumber, 1500);
+                    entry.target.dataset.animated = 'true';
                 }
             }
         });
+    }, { threshold: 0.5 });
+
+    warrantyCards.forEach(card => {
+        warrantyObserver.observe(card);
     });
+
+    // 7. Fit number animation
+    const fitCards = document.querySelectorAll('.fit-card');
+    const fitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                const numberElement = entry.target.querySelector('.fit-number');
+                const text = numberElement.textContent.trim();
+                
+                if (text === '3') {
+                    numberElement.textContent = '0';
+                    animateNumber(numberElement, 3, 1000);
+                } else if (text === '100%') {
+                    numberElement.textContent = '0%';
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += 2;
+                        if (current >= 100) {
+                            numberElement.textContent = '100%';
+                            clearInterval(timer);
+                        } else {
+                            numberElement.textContent = current + '%';
+                        }
+                    }, 20);
+                }
+                entry.target.dataset.animated = 'true';
+            }
+        });
+    }, { threshold: 0.5 });
+
+    fitCards.forEach(card => {
+        fitObserver.observe(card);
+    });
+
+    // 8. Initial fade-in for hero
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        });
+    }, 100);
 });

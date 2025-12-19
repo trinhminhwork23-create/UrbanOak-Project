@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Sưu Tập - UrbanOak</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="danhmuc.css">
+</head>
+<body>
+    <div id="magic-cursor">
+        <div id="ball"><span></span></div>
+    </div>
+
+    <header id="header" class="header-solid">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="trangchu.html">
+                        <h1 style="color: var(--text-dark); font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
+                    </a>
+                </div>
+                
+                <nav class="menu-luxury" id="menu">
+                    <ul>
+                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="#about">Câu chuyện</a></li>
+                        <li><a href="danhmuc.html" style="color: var(--primary-color);">Bộ sưu tập</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                        <li><a href="#contact" class="btn-nav-contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">PREMIUM COLLECTION</span>
+                <h1 class="hero-title">Bộ Sưu Tập 2025</h1>
+                <p class="hero-subtitle">Khám phá những tác phẩm nội thất văn phòng cao cấp - nơi nghệ thuật gặp gỡ công năng</p>
+            </div>
+        </div>
+        <div class="hero-ornament">
+            <div class="ornament-line"></div>
+            <div class="ornament-dot"></div>
+            <div class="ornament-line"></div>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-wrapper">
+                <div class="filter-header">
+                    <h3>Khám phá theo danh mục</h3>
+                    <div class="filter-line"></div>
+                </div>
+                <div class="category-cards" id="category-filters">
+                    <div class="category-card active" data-category="all">
+                        <div class="card-icon">✦</div>
+                        <span class="card-title">Tất cả</span>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="category-card" data-category="chair">
+                        <div class="card-icon">⚜</div>
+                        <span class="card-title">Ghế Lãnh Đạo</span>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="category-card" data-category="desk">
+                        <div class="card-icon">◆</div>
+                        <span class="card-title">Bàn Làm Việc</span>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="category-card" data-category="lamp">
+                        <div class="card-icon">◈</div>
+                        <span class="card-title">Đèn Trang Trí</span>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="category-card" data-category="accessory">
+                        <div class="card-icon">❋</div>
+                        <span class="card-title">Phụ Kiện Nội Thất</span>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="category-card" data-category="shelf">
+                        <div class="card-icon">◊</div>
+                        <span class="card-title">Tủ Trang Trí</span>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <div id="product-list" class="products-grid"></div>
+        </div>
+    </section>
+
+    <section class="collection-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <span class="story-label">TRIẾT LÝ THIẾT KẾ</span>
+                    <h2>Nơi Ý Tưởng<br><em>Trở Thành Hiện Thực</em></h2>
+                    <p>Mỗi sản phẩm UrbanOak đều được sinh ra từ niềm tin rằng không gian làm việc không chỉ là nơi để hoàn thành công việc, mà còn là nơi để nuôi dưỡng sự sáng tạo và thể hiện cá tính.</p>
+                    <a href="#" class="story-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="story-visual">
+                    <div class="visual-frame">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="UrbanOak Workshop">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mega-footer">
+        <div class="footer-top">
+            <div class="footer-cta">
+                <h3>
+                    Sẵn sàng nâng tầm<br>
+                    <span>không gian của bạn?</span>
+                </h3>
+                <a href="#contact" class="btn-circle-large">Let's Talk</a>
+            </div>
+            <div class="footer-nav-groups">
+                <div class="nav-col">
+                    <h4>Explore</h4>
+                    <a href="trangchu.html">Trang chủ</a>
+                    <a href="danhmuc.html">Bộ sưu tập</a>
+                    <a href="#about">Câu chuyện</a>
+                    <a href="#projects">Dự án</a>
+                    <a href="#membership">Thành viên</a>
+                </div>
+                <div class="nav-col">
+                    <h4>Connect</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#contact">Liên hệ</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-big-text">URBANOAK</div>
+        
+        <div class="footer-bottom-bar">
+            <span>© 2024 UrbanOak. All rights reserved.</span>
+            <span>Designed by Mtr & Gemini & Claude</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="danhmuc.js"></script>
+</body>
+</html>

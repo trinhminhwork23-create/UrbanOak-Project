@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - UrbanOak</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="chitietsanpham.css">
+</head>
+<body>
+    <div id="magic-cursor">
+        <div id="ball"><span></span></div>
+    </div>
+
+    <header id="header" class="header-solid">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="trangchu.html">
+                        <h1 style="color: var(--text-dark); font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
+                    </a>
+                </div>
+                
+                <nav class="menu-luxury" id="menu">
+                    <ul>
+                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="#about">Câu chuyện</a></li>
+                        <li><a href="danhmuc.html" style="color: var(--primary-color);">Bộ sưu tập</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                        <li><a href="#contact" class="btn-nav-contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="trangchu.html">Trang chủ</a>
+            <span>/</span>
+            <a href="danhmuc.html">Bộ sưu tập</a>
+            <span>/</span>
+            <span class="current" id="breadcrumb-product">Sản phẩm</span>
+        </div>
+    </nav>
+
+    <main class="product-detail">
+        <div class="container">
+            <div class="product-layout">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="Product Image">
+                        <div class="image-badge" id="image-badge">
+                            <span>Best Seller</span>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbs" id="gallery-thumbs">
+                        <!-- Thumbnails will be populated by JS -->
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <div class="product-meta">
+                        <span class="stock-status" id="stock-status">Còn hàng</span>
+                        <span class="product-sku" id="product-sku">SKU: #001</span>
+                    </div>
+
+                    <h1 class="product-title" id="product-title">Tên sản phẩm</h1>
+
+                    <div class="rating-display" id="rating-display">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">(4.8/5 - 124 đánh giá)</span>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="current-price" id="current-price">0 ₫</span>
+                        <span class="original-price" id="original-price" style="display: none;">0 ₫</span>
+                    </div>
+
+                    <div class="product-description" id="product-description">
+                        <p>Mô tả sản phẩm sẽ được tải từ database...</p>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="btn-share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="product-specs" id="product-specs">
+                        <h3>Thông số kỹ thuật</h3>
+                        <div class="specs-grid">
+                            <!-- Specs will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="product-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-header">
+                    <span class="story-label">TRIẾT LÝ THIẾT KẾ</span>
+                    <h2>Câu chuyện sản phẩm</h2>
+                </div>
+                <div class="story-layout">
+                    <div class="story-text" id="story-text">
+                        <p>Mỗi sản phẩm UrbanOak đều mang trong mình một câu chuyện riêng về sự tận tâm, đam mê và tay nghề thủ công tinh xảo.</p>
+                    </div>
+                    <div class="story-visual">
+                        <div class="craft-showcase">
+                            <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=800&q=80" alt="Craftsmanship">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-ecosystem">
+        <div class="container">
+            <div class="ecosystem-header">
+                <h2>Hoàn thiện không gian</h2>
+                <p>Những sản phẩm được thiết kế để hòa quyện cùng nhau</p>
+            </div>
+            <div class="related-grid" id="related-products">
+                <!-- Related products will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="product-guarantee">
+        <div class="container">
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Bảo hành trọn đời</h3>
+                    <p>Cam kết chất lượng với chính sách bảo hành toàn diện</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Giao hàng miễn phí</h3>
+                    <p>Vận chuyển và lắp đặt tận nơi trên toàn quốc</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tư vấn thiết kế</h3>
+                    <p>Đội ngũ chuyên gia hỗ trợ thiết kế không gian</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mega-footer">
+        <div class="footer-top">
+            <div class="footer-cta">
+                <h3>
+                    Sẵn sàng nâng tầm<br>
+                    <span>không gian của bạn?</span>
+                </h3>
+                <a href="#contact" class="btn-circle-large">Let's Talk</a>
+            </div>
+            <div class="footer-nav-groups">
+                <div class="nav-col">
+                    <h4>Explore</h4>
+                    <a href="trangchu.html">Trang chủ</a>
+                    <a href="danhmuc.html">Bộ sưu tập</a>
+                    <a href="#about">Câu chuyện</a>
+                    <a href="#projects">Dự án</a>
+                    <a href="#membership">Thành viên</a>
+                </div>
+                <div class="nav-col">
+                    <h4>Connect</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#contact">Liên hệ</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-big-text">URBANOAK</div>
+        
+        <div class="footer-bottom-bar">
+            <span>© 2024 UrbanOak. All rights reserved.</span>
+            <span>Designed by Mtr & Gemini & Claude</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="chitietsanpham.js"></script>
+</body>
+</html>

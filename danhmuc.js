@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const productList = document.getElementById('product-list');
-    const filterButtons = document.querySelectorAll('#category-filters li');
+    const filterButtons = document.querySelectorAll('#category-filters .category-card');
 
     function displayProducts(productsToShow) {
         productList.innerHTML = '';

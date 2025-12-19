@@ -1,53 +1,59 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.getElementById('product-list');
-    const filterBtns = document.querySelectorAll('.filter-bar li');
+document.addEventListener('DOMContentLoaded', function() {
+    const productList = document.getElementById('product-list');
+    const filterButtons = document.querySelectorAll('#category-filters li');
 
-    const imageMap = {
-        'chair': 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800',
-        'desk': 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
-        'shelf': 'https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800',
-        'lamp': 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800',
-        'accessory': 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800'
-    };
-
-    function renderProducts(list) {
-        grid.innerHTML = '';
-
-        if (list.length === 0) {
-            grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:60px;">Không tìm thấy sản phẩm nào.</p>';
+    function displayProducts(productsToShow) {
+        productList.innerHTML = '';
+        
+        if (productsToShow.length === 0) {
+            productList.innerHTML = '<div style="text-align: center; padding: 60px 0; color: var(--text-muted);"><h3>Không có sản phẩm nào trong danh mục này</h3></div>';
             return;
         }
-
-        list.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.onclick = () => window.location.href = `chitietsanpham.html?id=${item.id}`;
-
-            const imgSrc = imageMap[item.category] || item.thumb;
-
-            card.innerHTML = `
+        
+        productsToShow.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
                 <div class="card-thumb">
-                    <img src="${imgSrc}" alt="${item.name}">
+                    <img src="${product.thumb}" alt="${product.name}" style="object-fit: cover;">
+                    <div class="card-overlay">
+                        <div class="overlay-content">
+                            <h3>${product.name}</h3>
+                            <span class="price">${formatCurrency(product.price)}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-name">${item.name}</h3>
-                    <div class="card-price">${formatCurrency(item.price)}</div>
+                    <div class="card-badges">
+                        ${product.badges.map(badge => `<span class="badge">${badge}</span>`).join('')}
+                    </div>
+                    <div class="card-category">${product.categoryName}</div>
+                    <h3 class="card-name">${product.name}</h3>
+                    <p class="card-description">${product.shortDesc}</p>
+                    <div class="card-price">${formatCurrency(product.price)}</div>
+                    <a href="chitietsanpham.html?id=${product.id}" class="btn btn-primary" style="width: 100%; text-align: center;">Xem chi tiết</a>
                 </div>
             `;
-            grid.appendChild(card);
+            productList.appendChild(productCard);
         });
     }
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
+    function filterProducts(category) {
+        const filteredProducts = getProductsByCategory(category);
+        displayProducts(filteredProducts);
+    }
 
-            const cat = this.dataset.category;
-            const filteredData = getProductsByCategory(cat);
-            renderProducts(filteredData);
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            filterProducts(category);
         });
     });
 
-    renderProducts(getAllProducts());
+    // Initial load
+    filterProducts('all');
 });

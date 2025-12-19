@@ -3,78 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản phẩm - UrbanOak</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Bộ Sưu Tập - UrbanOak</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="danhmuc.css">
 </head>
 <body>
+    <div id="magic-cursor">
+        <div id="ball"><span></span></div>
+    </div>
+
     <header id="header" class="header-solid">
-        <div class="container header-content">
-            <a href="trangchu.html" class="brand-logo" style="font-family:'Playfair Display'; font-size:1.8rem; font-weight:600;">UrbanOak.</a>
-            <nav class="menu-luxury">
-                <ul>
-                    <li><a href="trangchu.html">Trang chủ</a></li>
-                    <li><a href="danhmuc.html" style="color:var(--primary-color);">Sản phẩm</a></li>
-                    <li><a href="#">Về chúng tôi</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="trangchu.html">
+                        <h1 style="color: var(--text-dark); font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
+                    </a>
+                </div>
+                
+                <nav class="menu-luxury" id="menu">
+                    <ul>
+                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="#about">Câu chuyện</a></li>
+                        <li><a href="danhmuc.html" style="color: var(--primary-color);">Bộ sưu tập</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                        <li><a href="#contact" class="btn-nav-contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <ul class="filter-bar" id="category-filters">
-        <li class="active" data-category="all">All</li>
-        <li data-category="chair">Chairs</li>
-        <li data-category="desk">Desks</li>
-        <li data-category="shelf">Shelves</li>
-        <li data-category="lamp">Lamps</li>
-        <li data-category="accessory">Accessories</li>
-    </ul>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">PREMIUM COLLECTION</span>
+                <h1 class="hero-title">Bộ Sưu Tập 2025</h1>
+                <p class="hero-subtitle">Khám phá những tác phẩm nội thất văn phòng cao cấp - nơi nghệ thuật gặp gỡ công năng</p>
+            </div>
+        </div>
+        <div class="hero-ornament">
+            <div class="ornament-line"></div>
+            <div class="ornament-dot"></div>
+            <div class="ornament-line"></div>
+        </div>
+    </section>
 
-    <main>
-        <section class="page-hero">
-            <h1 class="hero-title">The 2025 Collection</h1>
-        </section>
+    <section class="filter-section">
+        <div class="container">
+            <ul class="filter-bar" id="category-filters">
+                <li class="active" data-category="all">Tất cả</li>
+                <li data-category="chair">Ghế Lãnh Đạo</li>
+                <li data-category="desk">Bàn Đại Lộ</li>
+                <li data-category="lamp">Đèn Hoàng Gia</li>
+                <li data-category="accessory">Phụ Kiện Hoàng Gia</li>
+                <li data-category="shelf">Kệ Sách & Trang Trí</li>
+            </ul>
+        </div>
+    </section>
 
-        <div id="product-list" class="archive-grid"></div>
-    </main>
+    <section class="products-section">
+        <div class="container">
+            <div id="product-list" class="products-grid"></div>
+        </div>
+    </section>
+
+    <section class="collection-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <span class="story-label">TRIẾT LÝ THIẾT KẾ</span>
+                    <h2>Nơi Ý Tưởng<br><em>Trở Thành Hiện Thực</em></h2>
+                    <p>Mỗi sản phẩm UrbanOak đều được sinh ra từ niềm tin rằng không gian làm việc không chỉ là nơi để hoàn thành công việc, mà còn là nơi để nuôi dưỡng sự sáng tạo và thể hiện cá tính.</p>
+                    <a href="#" class="story-link">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="story-visual">
+                    <div class="visual-frame">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="UrbanOak Workshop">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="mega-footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-cta">
-                    <h3>Khám phá bộ sưu tập nội thất cao cấp</h3>
-                    <p style="color:#999;">Thiết kế tinh tế, chất lượng vượt trội</p>
+                    <h3>
+                        Sẵn sàng nâng tầm<br>
+                        <span>không gian của bạn?</span>
+                    </h3>
+                    <a href="#contact" class="btn-circle-large">Tư Vấn</a>
                 </div>
                 <div class="footer-nav-groups">
                     <div class="nav-col">
-                        <h4>Sản phẩm</h4>
-                        <a href="#">Ghế công thái học</a>
-                        <a href="#">Bàn làm việc</a>
-                        <a href="#">Tủ & Kệ</a>
-                        <a href="#">Phụ kiện</a>
+                        <h4>Khám Phá</h4>
+                        <a href="trangchu.html">Trang chủ</a>
+                        <a href="danhmuc.html">Bộ sưu tập</a>
+                        <a href="#about">Câu chuyện</a>
+                        <a href="#projects">Dự án</a>
+                        <a href="#membership">Thành viên</a>
                     </div>
                     <div class="nav-col">
-                        <h4>Hỗ trợ</h4>
-                        <a href="#">Liên hệ</a>
-                        <a href="#">Chính sách bảo hành</a>
-                        <a href="#">Hướng dẫn lắp đặt</a>
-                        <a href="#">Câu hỏi thường gặp</a>
+                        <h4>Kết Nối</h4>
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#contact">Liên hệ</a>
                     </div>
                 </div>
             </div>
+            
+            <div class="footer-big-text">URBANOAK</div>
+            
             <div class="footer-bottom-bar">
-                <p>&copy; 2025 UrbanOak. All rights reserved.</p>
-                <p>Crafted with passion</p>
+                <span>© 2024 UrbanOak. All rights reserved.</span>
+                <span>Designed by Mtr & Gemini & Claude</span>
             </div>
         </div>
     </footer>
-
-    <div id="magic-cursor">
-        <div id="ball"><span></span></div>
-    </div>
 
     <script src="assets/js/db.js"></script>
     <script src="assets/js/common.js"></script>

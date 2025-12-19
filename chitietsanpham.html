@@ -2,127 +2,182 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Lumina ErgoChair Pro Max - UrbanOak</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Chi Tiết Sản Phẩm - UrbanOak</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="chitietsanpham.css">
 </head>
 <body>
+    <div id="magic-cursor">
+        <div id="ball"><span></span></div>
+    </div>
+
     <header id="header" class="header-solid">
-        <div class="container header-content">
-            <a href="trangchu.html" class="brand-logo" style="font-family:'Playfair Display'; font-size:1.8rem; font-weight:600;">UrbanOak.</a>
-            <nav class="menu-luxury">
-                <ul>
-                    <li><a href="trangchu.html">Home</a></li>
-                    <li><a href="danhmuc.html" style="color:var(--primary-color);">Collection</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="trangchu.html">
+                        <h1 style="color: var(--text-dark); font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
+                    </a>
+                </div>
+                
+                <nav class="menu-luxury" id="menu">
+                    <ul>
+                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="#about">Câu chuyện</a></li>
+                        <li><a href="danhmuc.html" style="color: var(--primary-color);">Bộ sưu tập</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                        <li><a href="#contact" class="btn-nav-contact">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <ul class="breadcrumb container">
-        <li><a href="trangchu.html">Home</a></li>
-        <li>/</li>
-        <li><a href="danhmuc.html">Collection</a></li>
-        <li>/</li>
-        <li class="current">Lumina ErgoChair Pro Max</li>
-    </ul>
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="trangchu.html">Trang chủ</a>
+            <span>/</span>
+            <a href="danhmuc.html">Bộ sưu tập</a>
+            <span>/</span>
+            <span class="current" id="breadcrumb-product">Sản phẩm</span>
+        </div>
+    </nav>
 
-    <div class="product-hero">
-        <div class="info-column">
-            <div class="product-meta">
-                <span>In Stock</span>
-                <span>SKU: CHAIR-001</span>
-            </div>
-
-            <h1 class="product-title">Lumina ErgoChair Pro Max</h1>
-
-            <div class="rating-box">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-
-            <div class="price-wrapper">
-                <span class="current-price">8.900.000 ₫</span>
-            </div>
-
-            <p class="short-desc">Đỉnh cao công thái học, lưới Mesh nhập khẩu Đức. Thiết kế cao cấp với bộ máy điều chỉnh đa điểm, tựa đầu 3D và hệ thống Lumbar Support tự động.</p>
-
-            <button class="btn-add-cart">Add to Collection</button>
-
-            <div class="tech-specs">
-                <h4>Technical Specifications</h4>
-                <div class="spec-item">
-                    <span>Material</span>
-                    <span></span>
-                    <span>Krall & Roth Mesh</span>
+    <main class="product-detail">
+        <div class="container">
+            <div class="product-layout">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="Product Image">
+                        <div class="image-badge" id="image-badge">
+                            <span>Best Seller</span>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbs" id="gallery-thumbs">
+                        <!-- Thumbnails will be populated by JS -->
+                    </div>
                 </div>
-                <div class="spec-item">
-                    <span>Dimensions</span>
-                    <span></span>
-                    <span>70 x 70 x 115-130 cm</span>
-                </div>
-                <div class="spec-item">
-                    <span>Weight</span>
-                    <span></span>
-                    <span>28kg</span>
-                </div>
-                <div class="spec-item">
-                    <span>Warranty</span>
-                    <span></span>
-                    <span>5 Years</span>
+
+                <div class="product-info">
+                    <div class="product-meta">
+                        <span class="stock-status" id="stock-status">Còn hàng</span>
+                        <span class="product-sku" id="product-sku">SKU: #001</span>
+                    </div>
+
+                    <h1 class="product-title" id="product-title">Tên sản phẩm</h1>
+
+                    <div class="rating-display" id="rating-display">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">(4.8/5 - 124 đánh giá)</span>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="current-price" id="current-price">0 ₫</span>
+                        <span class="original-price" id="original-price" style="display: none;">0 ₫</span>
+                    </div>
+
+                    <div class="product-description" id="product-description">
+                        <p>Mô tả sản phẩm sẽ được tải từ database...</p>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Thêm vào giỏ
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="btn-share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="product-specs" id="product-specs">
+                        <h3>Thông số kỹ thuật</h3>
+                        <div class="specs-grid">
+                            <!-- Specs will be populated by JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="gallery-column">
-            <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800" alt="View 1" class="product-image">
-            
-            <div class="story-text">
-                <h3>German Engineering</h3>
-                <p>Lưới Krall & Roth nhập khẩu từ Đức với độ bền vượt trội, thoáng khí tối đa và khả năng chống khuẩn tự nhiên. Cấu trúc lưới đàn hồi cao cấp giúp phân tán áp lực đều khắp cơ thể.</p>
+    <section class="product-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-header">
+                    <span class="story-label">TRIẾT LÝ THIẾT KẾ</span>
+                    <h2>Câu chuyện sản phẩm</h2>
+                </div>
+                <div class="story-layout">
+                    <div class="story-text" id="story-text">
+                        <p>Mỗi sản phẩm UrbanOak đều mang trong mình một câu chuyện riêng về sự tận tâm, đam mê và tay nghề thủ công tinh xảo.</p>
+                    </div>
+                    <div class="story-visual">
+                        <div class="craft-showcase">
+                            <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=800&q=80" alt="Craftsmanship">
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800" alt="View 2" class="product-image">
-            
-            <div class="story-text">
-                <h3>Aluminum Frame</h3>
-                <p>Khung nhôm đúc nguyên khối chịu tải lên đến 150kg, độ bền trên 10 năm sử dụng liên tục. Bề mặt xử lý anodized chống oxy hóa và trầy xước.</p>
-            </div>
-
-            <img src="https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=800" alt="View 3" class="product-image">
         </div>
-    </div>
+    </section>
 
-    <section class="complete-space">
-        <h2>Complete The Space</h2>
-        <div class="space-grid">
-            <div class="space-item">
-                <div class="space-thumb">
-                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400" alt="Desk">
-                </div>
-                <h3 class="space-name">SmartDesk Pro</h3>
-                <p class="space-price">9.500.000 ₫</p>
+    <section class="product-ecosystem">
+        <div class="container">
+            <div class="ecosystem-header">
+                <h2>Hoàn thiện không gian</h2>
+                <p>Những sản phẩm được thiết kế để hòa quyện cùng nhau</p>
             </div>
-            <div class="space-item">
-                <div class="space-thumb">
-                    <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" alt="Lamp">
-                </div>
-                <h3 class="space-name">Architect Lamp</h3>
-                <p class="space-price">650.000 ₫</p>
+            <div class="related-grid" id="related-products">
+                <!-- Related products will be populated by JS -->
             </div>
-            <div class="space-item">
-                <div class="space-thumb">
-                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400" alt="Monitor">
+        </div>
+    </section>
+
+    <section class="product-guarantee">
+        <div class="container">
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Bảo hành trọn đời</h3>
+                    <p>Cam kết chất lượng với chính sách bảo hành toàn diện</p>
                 </div>
-                <h3 class="space-name">Monitor Arm VESA</h3>
-                <p class="space-price">1.500.000 ₫</p>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Giao hàng miễn phí</h3>
+                    <p>Vận chuyển và lắp đặt tận nơi trên toàn quốc</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tư vấn thiết kế</h3>
+                    <p>Đội ngũ chuyên gia hỗ trợ thiết kế không gian</p>
+                </div>
             </div>
         </div>
     </section>
@@ -131,35 +186,41 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-cta">
-                    <h3>Crafted for Excellence</h3>
-                    <p style="color:#999;">Thiết kế tinh tế, chất lượng vượt trội</p>
+                    <h3>
+                        Sẵn sàng nâng tầm<br>
+                        <span>không gian của bạn?</span>
+                    </h3>
+                    <a href="#contact" class="btn-circle-large">Tư Vấn</a>
                 </div>
                 <div class="footer-nav-groups">
                     <div class="nav-col">
-                        <h4>Products</h4>
-                        <a href="#">Chairs</a>
-                        <a href="#">Desks</a>
-                        <a href="#">Accessories</a>
+                        <h4>Khám Phá</h4>
+                        <a href="trangchu.html">Trang chủ</a>
+                        <a href="danhmuc.html">Bộ sưu tập</a>
+                        <a href="#about">Câu chuyện</a>
+                        <a href="#projects">Dự án</a>
+                        <a href="#membership">Thành viên</a>
                     </div>
                     <div class="nav-col">
-                        <h4>Support</h4>
-                        <a href="#">Contact</a>
-                        <a href="#">Warranty</a>
-                        <a href="#">FAQ</a>
+                        <h4>Kết Nối</h4>
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#contact">Liên hệ</a>
                     </div>
                 </div>
             </div>
+            
+            <div class="footer-big-text">URBANOAK</div>
+            
             <div class="footer-bottom-bar">
-                <p>&copy; 2025 UrbanOak. All rights reserved.</p>
-                <p>Crafted with passion</p>
+                <span>© 2024 UrbanOak. All rights reserved.</span>
+                <span>Designed by Mtr & Gemini & Claude</span>
             </div>
         </div>
     </footer>
 
-    <div id="magic-cursor">
-        <div id="ball"><span></span></div>
-    </div>
-
+    <script src="assets/js/db.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="chitietsanpham.js"></script>
 </body>

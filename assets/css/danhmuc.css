@@ -329,6 +329,10 @@ body::before {
     cursor: pointer;
     position: relative;
     transform: translateY(0);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .product-card::before {

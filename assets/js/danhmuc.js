@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         productsToShow.forEach(product => {
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
+            productCard.style.cursor = 'pointer';
+            productCard.onclick = () => window.location.href = `chitietsanpham.html?id=${product.id}`;
             productCard.innerHTML = `
                 <div class="card-thumb">
                     <img src="${product.thumb}" alt="${product.name}" style="object-fit: cover;">
@@ -31,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3 class="card-name">${product.name}</h3>
                     <p class="card-description">${product.shortDesc}</p>
                     <div class="card-price">${formatCurrency(product.price)}</div>
-                    <a href="chitietsanpham.html?id=${product.id}" class="btn btn-primary" style="width: 100%; text-align: center;">Xem chi tiết</a>
                 </div>
             `;
             productList.appendChild(productCard);

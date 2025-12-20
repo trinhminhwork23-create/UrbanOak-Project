@@ -3455,6 +3455,32 @@ body {
     .p-img-frame { height: 300px; box-shadow: 10px 10px 0px #F0EBE5; }
     .p-year { font-size: 4rem; margin-bottom: -15px; }
     .p-content h3 { font-size: 2.2rem; }
+    
+    /* Hero mobile */
+    .hero-video-section { height: 70vh; }
+    
+    /* Marquee mobile */
+    .marquee-strip { padding: 15px 0; }
+    .marquee-content span { font-size: 14px; }
+    
+    /* Material window mobile */
+    .window-frame { height: 300px; }
+    
+    /* Art gallery mobile */
+    .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
+    .art-frame { height: 300px; }
+    
+    /* Featured products mobile */
+    .products-track { gap: 20px; padding: 0 20px; }
+    .prod-card-luxury { min-width: 280px; }
+    .prod-img-box { height: 280px; }
+    
+    /* Journal mobile */
+    .journal-grid { grid-template-columns: 1fr; gap: 30px; }
+    
+    /* Partners mobile */
+    .partner-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .partner-logo { max-width: 100px; }
 }
 
 

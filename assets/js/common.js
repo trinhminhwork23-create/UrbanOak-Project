@@ -169,11 +169,82 @@ function handleHeaderStyle() {
  */
 function initMobileMenu() {
     const mobileBtn = document.getElementById('mobileMenuBtn');
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            document.body.classList.toggle('mobile-menu-open');
-        });
+    if (!mobileBtn) return;
+    
+    // Tạo mobile menu nếu chưa có
+    let mobileMenu = document.querySelector('.mobile-menu-overlay');
+    if (!mobileMenu) {
+        const currentUser = JSON.parse(localStorage.getItem('UrbanOak_User'));
+        const userDisplay = currentUser 
+            ? `<div class="mobile-menu-user">
+                <a href="#" id="mobileUserDisplay">
+                    <i class="fas fa-user"></i>
+                    <span>${currentUser.fullname}</span>
+                </a>
+               </div>` 
+            : `<div class="mobile-menu-user">
+                <a href="login.html">
+                    <i class="fas fa-user"></i>
+                    <span>Đăng nhập</span>
+                </a>
+               </div>`;
+        
+        const menuHTML = `
+            <div class="mobile-menu-overlay">
+                <div class="mobile-menu-content">
+                    <button class="mobile-menu-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <ul class="mobile-menu-nav">
+                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="danhmuc.html">Sản phẩm</a></li>
+                        <li><a href="chinhsach.html">Chính sách</a></li>
+                        <li><a href="lienhe.html">Liên hệ</a></li>
+                    </ul>
+                    ${userDisplay}
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', menuHTML);
+        mobileMenu = document.querySelector('.mobile-menu-overlay');
+        
+        // Xử lý logout cho mobile user
+        if (currentUser) {
+            const mobileUserBtn = document.getElementById('mobileUserDisplay');
+            if (mobileUserBtn) {
+                mobileUserBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (confirm(`Xin chào ${currentUser.fullname}!\nBạn có muốn đăng xuất?`)) {
+                        localStorage.removeItem('UrbanOak_User');
+                        window.location.reload();
+                    }
+                });
+            }
+        }
     }
+    
+    const mobileMenuContent = document.querySelector('.mobile-menu-content');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    
+    // Mở menu
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        mobileMenuContent.classList.add('active');
+        document.body.classList.add('no-scroll');
+    });
+    
+    // Đóng menu
+    const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuContent.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    };
+    
+    closeBtn?.addEventListener('click', closeMenu);
+    mobileMenu?.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) closeMenu();
+    });
 }
 
 /* --- FLOATING BUTTONS --- */

@@ -21,8 +21,9 @@ img { max-width: 100%; display: block; }
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.4s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
     padding: 15px 0;
+    will-change: background, box-shadow;
 }
 
 .header-content {
@@ -74,7 +75,7 @@ img { max-width: 100%; display: block; }
 
 
 /* --- MENU STYLE CHUNG --- */
-.menu-luxury { position: absolute; left: 50%; transform: translateX(-50%); transition: transform 0.3s ease; }
+.menu-luxury { position: absolute; left: 50%; transform: translateX(-50%); transition: transform 0.25s ease; will-change: transform; }
 .menu-luxury ul { display: flex; gap: 40px; list-style: none; }
 .menu-luxury a {
     text-transform: uppercase; font-size: 13px; letter-spacing: 2px;
@@ -220,6 +221,7 @@ img { max-width: 100%; display: block; }
     
     /* Căn giữa tâm vào mũi chuột */
     transform: translate(-50%, -50%);
+    will-change: transform;
     
     display: flex;
     align-items: center;
@@ -273,31 +275,10 @@ img { max-width: 100%; display: block; }
     min-height: 600px; /* Chiều cao tối thiểu để bậc thang thoáng */
 }
 
-/* 1. TOP BAR (User Actions) */
+/* 1. TOP BAR - Ẩn đi */
 .footer-top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 20px;
+    display: none;
 }
-.brand-small {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: 2px;
-    font-size: 1.2rem;
-}
-.user-actions {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.user-actions a {
-    color: #888; text-decoration: none; transition: 0.3s;
-}
-.user-actions a:hover { color: #D4B98C; }
-.user-actions .dot { margin: 0 10px; color: #333; }
 
 
 /* 2. STAIRCASE NAV (Trái tim của Footer) */
@@ -433,4 +414,80 @@ img { max-width: 100%; display: block; }
 /* TRẠNG THÁI NỀN TRẮNG (Chữ Đen) */
 .header-solid .brand-logo { 
     color: #212529 !important; /* Đen */
+}
+
+
+/* --- FOOTER MAIN CONTENT GRID --- */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+.footer-main-content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.footer-about {
+    max-width: 400px;
+}
+
+.footer-about h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #D4AF37;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-about p {
+    color: #999;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+
+.footer-contact {
+    color: #ccc;
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+.footer-contact strong {
+    color: #D4AF37;
+    display: block;
+    margin-top: 8px;
+}
+
+.stair-link {
+    font-size: 4rem !important;
+}
+
+@media (min-width: 992px) {
+    .stair-link:nth-child(1) { margin-left: 0 !important; }
+    .stair-link:nth-child(2) { margin-left: 12% !important; }
+    .stair-link:nth-child(3) { margin-left: 24% !important; }
+    .stair-link:nth-child(4) { margin-left: 36% !important; }
+    .stair-link:nth-child(5) { margin-left: 48% !important; }
+}
+
+/* Footer Copyright */
+.footer-copyright {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #666;
+    font-size: 12px;
+}
+
+@media (max-width: 992px) {
+    .footer-main-content { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+    }
 }

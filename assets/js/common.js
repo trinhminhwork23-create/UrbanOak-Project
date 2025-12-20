@@ -86,24 +86,25 @@ function injectHeaderFooter() {
         </div>
 
         <div class="container footer-container">
-            <div class="footer-top-bar">
-                <div class="brand-small">URBANOAK.</div>
-                <div class="user-actions">
-                    <a href="login.html">Đăng nhập / Đăng xuất</a>
-                    <span class="dot">•</span>
-                    <a href="cart.html">Giỏ hàng</a>
-                    <span class="dot">•</span>
-                    <a href="checkout.html">Thanh toán</a>
+            <div class="footer-main-content">
+                <nav class="staircase-nav">
+                    <a href="trangchu.html" class="stair-link"><span class="num">01</span> Trang chủ <div class="line"></div></a>
+                    <a href="danhmuc.html" class="stair-link"><span class="num">02</span> Sản phẩm <div class="line"></div></a>
+                    <a href="about.html" class="stair-link"><span class="num">03</span> Giới thiệu <div class="line"></div></a>
+                    <a href="chitietsanpham.html" class="stair-link"><span class="num">04</span> Dự án <div class="line"></div></a>
+                    <a href="lienhe.html" class="stair-link"><span class="num">05</span> Liên hệ <div class="line"></div></a>
+                </nav>
+
+                <div class="footer-about">
+                    <h4>URBANOAK – Kiến tạo không gian lãnh đạo đẳng cấp.</h4>
+                    <p>Là thương hiệu tiên phong trong lĩnh vực nội thất văn phòng hạng sang, URBANOAK lấy cảm hứng từ vẻ đẹp trường tồn của gỗ tự nhiên kết hợp với tư duy thiết kế hiện đại. Chúng tôi không chỉ cung cấp nội thất, mà còn kiến tạo nên vị thế và quyền lực cho người đứng đầu. Từng sản phẩm đều được tinh chỉnh tỉ mỉ về công năng và thẩm mỹ, đảm bảo sự tiện nghi tối đa và phù hợp hoàn hảo với vóc dáng người Việt.</p>
+                    <div class="footer-contact">
+                        <strong>Trụ sở & Showroom:</strong>
+                        Số 88 Tô Vĩnh Diện, P. Khương Trung, Q. Thanh Xuân, Hà Nội
+                        <strong>Hotline:</strong> 0353.670.128
+                    </div>
                 </div>
             </div>
-
-            <nav class="staircase-nav">
-                <a href="trangchu.html" class="stair-link"><span class="num">01</span> Trang chủ <div class="line"></div></a>
-                <a href="danhmuc.html" class="stair-link"><span class="num">02</span> Sản phẩm <div class="line"></div></a>
-                <a href="about.html" class="stair-link"><span class="num">03</span> Giới thiệu <div class="line"></div></a>
-                <a href="chitietsanpham.html" class="stair-link"><span class="num">04</span> Dự án <div class="line"></div></a>
-                <a href="lienhe.html" class="stair-link"><span class="num">05</span> Liên hệ <div class="line"></div></a>
-            </nav>
 
             <div class="footer-bottom-info">
                 <div class="policy-links">
@@ -119,6 +120,10 @@ function injectHeaderFooter() {
                         <a href="#" class="s-icon"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2014 - 2025 UrbanOak. All Rights Reserved. | Designed by MDPA Team</p>
             </div>
         </div>
     </footer>

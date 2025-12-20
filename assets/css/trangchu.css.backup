@@ -3722,12 +3722,119 @@ body {
 /* ======================================================
    PROCESS SECTION (OFFICE STYLE - UPDATED)
    ====================================================== */
+.process-section-beige {
+    padding: 120px 0;
+    background-color: #F0EBE5;
+    color: #1A1A1A;
+}
+
+.process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 60px;
+}
+
+.step-card {
+    position: relative;
+    padding-left: 20px;
+    border-left: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; 
+    color: rgba(156, 130, 88, 0.15);
+    line-height: 0.8;
+    display: block;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.step-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1A1A1A; 
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.step-content h3 em {
+    font-style: italic;
+    color: #9C8258;
+}
+
+.step-content p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.step-card:hover {
+    border-left: 3px solid #9C8258;
+    padding-left: 30px;
+}
+
+.step-card:hover .step-num {
+    color: #9C8258;
+    opacity: 1;
+}
+
+.btn-process-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 45px;
+    background: #1A1A1A;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-process-cta:hover {
+    background: #9C8258;
+    color: #fff;
+}
+
+@media (max-width: 992px) {
+    .process-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        border-top: none;
+    }
+    .step-card {
+        border-left: none;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        padding-top: 40px;
+        padding-left: 0;
+    }
+    .step-card:hover {
+        border-left: none;
+        padding-left: 0;
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Art Gallery - White Collection Names */
 .art-info h3 {
     color: #fff !important;
 }
 
 
 /* Process Section - Match Art Gallery Style */
+.process-section-beige {
+    background-color: #F9F8F6 !important;
+}
+
 .process-section-beige .window-header h3 {
     color: #1A1A1A !important;
 }
@@ -3739,8 +3846,3 @@ body {
 .process-section-beige .section-desc {
     color: #666 !important;
 }
-
-.process-section-beige .sub-gold {
-    color: #9C8258 !important;
-}
-

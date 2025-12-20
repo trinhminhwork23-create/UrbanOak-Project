@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initImageZoom();
     initUserDisplay();
     initCartDisplay();
+    initSearch();
 });
 
 /* --- INJECT HEADER & FOOTER --- */
@@ -46,7 +47,7 @@ function injectHeaderFooter() {
                         <li><a href="trangchu.html">Trang chủ</a></li>
                         <li><a href="about.html">Giới thiệu</a></li>
                         <li><a href="danhmuc.html">Sản phẩm</a></li>
-                        <li><a href="chitietsanpham.html">Dự án</a></li>
+                        <li><a href="chinhsach.html">Chính sách</a></li>
                         <li><a href="lienhe.html">Liên hệ</a></li>
                     </ul>
                 </nav>
@@ -91,7 +92,7 @@ function injectHeaderFooter() {
                     <a href="trangchu.html" class="stair-link"><span class="num">01</span> Trang chủ <div class="line"></div></a>
                     <a href="danhmuc.html" class="stair-link"><span class="num">02</span> Sản phẩm <div class="line"></div></a>
                     <a href="about.html" class="stair-link"><span class="num">03</span> Giới thiệu <div class="line"></div></a>
-                    <a href="chitietsanpham.html" class="stair-link"><span class="num">04</span> Dự án <div class="line"></div></a>
+                    <a href="chinhsach.html" class="stair-link"><span class="num">04</span> Chính&nbsp;sách <div class="line"></div></a>
                     <a href="lienhe.html" class="stair-link"><span class="num">05</span> Liên hệ <div class="line"></div></a>
                 </nav>
 
@@ -107,9 +108,8 @@ function injectHeaderFooter() {
             </div>
 
             <div class="footer-bottom-info">
-                <div class="policy-links">
-                    <a href="#">Chính sách</a>
-                    <a href="#">Điều khoản</a>
+                <div class="policy-links" id="footerUserGreeting">
+                    ${currentUser ? `<span>Chào mừng, ${currentUser.fullname}</span>` : '<span>Chào mừng bạn đến với UrbanOak</span>'}
                 </div>
                 
                 <div class="social-connect">
@@ -270,6 +270,86 @@ function initCartDisplay() {
     } else {
         cartCount.style.display = 'none';
     }
+}
+
+/* --- SEARCH FUNCTIONALITY --- */
+/**
+ * Xử lý tìm kiếm sản phẩm với gợi ý
+ */
+function initSearch() {
+    const searchInput = document.querySelector('.search-input');
+    const searchBtn = document.querySelector('.search-btn');
+    const searchWrapper = document.querySelector('.search-input-wrapper');
+    
+    if (!searchInput || !searchBtn) return;
+    
+    let suggestionsBox = document.querySelector('.search-suggestions');
+    if (!suggestionsBox) {
+        suggestionsBox = document.createElement('div');
+        suggestionsBox.className = 'search-suggestions';
+        searchWrapper.appendChild(suggestionsBox);
+    }
+    
+    const performSearch = () => {
+        const keyword = searchInput.value.trim();
+        if (keyword) {
+            window.location.href = `danhmuc.html?search=${encodeURIComponent(keyword)}`;
+        }
+    };
+    
+    const showSuggestions = (keyword) => {
+        if (!keyword || keyword.length < 2) {
+            suggestionsBox.style.display = 'none';
+            return;
+        }
+        
+        const allProducts = typeof getAllProducts === 'function' ? getAllProducts() : [];
+        const matches = allProducts.filter(p => 
+            p.name.toLowerCase().includes(keyword.toLowerCase()) ||
+            p.categoryName.toLowerCase().includes(keyword.toLowerCase())
+        ).slice(0, 5);
+        
+        if (matches.length === 0) {
+            suggestionsBox.style.display = 'none';
+            return;
+        }
+        
+        suggestionsBox.innerHTML = matches.map(p => `
+            <a href="chitietsanpham.html?id=${p.id}" class="suggestion-item">
+                <img src="${p.thumb}" alt="${p.name}">
+                <div class="suggestion-info">
+                    <div class="suggestion-name">${p.name}</div>
+                    <div class="suggestion-price">${formatCurrency(p.price)}</div>
+                </div>
+            </a>
+        `).join('');
+        
+        suggestionsBox.style.display = 'block';
+    };
+    
+    searchInput.addEventListener('input', (e) => {
+        showSuggestions(e.target.value.trim());
+    });
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch();
+        }
+    });
+    
+    searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (searchInput.value.trim()) {
+            performSearch();
+        }
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!searchWrapper.contains(e.target)) {
+            suggestionsBox.style.display = 'none';
+        }
+    });
 }
 
 /* --- LOADING SCREEN --- */

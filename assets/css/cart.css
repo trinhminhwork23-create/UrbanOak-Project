@@ -1,7 +1,27 @@
-/* Cart CSS - Luxury Style */
+/* Cart CSS -*/
+/* Ép header dùng box-sizing kiểu cũ nếu menu bị teo */
+#header-placeholder *, 
+#header-placeholder *::before, 
+#header-placeholder *::after {
+    box-sizing: content-box; /* Hoặc border-box tùy theo lúc ông code menu ông dùng cái nào */
+}
+
+/* Nếu header dùng .container, hãy ép nó full chiều rộng hoặc theo ý ông */
+#header-placeholder .container {
+    max-width: 100% !important; /* Hoặc width cụ thể ông muốn */
+    padding: 0 50px !important; /* Reset padding của bootstrap nếu cần */
+    margin: 0 !important;
+}
+
+/* Reset font chữ nếu bị lỗi */
+#header-placeholder {
+    font-family: 'IBM Plex Sans', sans-serif !important; /* Font gốc của web ông */
+    line-height: normal;
+}
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* Cart specific styles */
+/* Cart specific styles - No header/menu overrides, use global.css */
+
 .container {
     max-width: 1200px;
 }
@@ -179,12 +199,6 @@ h2 {
     border-color: #5c3a1d;
     color: #fff;
 }
-
-/* Sticky Summary */
-.sticky-top {
-    top: 2rem;
-}
-
 /* Empty Cart */
 #empty-message i {
     color: #ccc;
@@ -204,11 +218,6 @@ h2 {
     .quantity-controls {
         flex-direction: column;
         gap: 5px;
-    }
-    
-    .sticky-top {
-        position: relative !important;
-        top: auto !important;
     }
 }
 

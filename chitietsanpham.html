@@ -155,22 +155,7 @@
             </div>
         </div>
     </section>
-
-    <script src="assets/js/common.js"></script>f="#">Facebook</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#contact">Liên hệ</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-big-text">URBANOAK</div>
-        
-        <div class="footer-bottom-bar">
-            <span>© 2024 UrbanOak. All rights reserved.</span>
-            <span>Designed by Mtr & Gemini & Claude</span>
-        </div>
-    </footer>
-
+  <div id="footer-placeholder"></div>
     <script src="assets/js/db.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="assets/js/chitietsanpham.js"></script>
@@ -208,32 +193,7 @@
         }
     </script>
 </body>
-</html> if (existingIndex > -1) {
-                // Nếu đã có, tăng số lượng
-                cartItems[existingIndex].quantity++;
-            } else {
-                // Nếu chưa có, thêm mới
-                cartItems.push(product);
-            }
-            
-            // Lưu vào localStorage
-            localStorage.setItem('cartProducts', JSON.stringify(cartItems));
-            
-            // Thông báo thành công
-            alert('Đã thêm sản phẩm vào giỏ hàng!');
-            
-            // Cập nhật số lượng trong header nếu có
-            const cartCount = document.getElementById('cartCount');
-            if (cartCount) {
-                const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-                cartCount.textContent = totalItems;
-                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-            }
-        }y, 0);
-                cartCount.textContent = totalItems;
-                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-            }
-        }
+</html>
     </script>
 </body>
 </html>

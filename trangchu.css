@@ -1601,9 +1601,10 @@ footer {
     font-size: 0.85rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--accent);
+    color: #D4AF37;
     margin-bottom: 15px;
     font-weight: 600;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 /* === MEMBERSHIP SECTION === */
@@ -2539,3 +2540,727 @@ html.lenis { height: auto; }
     opacity: 0.3;
 }
 /* === comment để push lại === */
+/* ======================================================
+   BỔ SUNG CSS CHO CÁC PHẦN NÂNG CẤP (NEW SECTIONS)
+   ====================================================== */
+
+/* ======================================================
+   [UPDATED] BESPOKE SERVICE STYLES
+   ====================================================== */
+
+.bespoke-process {
+    padding: 140px 0;
+    position: relative;
+    background: #0b0b0b;
+    overflow: hidden;
+}
+
+/* 1. BACKGROUND LAYER (Tạo chiều sâu) */
+.bespoke-bg {
+    position: absolute; inset: 0; z-index: 0;
+}
+.bespoke-bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.15; /* Ảnh nền mờ thôi */
+    filter: grayscale(100%) contrast(1.2);
+}
+.bg-overlay-gradient {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle, rgba(11,11,11,0.8) 0%, rgba(11,11,11,1) 90%);
+}
+
+.position-relative { position: relative; }
+.z-2 { z-index: 2; }
+
+/* 2. SECTION TITLE */
+.section-title {
+    text-align: center;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.section-title h2 em {
+    font-style: italic;
+    color: #D4AF37;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.section-desc {
+    color: #ccc;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.mt-60 { margin-top: 60px; }
+
+/* 3. PROCESS GRID (Lưới hiển thị) */
+.process-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Để các card cao bằng nhau */
+    margin-top: 70px;
+    gap: 20px;
+}
+
+/* 4. PROCESS CARD (Thẻ kính mờ) */
+.process-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03); /* Kính mờ cực nhẹ */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    position: relative;
+    transition: transform 0.4s, background 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+/* Hiệu ứng Hover vào Card */
+.process-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(212, 185, 140, 0.3); /* Viền vàng hiện lên */
+}
+
+/* Header của Card: Số to + Icon */
+.p-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Số Outline (Rỗng ruột) - Điểm nhấn Luxury */
+.p-number-outline {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2); /* Viền trắng mờ */
+    transition: 0.4s;
+}
+.process-card:hover .p-number-outline {
+    -webkit-text-stroke: 1px #D4B98C; /* Hover chuyển viền vàng */
+    opacity: 1;
+}
+
+.p-icon {
+    font-size: 1.8rem;
+    color: #D4B98C;
+    background: rgba(212, 185, 140, 0.1);
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(212, 185, 140, 0.2);
+}
+
+/* Nội dung Card */
+.p-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.p-body p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 5. CONNECTOR (Đường nối giữa các bước) */
+.process-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    position: relative;
+    opacity: 0.5;
+}
+.process-connector .line {
+    width: 100%; height: 1px;
+    background: linear-gradient(to right, transparent, #555, transparent);
+}
+.process-connector .dot {
+    width: 6px; height: 6px; background: #D4B98C; border-radius: 50%;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #D4B98C;
+}
+
+/* 6. BUTTON MỚI (Sang hơn) */
+.btn-gold-outline {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid #D4B98C;
+    color: #D4B98C;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.btn-gold-outline:hover {
+    background: #D4B98C;
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 185, 140, 0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .process-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .process-connector {
+        display: none; /* Ẩn đường nối trên mobile */
+    }
+    .process-card {
+        padding: 30px;
+    }
+    .p-number-outline {
+        font-size: 3.5rem;
+    }
+}
+
+/* --- 2. SHOP BY SPACE (MUA THEO PHÒNG) --- */
+.shop-by-space {
+    width: 100%;
+}
+.space-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 650px; /* Chiều cao cố định cho đẹp */
+}
+.space-item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+.space-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.space-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.4s;
+    padding: 20px;
+    text-align: center;
+}
+.space-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.space-overlay .btn-link {
+    color: #D4B98C;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s ease-out 0.1s; /* Delay nhẹ */
+    border: 1px solid #D4B98C;
+    padding: 10px 25px;
+    border-radius: 30px;
+}
+/* Hover Effect */
+.space-item:hover img { transform: scale(1.1); }
+.space-item:hover .space-overlay { background: rgba(0,0,0,0.5); }
+.space-item:hover h3, 
+.space-item:hover .btn-link { 
+    transform: translateY(0); 
+    opacity: 1; 
+}
+.space-item:hover .btn-link:hover {
+    background: #D4B98C; color: #000;
+}
+
+/* --- 3. EDITORIAL REVIEWS (CHỨNG THỰC) --- */
+.editorial-reviews {
+    padding: 120px 0;
+    background: #0f0f0f;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.review-card {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: #D4B98C;
+    line-height: 1;
+    opacity: 0.2;
+    margin-bottom: 0;
+}
+.review-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    line-height: 1.4;
+    color: #f0f0f0;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.reviewer-info img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #D4B98C;
+}
+.reviewer-info h4 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.reviewer-info span {
+    font-size: 0.9rem;
+    color: #888;
+    display: block;
+    margin-top: 5px;
+}
+
+/* --- 4. THE JOURNAL (BLOG) --- */
+.journal-section {
+    padding: 120px 0;
+    background: #111;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+.journal-card {
+    cursor: pointer;
+}
+.j-img-wrapper {
+    display: block;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 25px;
+}
+.j-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+    filter: grayscale(20%);
+}
+.journal-card:hover .j-img-wrapper img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+.j-content {
+    padding-right: 10px;
+}
+.j-date {
+    font-family: 'JetBrains Mono', monospace; /* Hoặc font mono khác */
+    font-size: 0.75rem;
+    color: #D4B98C;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 15px;
+}
+.j-content h3 {
+    margin: 0 0 15px;
+}
+.j-content h3 a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.3;
+    transition: color 0.3s;
+}
+.journal-card:hover h3 a {
+    color: #D4B98C;
+}
+.read-more {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+.read-more:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+/* --- RESPONSIVE CHO PHẦN MỚI --- */
+@media (max-width: 992px) {
+    .space-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .space-item {
+        height: 400px; /* Chiều cao trên mobile */
+    }
+    .process-steps {
+        flex-direction: column;
+        gap: 60px;
+    }
+    .p-divider {
+        display: none; /* Ẩn đường kẻ ngang trên mobile */
+    }
+    .journal-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .review-text {
+        font-size: 1.4rem;
+    }
+}
+/* ======================================================
+   LUXURY HORIZONTAL SCROLL STYLES
+   ====================================================== */
+
+.luxury-scroll-section {
+    padding: 100px 0;
+    background: #0b0b0b; /* Nền tối */
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.container-fluid {
+    padding: 0 5vw; /* Padding 2 bên rộng */
+}
+
+/* --- Header --- */
+.scroll-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    padding-right: 20px;
+}
+.header-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    line-height: 1.1;
+}
+.header-content em {
+    color: #D4B98C; /* Vàng Gold */
+    font-style: italic;
+}
+.sub-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: #888;
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Nút điều hướng */
+.scroll-nav button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.scroll-nav button:hover {
+    background: #D4B98C;
+    border-color: #D4B98C;
+    color: #000;
+}
+
+/* --- Scroll Wrapper --- */
+.horizontal-scroll-wrapper {
+    position: relative;
+}
+
+.products-track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    scroll-behavior: smooth;
+    padding-bottom: 50px; /* Chừa chỗ cho bóng đổ */
+    
+    /* Ẩn thanh cuộn mặc định */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    cursor: grab; /* Con trỏ kéo */
+}
+.products-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+.products-track:active {
+    cursor: grabbing;
+}
+
+/* --- Product Card Luxury --- */
+.prod-card-luxury {
+    flex: 0 0 350px; /* Chiều rộng cố định mỗi thẻ */
+    height: 500px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    group: transition;
+}
+
+.prod-img-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.prod-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: grayscale(20%);
+}
+
+/* Hiệu ứng Hover ảnh */
+.prod-card-luxury:hover .prod-img-box img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Overlay thông tin (Glassmorphism) */
+.prod-info-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    transform: translateY(20px);
+    transition: 0.4s ease;
+}
+
+.prod-badges {
+    position: absolute;
+    top: 20px; left: 20px;
+    display: flex; gap: 5px; flex-wrap: wrap;
+    z-index: 2;
+}
+.p-badge {
+    background: rgba(255,255,255,0.9);
+    color: #000;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.prod-cat {
+    font-size: 0.75rem;
+    color: #D4B98C;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+.prod-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+.prod-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+/* Nút xem chi tiết (ẩn hiện khi hover) */
+.btn-view-prod {
+    display: inline-block;
+    margin-top: 15px;
+    color: #fff;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-bottom: 1px solid #D4B98C;
+    padding-bottom: 2px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.4s ease 0.1s;
+}
+
+.prod-card-luxury:hover .prod-info-overlay {
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.4));
+}
+.prod-card-luxury:hover .btn-view-prod {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Progress Bar --- */
+.scroll-progress-bar {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-top: 20px;
+    position: relative;
+}
+.progress-fill {
+    position: absolute; left: 0; top: 0;
+    height: 1px;
+    background: #D4B98C;
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .prod-card-luxury { flex: 0 0 280px; height: 400px; }
+    .header-content h2 { font-size: 2.5rem; }
+    .scroll-nav { display: none; } /* Ẩn nút trên mobile cho gọn */
+}
+/* --- PHILOSOPHY SPLIT SECTION --- */
+.philosophy-split { padding: 120px 0; background: #0b0b0b; }
+.philosophy-split .container { display: flex; gap: 40px; }
+
+.philo-item {
+    flex: 1; height: 600px; position: relative; overflow: hidden;
+    border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);
+}
+.philo-media { width: 100%; height: 100%; position: relative; }
+.philo-media video, .philo-media img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.media-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+}
+
+.philo-content {
+    position: absolute; bottom: 40px; left: 40px; right: 40px; z-index: 2;
+}
+.p-tag {
+    font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #D4B98C;
+    letter-spacing: 2px; display: block; margin-bottom: 15px;
+}
+.philo-content h3 {
+    font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff;
+    line-height: 1.1; margin-bottom: 20px;
+}
+.philo-content h3 em { font-style: italic; color: #999; }
+.philo-content p {
+    color: #ccc; font-size: 1rem; line-height: 1.6; margin-bottom: 30px;
+    max-width: 400px; opacity: 0; transform: translateY(20px); transition: 0.5s;
+}
+.btn-line-white {
+    color: #fff; text-decoration: none; border-bottom: 1px solid #fff;
+    padding-bottom: 5px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* Hover Effect */
+.philo-item:hover .philo-media video, 
+.philo-item:hover .philo-media img { transform: scale(1.05); }
+.philo-item:hover p { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 992px) { .philosophy-split .container { flex-direction: column; } .philo-item { height: 500px; } }
+/* --- CATEGORY MOODBOARD --- */
+.category-moodboard { padding: 100px 0; background: #0f0f0f; }
+.mb-60 { margin-bottom: 60px; }
+.section-header-center h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; }
+.section-header-center em { color: #888; font-style: italic; }
+.sub-title-gold { color: #D4B98C; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 10px; }
+
+/* Grid Layout kiểu Tạp chí */
+.mood-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Cột trái to hơn */
+    grid-template-rows: 300px 300px;
+    gap: 20px;
+    height: 620px;
+}
+
+/* Vị trí các ô */
+.item-desk {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* Cột trái chiếm hết chiều cao */
+}
+.item-chair {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.item-lounge {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+/* Style chung cho Card */
+.mood-item {
+    display: block; position: relative; overflow: hidden; border-radius: 4px;
+}
+.mood-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s ease; filter: grayscale(30%);
+}
+.mood-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.2);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 30px; transition: background 0.3s;
+}
+.mood-overlay h3 {
+    font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; margin: 0;
+    transform: translateY(0); transition: transform 0.4s;
+}
+.mood-count {
+    color: #D4B98C; font-size: 0.9rem; margin-top: 5px; opacity: 0; transform: translateY(10px); transition: 0.4s;
+}
+
+/* Hover Effect */
+.mood-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+.mood-item:hover .mood-overlay { background: rgba(0,0,0,0.5); }
+.mood-item:hover h3 { transform: translateY(-5px); }
+.mood-item:hover .mood-count { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .mood-grid { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; display: flex; flex-direction: column; }
+    .item-desk { height: 400px; }
+    .item-chair, .item-lounge { height: 250px; }
+}

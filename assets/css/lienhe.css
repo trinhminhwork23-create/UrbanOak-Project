@@ -412,17 +412,6 @@ textarea.form-input:focus {
     position: relative;
 }
 
-.quote-text::before {
-    content: '"';
-    font-size: 80px;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--primary-color);
-    opacity: 0.2;
-}
-
 .signature p {
     font-size: 14px;
     color: #495057;

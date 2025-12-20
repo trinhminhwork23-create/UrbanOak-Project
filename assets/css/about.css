@@ -1,0 +1,328 @@
+/* ======================================================
+   ASSETS/CSS/ABOUT.CSS - URBAN OAK CINEMATIC EXPERIENCE
+   ====================================================== */
+
+/* --- 1. SETUP: BIẾN MÀU SẮC & FONT --- */
+:root {
+    /* Nền: Gradient than chì sang trọng, có chiều sâu */
+    --bg-dark: #111111; 
+    --bg-gradient: radial-gradient(circle at center, #2a2a2a 0%, #0b0b0b 100%);
+    
+    /* Màu nhấn: Vàng Champagne (Sang trọng, không chóe) */
+    --accent-gold: #D4B98C; 
+    --accent-glow: rgba(212, 185, 140, 0.4); /* Hiệu ứng phát sáng */
+    
+    /* Màu chữ */
+    --text-main: #ffffff;
+    --text-sub: #d0d0d0;
+    
+    /* Fonts */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body.about-page {
+    background: var(--bg-dark);
+    background-image: var(--bg-gradient);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang thừa */
+    min-height: 100vh;
+}
+
+/* --- 2. KHÔNG KHÍ (ATMOSPHERE LAYERS) --- */
+
+/* Lớp Noise (Nhiễu hạt giấy) - Tạo chất điện ảnh */
+.noise-overlay {
+    position: fixed; inset: 0;
+    background: url('https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/assets/images/noise.png');
+    opacity: 0.03; 
+    pointer-events: none; z-index: 999;
+}
+
+/* Lớp Sương mù (Fog) - Trôi nhẹ nhàng */
+.fog-layer {
+    position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
+    opacity: 0.4; pointer-events: none; z-index: 0;
+    animation: fogMove 25s infinite linear;
+}
+@keyframes fogMove {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-30px, -20px) rotate(3deg); }
+}
+
+/* Font Utilities */
+.font-playfair { font-family: var(--font-serif); }
+.font-mono { font-family: var(--font-mono); letter-spacing: -0.5px; }
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+em { font-style: italic; color: var(--accent-gold); }
+
+
+/* --- 3. HERO SECTION (VIDEO MỞ ĐẦU) --- */
+.chapter-hero {
+    height: 100vh; position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden; text-align: center;
+}
+.video-bg { position: absolute; inset: 0; z-index: 0; }
+.video-bg video { 
+    width: 100%; height: 100%; object-fit: cover; 
+    opacity: 0.75; /* Độ sáng video */
+}
+/* Overlay gradient mờ dần xuống dưới */
+.video-overlay {
+    position: absolute; inset: 0; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(11,11,11,0.9));
+}
+
+.hero-content { position: relative; z-index: 2; padding: 0 20px; }
+
+/* Nhãn kỹ thuật [EST. 2010] */
+.tech-label {
+    font-family: var(--font-mono); font-size: 12px; color: var(--accent-gold);
+    margin-bottom: 20px; letter-spacing: 2px; 
+    border: 1px solid rgba(212, 185, 140, 0.5);
+    background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
+    display: inline-block; padding: 5px 15px; border-radius: 20px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.hero-content h1 { 
+    font-size: 6vw; line-height: 1.1; margin-bottom: 20px; 
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.hero-desc { 
+    font-size: 1.3rem; font-weight: 300; max-width: 650px; margin: 0 auto; 
+    color: #f0f0f0; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Scroll Indicator (Mũi tên cuộn) */
+.scroll-indicator {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; opacity: 0.8;
+}
+.scroll-indicator .line {
+    width: 1px; height: 50px; background: rgba(255,255,255,0.2); margin: 10px auto 0;
+    position: relative; overflow: hidden;
+}
+.scroll-indicator .line::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--accent-gold); animation: scrollDown 2s infinite;
+}
+@keyframes scrollDown { 0% {transform: translateY(-100%);} 100% {transform: translateY(100%);} }
+
+
+/* --- 4. MANIFESTO (KINETIC TYPOGRAPHY) --- */
+.chapter-manifesto { 
+    padding: 120px 0; 
+    border-bottom: 1px solid rgba(255,255,255,0.08); 
+    background: rgba(255,255,255,0.02); 
+}
+.manifesto-grid { text-align: center; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.m-label { color: var(--accent-gold); font-size: 13px; margin-bottom: 30px; letter-spacing: 2px; }
+
+/* CSS cho chữ chạy Kinetic */
+.kinetic-quote {
+    text-align: left; max-width: 800px; margin: 0 auto 40px;
+}
+.k-line {
+    font-size: 3.5rem; line-height: 1.2; color: #ffffff;
+    overflow: hidden; margin-bottom: 10px; font-family: var(--font-serif);
+}
+.k-word {
+    display: inline-block; transform: translateY(100%); opacity: 0; /* Ẩn mặc định */
+}
+.k-word.emphasis { color: var(--accent-gold); font-style: italic; }
+
+
+/* --- 5. TIMELINE & STAGES (PHẦN DỌC) --- */
+.timeline-container { position: relative; padding: 100px 0; max-width: 1400px; margin: 0 auto; }
+
+/* Đường vân gỗ phát sáng */
+.soul-line {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 100%; pointer-events: none; z-index: 1;
+}
+#woodPath { 
+    fill: none; stroke: var(--accent-gold); stroke-width: 2.5; 
+    opacity: 0.7; filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+
+/* Layout từng bước (Stage) */
+.stage {
+    min-height: 90vh; display: flex; align-items: center; justify-content: space-between;
+    position: relative; z-index: 2; padding: 0 5%;
+}
+.left-align { flex-direction: row; }
+.right-align { flex-direction: row-reverse; }
+
+.stage-content { width: 35%; }
+.stage-visual { 
+    width: 45%; height: 600px; position: relative; 
+    border-radius: 4px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15); /* Viền sáng mỏng */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.stage-visual img, .stage-visual video { 
+    width: 100%; height: 100%; object-fit: cover; 
+    filter: grayscale(10%); transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1); 
+}
+.stage-visual:hover img, .stage-visual:hover video { 
+    filter: grayscale(0%); transform: scale(1.03); 
+}
+
+/* Typography Stage */
+.stage-num { 
+    font-size: 7rem; color: rgba(255,255,255,0.06); display: block; line-height: 1; font-weight: 300;
+}
+.tech-tag {
+    font-size: 11px; color: var(--accent-gold); border-bottom: 1px solid var(--accent-gold);
+    padding-bottom: 3px; display: inline-block; margin-bottom: 25px;
+}
+.stage-content h3 { font-size: 3.5rem; margin-bottom: 25px; line-height: 1.1; color: #fff; }
+.stage-content p { color: var(--text-sub); font-size: 1.15rem; line-height: 1.7; margin-bottom: 30px; }
+
+/* List Thông số */
+.specs-list { list-style: none; border-left: 2px solid rgba(198, 168, 124, 0.3); padding-left: 20px; }
+.specs-list li { font-size: 14px; color: #ccc; margin-bottom: 10px; }
+
+/* Stats (Số liệu) */
+.center-stats { justify-content: center; height: auto; padding: 180px 0; }
+.stats-grid { display: flex; gap: 100px; text-align: center; }
+.stat-num { font-size: 6rem; color: #fff; line-height: 1; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.stat-label { font-size: 14px; color: var(--accent-gold); letter-spacing: 2px; margin-top: 15px; display: block; }
+
+
+/* --- 6. FINISH SECTION (VIDEO CUỐI) --- */
+.finish-section { height: 100vh; padding: 0; }
+.finish-block { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
+.bg-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.video-overlay.dark { background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(11,11,11,0.95) 100%); }
+.finish-content { position: relative; z-index: 2; text-align: center; }
+.finish-content h2 { font-size: 4.5rem; margin-bottom: 10px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+
+
+/* --- 7. LEGACY SECTION (CUỘN NGANG CUỐI CÙNG) --- */
+.toolkit-wrapper {
+    width: 100vw; height: 100vh; 
+    overflow: hidden; display: flex; align-items: center;
+    background: #000000; /* Nền đen tuyền chốt hạ */
+    position: relative; z-index: 10;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.toolkit-track {
+    display: flex; align-items: center; gap: 5vw;
+    padding-left: 10vw; padding-right: 10vw; width: fit-content;
+}
+
+/* Card trong phần cuộn ngang */
+.tool-card {
+    flex: 0 0 auto; width: 60vw; max-width: 500px;
+    position: relative; opacity: 0.5; transition: opacity 0.5s;
+}
+.toolkit-wrapper:hover .tool-card { opacity: 1; }
+
+.tool-image {
+    height: 380px; background: #111; margin-bottom: 25px; overflow: hidden;
+    border: 1px solid rgba(198, 168, 124, 0.3); /* Viền vàng */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative;
+}
+.tool-image::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(198, 168, 124, 0.1); mix-blend-mode: overlay; pointer-events: none;
+}
+.tool-image img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    filter: grayscale(100%); transition: 0.6s ease;
+}
+.tool-card:hover .tool-image img { filter: grayscale(0%); transform: scale(1.05); }
+
+.tool-info h3 { font-size: 2.2rem; margin: 15px 0 10px; color: #fff; line-height: 1.2; }
+.tool-info .desc { color: #a0a0a0; font-size: 1rem; line-height: 1.6; max-width: 90%; }
+
+/* Slide Intro đầu tiên của cuộn ngang */
+.tool-card.intro-card { width: 35vw; opacity: 1; }
+.tool-card.intro-card h2 {
+    font-size: 4.5rem; 
+    background: -webkit-linear-gradient(#fff, #888); 
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* Slide End */
+.tool-card.end-card {
+    width: 30vw; border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 5vw; display: flex; flex-direction: column; justify-content: center;
+}
+
+
+/* --- 8. MAGNETIC BUTTONS (NÚT TỪ TÍNH) --- */
+
+/* Outline */
+.btn-mag.btn-outline {
+    background: transparent; border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff; padding: 14px 35px; border-radius: 50px;
+    font-size: 12px; font-weight: 500; letter-spacing: 2px;
+    margin-top: 35px; transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 12px; backdrop-filter: blur(4px);
+}
+.btn-mag.btn-outline:hover {
+    border-color: var(--accent-gold); color: var(--accent-gold);
+    background: rgba(198, 168, 124, 0.15); box-shadow: 0 0 15px rgba(198, 168, 124, 0.2);
+}
+
+/* Text Only */
+.btn-mag.btn-text-only {
+    display: inline-block; margin-top: 30px;
+    color: var(--accent-gold); font-size: 12px; letter-spacing: 1px;
+    border-bottom: 1px solid transparent; padding-bottom: 3px; text-decoration: none;
+}
+.btn-mag.btn-text-only:hover {
+    border-bottom-color: var(--accent-gold); text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Small Outline */
+.btn-mag.btn-small-outline {
+    background: transparent; border: 1px solid rgba(198, 168, 124, 0.5);
+    color: var(--accent-gold); padding: 10px 24px; border-radius: 30px;
+    font-size: 11px; letter-spacing: 1px; margin-top: 25px; cursor: pointer; transition: 0.3s;
+    text-decoration: none; display: inline-block;
+}
+.btn-mag.btn-small-outline:hover {
+    background: var(--accent-gold); color: #000; box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Luxury Solid (CTA) */
+.btn-mag.btn-luxury-solid {
+    display: inline-flex; padding: 22px 60px;
+    background: var(--accent-gold); color: #111; font-weight: 600;
+    border-radius: 50px; text-decoration: none; letter-spacing: 3px; font-size: 13px;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 10px 40px rgba(198, 168, 124, 0.3); margin-top: 40px;
+}
+.btn-mag.btn-luxury-solid:hover {
+    transform: scale(1.05); background: #fff; box-shadow: 0 15px 50px rgba(255,255,255, 0.4);
+}
+
+
+/* --- 9. RESPONSIVE MOBILE --- */
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 13vw; }
+    .k-line { font-size: 2.2rem; }
+    .kinetic-quote { text-align: center; }
+    
+    .stage { flex-direction: column !important; text-align: center; padding: 50px 20px; }
+    .stage-content, .stage-visual { width: 100%; height: auto; margin-bottom: 40px; }
+    .stage-visual { height: 400px; box-shadow: none; }
+    
+    .soul-line { display: none; } /* Ẩn đường kẻ trên mobile */
+    .stats-grid { flex-direction: column; gap: 50px; }
+    .stat-num { font-size: 4rem; }
+    
+    .tool-card { width: 85vw; } /* Card cuộn ngang to ra */
+    .tool-card.intro-card { width: 85vw; }
+    .tool-image { height: 250px; }
+}
+

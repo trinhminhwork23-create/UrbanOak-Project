@@ -266,6 +266,40 @@ function initScrollAnimations() {
     });
 }
 
+// Khởi chạy khi DOM load xong
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+    initScrollAnimations();
+}
+
+// Horizontal Scroll Navigation
+const scrollLeftBtn = document.getElementById('scrollLeft');
+const scrollRightBtn = document.getElementById('scrollRight');
+const productsTrack = document.getElementById('featuredProductsTrack');
+
+if (scrollLeftBtn && scrollRightBtn && productsTrack) {
+    scrollLeftBtn.addEventListener('click', () => {
+        productsTrack.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+    
+    scrollRightBtn.addEventListener('click', () => {
+        productsTrack.scrollBy({ left: 400, behavior: 'smooth' });
+    });
+    
+    // Update progress bar
+    productsTrack.addEventListener('scroll', () => {
+        const scrollProgress = document.getElementById('scrollProgressFill');
+        if (scrollProgress) {
+            const scrollPercentage = (productsTrack.scrollLeft / (productsTrack.scrollWidth - productsTrack.clientWidth)) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        }
+    });
+}l => {
+        observer.observe(el);
+    };
+
+
 // Initialize scroll animations after DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
@@ -397,6 +431,161 @@ indicatorDots.forEach((dot, index) => {
         if (sections[index]) {
             sections[index].scrollIntoView({ behavior: 'smooth' });
         }
+    });
+});
+/* ======================================================
+   RENDER & LOGIC CHO PHẦN CUỘN NGANG SẢN PHẨM
+   ====================================================== */
+
+// 1. DATA (Dữ liệu gốc bạn cung cấp)
+const products = [
+    {
+        id: 'chair-winston-vip',
+        name: 'Ghế Giám Đốc WINSTON', // Rút gọn tên cho đẹp card
+        fullName: 'Ghế Giám Đốc WINSTON – Quyền uy dẫn lối thành công',
+        category: 'chair',
+        categoryName: 'Ghế Chủ Tịch',
+        price: 28900000,
+        badges: ['Best Seller', 'Da Nappa'],
+        thumb: 'https://images.unsplash.com/photo-1598590453372-bfc0e4b4e6b5?w=800&q=100',
+    },
+    {
+        id: 'chair-lumina-pro',
+        name: 'Ghế Văn Phòng LUMINA PRO',
+        category: 'chair',
+        categoryName: 'Ghế Ergonomic',
+        price: 15500000,
+        badges: ['Ergonomic', 'ISO9001'],
+        thumb: 'https://images.unsplash.com/photo-1598300056681-f8e0f05a9a99?w=800&q=100',
+    },
+    {
+        id: 'desk-concorde-vip',
+        name: 'Bàn Giám Đốc CONCORDE',
+        category: 'desk',
+        categoryName: 'Bàn Giám Đốc',
+        price: 45000000,
+        badges: ['Gỗ Nguyên Tấm', 'Limited'],
+        thumb: 'https://images.unsplash.com/photo-1593642632623-8f785e4fb5b0?w=800&q=100',
+    },
+    {
+        id: 'desk-executive-slim',
+        name: 'Bàn EXECUTIVE SLIM',
+        category: 'desk',
+        categoryName: 'Bàn Hiện Đại',
+        price: 28500000,
+        badges: ['Modern', 'Modular'],
+        thumb: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=100',
+    },
+    {
+        id: 'lamp-aurora-vip',
+        name: 'Đèn Bàn AURORA',
+        category: 'lamp',
+        categoryName: 'Đèn Hoàng Gia',
+        price: 18500000,
+        badges: ['Smart IoT', 'Handmade'],
+        thumb: 'https://images.unsplash.com/photo-1565636192335-14c66f859066?w=800&q=100',
+    },
+    {
+        id: 'accessory-sovereign-vip',
+        name: 'Bộ Phụ Kiện SOVEREIGN',
+        category: 'accessory',
+        categoryName: 'Phụ Kiện Luxury',
+        price: 12800000,
+        badges: ['Luxury Set', 'Italian Leather'],
+        thumb: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=800&q=100',
+    },
+    {
+        id: 'shelf-wisdom-tower',
+        name: 'Kệ Sách WISDOM TOWER',
+        category: 'shelf',
+        categoryName: 'Kệ Sách',
+        price: 22000000,
+        badges: ['Modular', 'Minimalist'],
+        thumb: 'https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800&q=100',
+    }
+];
+
+// Hàm format tiền
+function formatCurrency(amount) {
+    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+}
+
+// 2. RENDER PRODUCTS
+document.addEventListener("DOMContentLoaded", function() {
+    const track = document.getElementById('featuredProductsTrack');
+    const progressBar = document.getElementById('scrollProgressFill');
+    const wrapper = document.getElementById('productTrackWrapper');
+    
+    if (!track) return;
+
+    // Generate HTML
+    const html = products.map(product => {
+        // Tạo badges HTML
+        const badgesHtml = product.badges.map(b => `<span class="p-badge">${b}</span>`).join('');
+        
+        return `
+            <div class="prod-card-luxury">
+                <div class="prod-img-box">
+                    <div class="prod-badges">${badgesHtml}</div>
+                    <img src="${product.thumb}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="prod-info-overlay">
+                    <span class="prod-cat">${product.categoryName}</span>
+                    <h3 class="prod-title">${product.name}</h3>
+                    <div class="prod-price">${formatCurrency(product.price)}</div>
+                    <a href="product-detail.html?id=${product.id}" class="btn-view-prod">Xem Chi Tiết &rarr;</a>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    track.innerHTML = html;
+
+    // 3. LOGIC SCROLL & PROGRESS BAR
+    const updateProgress = () => {
+        // Tính toán % đã cuộn
+        // scrollLeft: vị trí hiện tại
+        // scrollWidth - clientWidth: tổng khoảng cách có thể cuộn
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        const percent = (track.scrollLeft / maxScroll) * 100;
+        
+        if (progressBar) {
+            progressBar.style.width = `${percent}%`;
+        }
+    };
+
+    // Lắng nghe sự kiện cuộn
+    track.addEventListener('scroll', updateProgress);
+
+    // 4. LOGIC DRAG TO SCROLL (Kéo chuột để cuộn trên PC)
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        track.classList.add('active');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+    
+    track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('active'); });
+    track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('active'); });
+    
+    track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 2; // Tốc độ kéo
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    // 5. NÚT ĐIỀU HƯỚNG
+    document.getElementById('scrollLeft').addEventListener('click', () => {
+        track.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+    document.getElementById('scrollRight').addEventListener('click', () => {
+        track.scrollBy({ left: 400, behavior: 'smooth' });
     });
 });
 // End of trangchu.js

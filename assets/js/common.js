@@ -1,32 +1,150 @@
-/* Common site JS: loader hide, header toggle, mobile menu, floating buttons,
-	 image-zoom modal and safe MagicCursor init (fallback if class missing). */
-/* assets/js/common.js - CLEAN VERSION */
+/* ======================================================
+   COMMON.JS - GLOBAL SITE LOGIC
+   ====================================================== */
 
+/**
+ * Khởi tạo tất cả chức năng chung khi DOM load xong
+ */
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Kích hoạt logic Header (Tự động nhận diện Trang chủ/Trang con)
+    injectHeaderFooter();
     handleHeaderStyle();
-    
-    // 2. Kích hoạt Mobile Menu
     initMobileMenu();
-
-    // 3. Kích hoạt nút nổi (Floating Buttons)
     initFloatingButtons();
-
-    // 4. Kích hoạt Zoom ảnh
     initImageZoom();
+    initUserDisplay();
+    initCartDisplay();
 });
 
-/* --- 1. LOGIC HEADER THÔNG MINH --- */
+/* --- INJECT HEADER & FOOTER --- */
+/**
+ * Tự động chèn Header và Footer vào trang
+ */
+function injectHeaderFooter() {
+    if (document.getElementById('header')) return;
+    
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userDisplay = currentUser 
+        ? `<a href="#" id="userDisplay" title="${currentUser.fullname}">
+            <i class="fas fa-user"></i> <span>${currentUser.username}</span>
+           </a>` 
+        : `<a href="login.html" id="userDisplay">
+            <i class="fas fa-user"></i> <span>Đăng nhập</span>
+           </a>`;
+    
+    const headerHTML = `
+    <header id="header" class="header-transparent">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="trangchu.html">
+                        <h1 class="brand-logo" style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
+                    </a>
+                </div>
+                
+                <nav class="menu-luxury" id="menu">
+                    <ul>
+                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="danhmuc.html">Sản phẩm</a></li>
+                        <li><a href="chitietsanpham.html">Dự án</a></li>
+                        <li><a href="lienhe.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="search-container">
+                        <button class="search-btn" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-input-wrapper">
+                            <input type="text" class="search-input" placeholder="Tìm kiếm...">
+                        </div>
+                    </div>
+                    
+                    ${userDisplay}
+                    
+                    <div class="cart-container">
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                        <div class="mini-cart-dropdown">
+                            <div id="miniCartContent">
+                                <p>Giỏ hàng trống</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    `;
+    
+    const footerHTML = `
+    <footer class="staircase-footer">
+        <div class="footer-bg-text">
+            <div class="marquee-track">URBANOAK — MASTERPIECE — URBANOAK — MASTERPIECE —</div>
+        </div>
+
+        <div class="container footer-container">
+            <div class="footer-top-bar">
+                <div class="brand-small">URBANOAK.</div>
+                <div class="user-actions">
+                    <a href="login.html">Đăng nhập / Đăng xuất</a>
+                    <span class="dot">•</span>
+                    <a href="cart.html">Giỏ hàng</a>
+                    <span class="dot">•</span>
+                    <a href="checkout.html">Thanh toán</a>
+                </div>
+            </div>
+
+            <nav class="staircase-nav">
+                <a href="trangchu.html" class="stair-link"><span class="num">01</span> Trang chủ <div class="line"></div></a>
+                <a href="danhmuc.html" class="stair-link"><span class="num">02</span> Sản phẩm <div class="line"></div></a>
+                <a href="about.html" class="stair-link"><span class="num">03</span> Giới thiệu <div class="line"></div></a>
+                <a href="chitietsanpham.html" class="stair-link"><span class="num">04</span> Dự án <div class="line"></div></a>
+                <a href="lienhe.html" class="stair-link"><span class="num">05</span> Liên hệ <div class="line"></div></a>
+            </nav>
+
+            <div class="footer-bottom-info">
+                <div class="policy-links">
+                    <a href="#">Chính sách</a>
+                    <a href="#">Điều khoản</a>
+                </div>
+                
+                <div class="social-connect">
+                    <span class="label">Connect:</span>
+                    <div class="icons">
+                        <a href="#" class="s-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="s-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="s-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    `;
+    
+    document.body.insertAdjacentHTML('afterbegin', headerHTML);
+    document.body.insertAdjacentHTML('beforeend', footerHTML);
+}
+
+/* --- HEADER STYLE LOGIC --- */
+/**
+ * Xử lý style header (transparent/solid) dựa vào trang
+ */
 function handleHeaderStyle() {
     const header = document.getElementById('header');
     if (!header) return;
 
-    // Kiểm tra xem có phải trang chủ không
     const path = window.location.pathname;
     const isHome = path.includes("index.html") || path.includes("trangchu.html") || path === "/" || path.endsWith("/");
 
     if (isHome) {
-        // === TRANG CHỦ: Ban đầu trong suốt, cuộn xuống thì trắng ===
         header.classList.add('header-transparent');
         header.classList.remove('header-solid');
 
@@ -40,13 +158,15 @@ function handleHeaderStyle() {
             }
         });
     } else {
-        // === TRANG KHÁC: Luôn nền trắng ===
         header.classList.add('header-solid');
         header.classList.remove('header-transparent');
     }
 }
 
-/* --- 2. LOGIC MOBILE MENU --- */
+/* --- MOBILE MENU --- */
+/**
+ * Khởi tạo mobile menu toggle
+ */
 function initMobileMenu() {
     const mobileBtn = document.getElementById('mobileMenuBtn');
     if (mobileBtn) {
@@ -56,7 +176,10 @@ function initMobileMenu() {
     }
 }
 
-/* --- 3. LOGIC FLOATING BUTTONS --- */
+/* --- FLOATING BUTTONS --- */
+/**
+ * Xử lý các nút floating (scroll top, call, fb, zalo)
+ */
 function initFloatingButtons() {
     document.addEventListener('click', function(e) {
         const btn = e.target.closest('.scroll-top-btn, .call-btn, .fb-btn, .zalo-btn');
@@ -74,7 +197,10 @@ function initFloatingButtons() {
     });
 }
 
-/* --- 4. LOGIC ZOOM ẢNH --- */
+/* --- IMAGE ZOOM MODAL --- */
+/**
+ * Khởi tạo modal zoom ảnh
+ */
 function initImageZoom() {
     const zoomModal = document.getElementById('imageZoomModal');
     if (zoomModal) {
@@ -106,258 +232,105 @@ function initImageZoom() {
         });
     }
 }
-(function(){
-	// Hide loading screen on full load
-	window.addEventListener('load', function(){
-		const loading = document.getElementById('loading-screen');
-		if(loading) loading.classList.add('hidden');
 
-		// Init custom cursor if present
-		try{
-			if(window.innerWidth <= 992) return;
-			const ball = document.getElementById('ball');
-			if(!ball) return;
-
-			if(typeof window.MagicCursor !== 'undefined'){
-				// Some pages may expose MagicCursor class globally
-				new window.MagicCursor();
-				return;
-			}
-
-			// Fallback implementation (lightweight)
-			class FallbackCursor{
-				constructor(){
-					this.ball = ball;
-					this.init();
-				}
-				init(){
-					window.addEventListener('mousemove', e => {
-						this.ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-					});
-					this.initClickables();
-					initMagnetics();
-				}
-				initClickables(){
-					const clickables = document.querySelectorAll('a,button,.btn,input,textarea,.partner-logo,.header-actions i');
-					clickables.forEach(el => {
-						el.addEventListener('mouseenter', ()=>{
-							this.ball.classList.add('explore');
-							this.ball.innerHTML = '<span>Explore</span>';
-						});
-						el.addEventListener('mouseleave', ()=>{
-							this.ball.classList.remove('explore');
-							this.ball.innerHTML = '';
-						});
-					});
-				}
-			}
-
-			new FallbackCursor();
-		}catch(e){console.warn('cursor init error', e)}
-	});
-
-
-// --- Magnetic button gravity effect ---
-let __mousePos = {x:0,y:0};
-document.addEventListener('mousemove', (e)=>{ __mousePos.x = e.clientX; __mousePos.y = e.clientY; });
-
-function initMagnetics(selectorList){
-	const sel = selectorList || 'button, .btn, .floating-btn, .call-btn, .fb-btn, .zalo-btn';
-	const magnets = Array.from(document.querySelectorAll(sel));
-	if(!magnets.length) return;
-
-	magnets.forEach(el=>{
-		// ensure smooth transition
-		if(!el.style.transition) el.style.transition = 'transform 0.28s cubic-bezier(.2,1,.3,1)';
-		el.dataset.__origTransform = el.style.transform || '';
-	});
-
-	function onMove(){
-		const mx = __mousePos.x;
-		const my = __mousePos.y;
-		const threshold = 140; // px
-		const maxTranslate = 14; // px
-
-		magnets.forEach(el=>{
-			const r = el.getBoundingClientRect();
-			const cx = r.left + r.width/2;
-			const cy = r.top + r.height/2;
-			const dx = mx - cx;
-			const dy = my - cy;
-			const dist = Math.sqrt(dx*dx + dy*dy);
-			if(dist < threshold){
-				const strength = (threshold - dist)/threshold; // 0..1
-				const tx = (dx/dist || 0) * strength * maxTranslate;
-				const ty = (dy/dist || 0) * strength * maxTranslate;
-				el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
-			} else {
-				// reset
-				el.style.transform = el.dataset.__origTransform || '';
-			}
-		});
-	}
-
-	// run on mousemove with requestAnimationFrame throttle
-	let rafId = null;
-	document.addEventListener('mousemove', ()=>{
-		if(rafId) cancelAnimationFrame(rafId);
-		rafId = requestAnimationFrame(()=>{ onMove(); rafId = null; });
-	});
-}
-
-	// Header scroll toggle
-	const header = document.getElementById('header');
-	function onScroll(){
-		if(!header) return;
-		if(window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-	}
-	window.addEventListener('scroll', onScroll);
-	onScroll();
-
-	// Mobile menu toggle
-	const mobileBtn = document.getElementById('mobileMenuBtn');
-	if(mobileBtn){
-		mobileBtn.addEventListener('click', ()=>{
-			document.body.classList.toggle('mobile-menu-open');
-		});
-	}
-
-	// Floating buttons actions (delegated)
-	document.addEventListener('click', function(e){
-		const btn = e.target.closest('.scroll-top-btn, .call-btn, .fb-btn, .zalo-btn');
-		if(!btn) return;
-		if(btn.classList.contains('scroll-top-btn')){
-			window.scrollTo({top:0,behavior:'smooth'});
-		} else if(btn.classList.contains('call-btn')){
-			window.location.href = 'tel:0901234567';
-		} else if(btn.classList.contains('fb-btn')){
-			window.open('https://facebook.com','_blank');
-		}
-	});
-
-	// Image zoom modal
-	const zoomModal = document.getElementById('imageZoomModal');
-	if(zoomModal){
-		document.addEventListener('click', function(e){
-			const trigger = e.target.closest('.img-hover-zoom, [data-zoom-src]');
-			if(!trigger) return;
-			const img = trigger.querySelector('img') || trigger;
-			if(!img) return;
-			const src = img.dataset.zoomSrc || img.src;
-			const zoomImage = document.getElementById('zoomImage');
-			if(zoomImage){ zoomImage.src = src; zoomModal.style.display = 'flex'; document.body.classList.add('no-scroll'); }
-		});
-		zoomModal.querySelector('.close-zoom')?.addEventListener('click', ()=>{ zoomModal.style.display='none'; document.body.classList.remove('no-scroll'); });
-		zoomModal.addEventListener('click', (e)=>{ if(e.target === zoomModal){ zoomModal.style.display='none'; document.body.classList.remove('no-scroll'); } });
-	}
-
-})();
-
-// mark common initialized to prevent duplicate init in page scripts
-window.__COMMON_INITIALIZED = true;
-/* LOGIC HEADER TỰ ĐỘNG (Dán vào assets/js/common.js) */
-
-document.addEventListener("DOMContentLoaded", function() {
-    handleHeaderStyle(); // Chạy ngay khi vào trang
-});
-
-function handleHeaderStyle() {
-    const header = document.getElementById('header');
-    if (!header) return;
-
-    // 1. Kiểm tra xem có phải trang chủ không
-    const path = window.location.pathname;
-    const isHome = path.includes("index.html") || path.includes("trangchu.html") || path === "/" || path.endsWith("/");
-
-    if (isHome) {
-        // === TRƯỜNG HỢP 1: TRANG CHỦ ===
-        // Ban đầu set trong suốt
-        header.classList.add('header-transparent');
-        header.classList.remove('header-solid');
-
-        // Khi cuộn xuống thì đổi màu
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.remove('header-transparent');
-                header.classList.add('header-solid');
-            } else {
-                header.classList.add('header-transparent');
-                header.classList.remove('header-solid');
+/* --- USER DISPLAY LOGIC --- */
+/**
+ * Xử lý hiển thị user và logout
+ */
+function initUserDisplay() {
+    const userDisplay = document.getElementById('userDisplay');
+    if (!userDisplay) return;
+    
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        userDisplay.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm(`Xin chào ${currentUser.fullname}!\nBạn có muốn đăng xuất?`)) {
+                localStorage.removeItem('currentUser');
+                window.location.reload();
             }
         });
+    }
+}
 
+/* --- CART DISPLAY LOGIC --- */
+/**
+ * Hiển thị số lượng sản phẩm trong giỏ hàng
+ */
+function initCartDisplay() {
+    const cartCount = document.getElementById('cartCount');
+    if (!cartCount) return;
+    
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    cartCount.textContent = totalItems;
+    
+    if (totalItems > 0) {
+        cartCount.style.display = 'flex';
     } else {
-        // === TRƯỜNG HỢP 2: CÁC TRANG KHÁC (Shop, About...) ===
-        // Ép luôn nền trắng, chữ đen
-        header.classList.add('header-solid');
-        header.classList.remove('header-transparent');
-        
-        // (Không cần sự kiện scroll đổi màu nữa vì nó luôn trắng rồi)
-    }
-}
-/* ======================================================
-   MAGIC CURSOR LOGIC - NO DELAY
-   ====================================================== */
-
-class MagicCursor {
-    constructor() {
-        // Chỉ chạy trên PC
-        if (window.innerWidth <= 992) return;
-
-        this.ball = document.getElementById("ball");
-        // Nếu tìm thấy thẻ ball thì mới chạy
-        if (this.ball) {
-            this.init();
-        }
-    }
-
-    init() {
-        // 1. Di chuyển con trỏ (Dùng transform translate3d cho mượt)
-        window.addEventListener("mousemove", (e) => {
-            this.ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-        });
-
-        // 2. Kích hoạt hiệu ứng Explore
-        this.initClickables();
-
-        // 3. Xử lý khi chuột rời khỏi màn hình (Ẩn đi cho đỡ ngứa mắt)
-        document.addEventListener("mouseleave", () => {
-            this.ball.style.opacity = "0";
-        });
-        document.addEventListener("mouseenter", () => {
-            this.ball.style.opacity = "1";
-        });
-    }
-
-    initClickables() {
-        // Danh sách các thẻ cần hiện chữ Explore
-        const selectors = [
-            'a', 'button', '.btn', 'input', 'textarea', 
-            '.partner-logo', '.header-actions i', '.floating-btn', 
-            '.menu-luxury a', '.project-card', '.category-card'
-        ];
-        
-        // Gộp các selector lại thành chuỗi
-        const clickables = document.querySelectorAll(selectors.join(', '));
-        
-        clickables.forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                this.ball.classList.add('explore');
-                // Nếu không phải ô nhập liệu thì hiện chữ
-                if (!el.matches('input, textarea')) {
-                    this.ball.innerHTML = '<span>Explore</span>';
-                }
-            });
-
-            el.addEventListener("mouseleave", () => {
-                this.ball.classList.remove('explore');
-                this.ball.innerHTML = '';
-            });
-        });
+        cartCount.style.display = 'none';
     }
 }
 
-// Chạy ngay khi trang tải xong
-window.addEventListener('load', () => {
-    new MagicCursor();
+/* --- LOADING SCREEN --- */
+window.addEventListener('load', function() {
+    const loading = document.getElementById('loading-screen');
+    if (loading) loading.classList.add('hidden');
+    
+    initMagicCursor();
+});
+
+/* --- MAGIC CURSOR --- */
+/**
+ * Khởi tạo con trỏ chuột tùy chỉnh
+ */
+function initMagicCursor() {
+    if (window.innerWidth <= 992) return;
+    
+    const ball = document.getElementById('ball');
+    if (!ball) return;
+    
+    window.addEventListener('mousemove', (e) => {
+        ball.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    });
+    
+    const clickables = document.querySelectorAll('a, button, .btn, input, textarea, .partner-logo, .header-actions i, .floating-btn, .menu-luxury a');
+    clickables.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            ball.classList.add('explore');
+            if (!el.matches('input, textarea')) {
+                ball.innerHTML = '<span>Explore</span>';
+            }
+        });
+        el.addEventListener('mouseleave', () => {
+            ball.classList.remove('explore');
+            ball.innerHTML = '';
+        });
+    });
+    
+    document.addEventListener('mouseleave', () => ball.style.opacity = '0');
+    document.addEventListener('mouseenter', () => ball.style.opacity = '1');
+}
+
+window.__COMMON_INITIALIZED = true;
+/* MAGNETIC BUTTON EFFECT CHO FOOTER SOCIAL */
+const socialBtns = document.querySelectorAll('.social-icon');
+
+socialBtns.forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+        const x = e.offsetX;
+        const y = e.offsetY;
+        const btnWidth = this.clientWidth;
+        const btnHeight = this.clientHeight;
+        
+        // Di chuyển nút nhẹ theo chuột
+        const transX = (x - btnWidth / 2);
+        const transY = (y - btnHeight / 2);
+        
+        this.style.transform = `translate(${transX}px, ${transY}px)`;
+    });
+    
+    btn.addEventListener('mouseout', function() {
+        this.style.transform = ''; // Trả về vị trí cũ
+    });
 });

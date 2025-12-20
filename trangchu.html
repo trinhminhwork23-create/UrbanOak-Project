@@ -9,10 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="trangchu.css">
+    <link rel="stylesheet" href="assets/css/trangchu.css">
 </head>
 <body>
     <div id="magic-cursor"><div id="ball"></div></div>
+
+    <div id="header-placeholder"></div>
 
     <section class="hero-video-section" id="home">
         <div class="video-background">
@@ -43,80 +45,78 @@
             <span>SOLID WOOD CRAFTSMANSHIP</span><span class="divider">•</span>
         </div>
     </div>
-
-  <section class="philosophy-split" id="about">
+<section class="material-window-section" id="about">
     <div class="container">
-        <div class="philo-item material-side reveal-image">
-            <div class="philo-media">
-                <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1542826437-0744c84a56e7?w=800">
-                    <source src="https://cdn.coverr.co/videos/coverr-carpenters-working-with-wood-5348/1080p.mp4" type="video/mp4">
-                </video>
-                <div class="media-overlay"></div>
-            </div>
-            <div class="philo-content fade-in-up">
-                <span class="p-tag">01. THE SOUL</span>
-                <h3>Vật Liệu <br><em>Có Sự Sống</em></h3>
-                <p>Gỗ sồi (Oak) không vô tri. Nó "thở" và già đi cùng năm tháng. Chúng tôi chỉ khai thác những cây gỗ Bắc Mỹ đã đạt độ chín về vân (80+ năm tuổi).</p>
-                <a href="#wood-story" class="btn-line-white">Câu chuyện gỗ sồi</a>
-            </div>
+        <div class="window-header text-center">
+            <span class="sub-gold">THE SOUL OF URBANOAK</span>
+            <h3>Chất Liệu <br><em>Thở Cùng Thời Gian</em></h3>
         </div>
 
-        <div class="philo-item design-side reveal-image" style="transition-delay: 0.2s;">
-            <div class="philo-media">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Minimal Design">
-                <div class="media-overlay"></div>
-            </div>
-            <div class="philo-content fade-in-up">
-                <span class="p-tag">02. THE MIND</span>
-                <h3>Thiết Kế <br><em>Vượt Thời Gian</em></h3>
-                <p>Loại bỏ sự rườm rà. Ngôn ngữ thiết kế của UrbanOak là những đường thẳng dứt khoát, tôn vinh công năng và sự tĩnh lặng của người lãnh đạo.</p>
-                <a href="#design-lab" class="btn-line-white">Triết lý thiết kế</a>
-            </div>
+        <div class="window-frame">
+            <video id="materialVideo" autoplay muted loop playsinline>
+                <source src="assets/images/chetao.mp4" type="video/mp4">
+            </video>
+            
+            <div class="frame-border-decor"></div>
+            <div class="video-caption">01 — PREMIUM WOOD</div>
+
+            <button id="soundToggleBtn" class="sound-btn">
+                <i class="fas fa-volume-mute"></i>
+            </button>
         </div>
     </div>
 </section>
 
-<section class="category-moodboard" id="categories">
+<section class="art-gallery" id="collection">
     <div class="container">
-        <div class="section-header-center text-center mb-60">
-            <span class="sub-title-gold">EXPLORE BY CATEGORY</span>
-            <h2>Không Gian <br><em>Kiến Tạo Thành Công</em></h2>
+        <div class="window-header text-center">
+            <span class="sub-gold">CURATED SPACES</span>
+            <h3>Bộ Sưu Tập <br><em>2025</em></h3>
         </div>
 
-        <div class="mood-grid">
-            <a href="products.html?cat=desk" class="mood-item item-desk reveal-image">
-                <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=80" alt="Executive Desk">
-                <div class="mood-overlay">
-                    <h3>Executive Desks</h3>
-                    <span class="mood-count">12 Designs</span>
+        <div class="gallery-grid">
+            <a href="danhmuc.html?cat=chair" class="art-frame frame-large">
+                <div class="frame-img-box">
+                    <img src="https://noithatphamhoang.com/wp-content/uploads/2024/01/RC10109-U1.jpg?w=1200&q=80" alt="Ghế Chủ Tịch">
+                    <div class="art-info">
+                        <h3>The Throne</h3>
+                        <span>Ghế Chủ Tịch</span>
+                    </div>
                 </div>
             </a>
 
-            <a href="products.html?cat=chair" class="mood-item item-chair reveal-image" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800&q=80" alt="Ergonomic Chairs">
-                <div class="mood-overlay">
-                    <h3>Premium Seating</h3>
-                    <span class="mood-count">08 Models</span>
+            <a href="danhmuc.html?cat=desk" class="art-frame frame-tall">
+                <div class="frame-img-box">
+                    <img src="https://kaguyasuau.com/cdn/shop/files/1_9fe24d75-ae0f-444e-b62f-488e16575963.png?w=800&q=80" alt="Bàn Giám Đốc">
+                    <div class="art-info">
+                        <h3>The Executive</h3>
+                        <span>Bàn Giám Đốc</span>
+                    </div>
                 </div>
             </a>
 
-            <a href="products.html?cat=lounge" class="mood-item item-lounge reveal-image" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80" alt="Office Lounge">
-                <div class="mood-overlay">
-                    <h3>Office Lounge</h3>
-                    <span class="mood-count">05 Sets</span>
+            <a href="danhmuc.html?cat=lamp" class="art-frame frame-wide">
+                <div class="frame-img-box">
+                    <img src="https://magnific.in/wp-content/uploads/2024/08/MTL-027-1.webp?w=800&q=80" alt="Đèn Hoàng Gia">
+                    <div class="art-info">
+                        <h3>The Illumination</h3>
+                        <span>Đèn Hoàng Gia</span>
+                    </div>
                 </div>
             </a>
         </div>
     </div>
 </section>
-
 <section class="shop-by-space luxury-scroll-section" id="featured-collection">
     <div class="container-fluid">
+        <div class="window-header text-center">
+            <span class="sub-gold">CURATED SELECTION</span>
+            <h3>Sản Phẩm <br><em>Nổi Bật</em></h3>
+        </div>
         <div class="scroll-header">
-            <div class="header-content">
+            <div class="header-content" style="display:none;">
                 <span class="sub-title">CURATED SELECTION</span>
-                <h2>Kiệt Tác <br><em>Nổi Bật</em></h2>
+                <h2>Sản Phẩm Nổi Bật</h2>
             </div>
             <div class="scroll-nav">
                 <button id="scrollLeft"><i class="fas fa-arrow-left"></i></button>
@@ -128,43 +128,16 @@
             <div class="products-track" id="featuredProductsTrack">
                 <div class="prod-card-luxury">
                     <div class="prod-badges">
-                        <span class="p-badge">NEW</span>
+                        <span class="p-badge">BEST SELLER</span>
                     </div>
                     <div class="prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800" alt="Executive Desk">
+                        <img src="https://noithatphamhoang.com/wp-content/uploads/2024/01/RC10109-U1.jpg?w=800" alt="Ghế Giám Đốc WINSTON">
                     </div>
                     <div class="prod-info-overlay">
-                        <span class="prod-cat">DESK COLLECTION</span>
-                        <h3 class="prod-title">The Executive Walnut</h3>
-                        <p class="prod-price">45.000.000₫</p>
-                        <a href="#" class="btn-view-prod">Xem chi tiết →</a>
-                    </div>
-                </div>
-                
-                <div class="prod-card-luxury">
-                    <div class="prod-badges">
-                        <span class="p-badge">BESTSELLER</span>
-                    </div>
-                    <div class="prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=800" alt="Executive Chair">
-                    </div>
-                    <div class="prod-info-overlay">
-                        <span class="prod-cat">SEATING</span>
-                        <h3 class="prod-title">Milano Leather Chair</h3>
-                        <p class="prod-price">28.000.000₫</p>
-                        <a href="#" class="btn-view-prod">Xem chi tiết →</a>
-                    </div>
-                </div>
-                
-                <div class="prod-card-luxury">
-                    <div class="prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800" alt="Storage Cabinet">
-                    </div>
-                    <div class="prod-info-overlay">
-                        <span class="prod-cat">STORAGE</span>
-                        <h3 class="prod-title">Oak Storage Cabinet</h3>
-                        <p class="prod-price">32.000.000₫</p>
-                        <a href="#" class="btn-view-prod">Xem chi tiết →</a>
+                        <span class="prod-cat">GHẾ CHỦ TỊCH</span>
+                        <h3 class="prod-title">Ghế Giám Đốc WINSTON</h3>
+                        <p class="prod-price">28.900.000₫</p>
+                        <a href="chitietsanpham.html?id=chair-winston-vip" class="btn-view-prod">Xem chi tiết →</a>
                     </div>
                 </div>
                 
@@ -173,25 +146,58 @@
                         <span class="p-badge">LIMITED</span>
                     </div>
                     <div class="prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800" alt="Conference Table">
+                        <img src="https://kaguyasuau.com/cdn/shop/files/1_9fe24d75-ae0f-444e-b62f-488e16575963.png?w=800" alt="Bàn Giám Đốc CONCORDE">
                     </div>
                     <div class="prod-info-overlay">
-                        <span class="prod-cat">MEETING</span>
-                        <h3 class="prod-title">Conference Table Pro</h3>
-                        <p class="prod-price">85.000.000₫</p>
-                        <a href="#" class="btn-view-prod">Xem chi tiết →</a>
+                        <span class="prod-cat">BÀN GIÁM ĐỐC</span>
+                        <h3 class="prod-title">Bàn Giám Đốc CONCORDE</h3>
+                        <p class="prod-price">45.000.000₫</p>
+                        <a href="chitietsanpham.html?id=desk-concorde-vip" class="btn-view-prod">Xem chi tiết →</a>
                     </div>
                 </div>
                 
                 <div class="prod-card-luxury">
+                    <div class="prod-badges">
+                        <span class="p-badge">SMART IOT</span>
+                    </div>
                     <div class="prod-img-box">
-                        <img src="https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800" alt="Bookshelf">
+                        <img src="https://magnific.in/wp-content/uploads/2024/08/MTL-027-1.webp?w=800" alt="Đèn Bàn AURORA">
                     </div>
                     <div class="prod-info-overlay">
-                        <span class="prod-cat">DISPLAY</span>
-                        <h3 class="prod-title">Minimalist Bookshelf</h3>
-                        <p class="prod-price">18.000.000₫</p>
-                        <a href="#" class="btn-view-prod">Xem chi tiết →</a>
+                        <span class="prod-cat">ĐÈN HOÀNG GIA</span>
+                        <h3 class="prod-title">Đèn Bàn AURORA</h3>
+                        <p class="prod-price">18.500.000₫</p>
+                        <a href="chitietsanpham.html?id=lamp-aurora-vip" class="btn-view-prod">Xem chi tiết →</a>
+                    </div>
+                </div>
+                
+                <div class="prod-card-luxury">
+                    <div class="prod-badges">
+                        <span class="p-badge">ITALIAN LEATHER</span>
+                    </div>
+                    <div class="prod-img-box">
+                        <img src="https://kenzaluxury.vn/wp-content/uploads/2022/03/Prato-03-1.png?w=800" alt="Sofa ARISTOCRAT LOUNGE">
+                    </div>
+                    <div class="prod-info-overlay">
+                        <span class="prod-cat">SOFA CAO CẤP</span>
+                        <h3 class="prod-title">Sofa ARISTOCRAT LOUNGE</h3>
+                        <p class="prod-price">52.000.000₫</p>
+                        <a href="chitietsanpham.html?id=sofa-aristocrat-lounge" class="btn-view-prod">Xem chi tiết →</a>
+                    </div>
+                </div>
+                
+                <div class="prod-card-luxury">
+                    <div class="prod-badges">
+                        <span class="p-badge">MODULAR</span>
+                    </div>
+                    <div class="prod-img-box">
+                        <img src="https://xuongdeco.com/wp-content/uploads/2020/09/Tu-trang-tri-deco-dttk52-768x768.jpg?w=800" alt="Kệ Sách WISDOM TOWER">
+                    </div>
+                    <div class="prod-info-overlay">
+                        <span class="prod-cat">KỆ SÁCH</span>
+                        <h3 class="prod-title">Kệ Sách WISDOM TOWER</h3>
+                        <p class="prod-price">22.000.000₫</p>
+                        <a href="chitietsanpham.html?id=shelf-wisdom-tower" class="btn-view-prod">Xem chi tiết →</a>
                     </div>
                 </div>
             </div>
@@ -202,104 +208,101 @@
         </div>
     </div>
 </section>
-<section class="bespoke-process" id="services">
-    <div class="bespoke-bg">
-        <img src="https://images.squarespace-cdn.com/content/v1/56c7553f86db4343d995ac6c/1595963560706-0QZ5QZ5QZ5QZ5QZ5QZ5Q/Office+Interior+Design+Singapore.jpg" alt="Architect Sketching">
-        <div class="bg-overlay-gradient"></div>
-    </div>
-
-    <div class="container position-relative z-2">
-        <div class="section-title text-center fade-in-up">
-            <span class="section-label">THE SIGNATURE SERVICE</span>
-            <h2>Quy Trình <br><em>May Đo Độc Bản</em></h2>
-            <p class="section-desc">Hành trình biến ý tưởng thành di sản trong không gian của bạn.</p>
+<section class="process-section-beige" id="process">
+    <div class="container">
+        
+        <div class="window-header text-center">
+            <span class="sub-gold">WORKFLOW</span>
+            <h3>Quy Trình <br><em>Hoàn Thiện Không Gian</em></h3>
+            <p class="section-desc">Từ mặt bằng thô đến văn phòng sẵn sàng vận hành. UrbanOak cung cấp giải pháp tổng thể giúp tối ưu chi phí và thời gian cho doanh nghiệp.</p>
         </div>
         
-        <div class="process-grid">
-            <div class="process-card fade-in-up">
-                <div class="card-border"></div>
-                <div class="p-header">
-                    <span class="p-number-outline">01</span>
-                    <div class="p-icon"><i class="far fa-comments"></i></div>
-                </div>
-                <div class="p-body">
-                    <h3>Tư Vấn & Định Hình</h3>
-                    <p>Cuộc gặp gỡ riêng tư với Giám đốc Sáng tạo để thấu hiểu phong cách sống và nhu cầu không gian của quý khách.</p>
+        <div class="process-steps-grid">
+            
+            <div class="step-card">
+                <span class="step-num">01</span>
+                <div class="step-content">
+                    <h3>Khảo sát & <br><em>Bố trí mặt bằng</em></h3>
+                    <p>Chúng tôi đến đo đạc hiện trạng, phân tích luồng di chuyển và cơ cấu nhân sự. Mục tiêu là đưa ra layout bố trí công năng tối ưu nhất cho vận hành.</p>
                 </div>
             </div>
 
-            <div class="process-connector">
-                <div class="line"></div>
-                <div class="dot"></div>
-            </div>
-
-            <div class="process-card fade-in-up" style="transition-delay: 0.2s;">
-                <div class="card-border"></div>
-                <div class="p-header">
-                    <span class="p-number-outline">02</span>
-                    <div class="p-icon"><i class="fas fa-pencil-ruler"></i></div>
-                </div>
-                <div class="p-body">
-                    <h3>Phác Thảo & Chế Tác</h3>
-                    <p>Bản vẽ 3D chi tiết được hiện thực hóa. Quý khách được mời đến xưởng để duyệt chất liệu gỗ trước khi chế tác.</p>
+            <div class="step-card">
+                <span class="step-num">02</span>
+                <div class="step-content">
+                    <h3>Concept & <br><em>Vật liệu</em></h3>
+                    <p>Lên bản vẽ 3D và bảng phối vật liệu (Moodboard) chi tiết: Từ màu da, vân gỗ đến các chi tiết kim loại. Đảm bảo đúng nhận diện thương hiệu của bạn.</p>
                 </div>
             </div>
 
-            <div class="process-connector">
-                <div class="line"></div>
-                <div class="dot"></div>
+            <div class="step-card">
+                <span class="step-num">03</span>
+                <div class="step-content">
+                    <h3>Thi công & <br><em>Nghiệm thu</em></h3>
+                    <p>Sản xuất tại xưởng, lắp đặt tại công trình theo đúng bản vẽ kỹ thuật. Vệ sinh công nghiệp sạch sẽ và bàn giao chìa khóa trao tay đúng tiến độ cam kết.</p>
+                </div>
             </div>
 
-            <div class="process-card fade-in-up" style="transition-delay: 0.4s;">
-                <div class="card-border"></div>
-                <div class="p-header">
-                    <span class="p-number-outline">03</span>
-                    <div class="p-icon"><i class="fas fa-couch"></i></div>
-                </div>
-                <div class="p-body">
-                    <h3>Lắp Đặt "White Glove"</h3>
-                    <p>Dịch vụ giao hàng găng tay trắng. Đội ngũ chuyên gia lắp đặt, vệ sinh và bài trí hoàn thiện tận nơi.</p>
-                </div>
-            </div>
         </div>
         
-        <div class="text-center mt-60 fade-in-up">
-            <a href="contact.html" class="btn-gold-outline">
-                <span>ĐẶT LỊCH TƯ VẤN 1:1</span>
+        <div class="text-center mt-60">
+            <a href="lienhe.html" class="btn-process-cta">
+                <span>Gửi yêu cầu khảo sát</span>
+                <i class="fas fa-arrow-right"></i>
             </a>
+        </div>
+
+    </div>
+</section>
+<section class="gallery-projects-section" id="projects">
+    <div class="container">
+        
+        <div class="gallery-header-row">
+            <div class="g-title">
+                <span class="sub-gold">SELECTED WORKS</span>
+                <h3>Dự Án <br><em>Tiêu Biểu</em></h3>
+            </div>
+            <div class="g-action">
+                <a href="#" class="btn-view-all">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="project-list">
+            
+            <div class="art-project-item">
+                <div class="p-content">
+                    <span class="p-year font-mono">2024</span>
+                    <h3 class="font-playfair">The Sky Tower<br>Headquarters</h3>
+                    <p class="p-desc">Thiết kế không gian điều hành cấp cao với 100% gỗ Óc chó (Walnut) nhập khẩu Bắc Mỹ. Sự kết hợp giữa quyền lực và sự tĩnh tại.</p>
+                    <a href="lienhe.html" class="p-link-line">Liên hệ ngay</a>
+                </div>
+                <div class="p-visual">
+                    <div class="p-img-frame">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80" alt="Sky Tower">
+                    </div>
+                </div>
+            </div>
+
+            <div class="art-project-item reverse">
+                <div class="p-content">
+                    <span class="p-year font-mono">2023</span>
+                    <h3 class="font-playfair">VinFast<br>Global Office</h3>
+                    <p class="p-desc">Không gian mở (Open Space) kết hợp các pod làm việc riêng tư. Sử dụng tông màu gỗ sồi sáng để kích thích sự sáng tạo.</p>
+                    <a href="lienhe.html" class="p-link-line">Liên hệ ngay</a>
+                </div>
+                <div class="p-visual">
+                    <div class="p-img-frame">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="VinFast Office">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
-    <section class="projects-dark-mode" id="projects">
-        <div class="container">
-            <div class="project-header">
-                <h2 class="reveal-text">Selected <br> <em>Masterpieces</em></h2>
-                <a href="#" class="btn-view-all">View All Projects</a>
-            </div>
-            <div class="project-row">
-                <div class="project-info fade-in-up">
-                    <span class="p-year">2024</span>
-                    <h3>The Sky Tower<br>Headquarters</h3>
-                    <p>Thiết kế không gian điều hành cấp cao với 100% gỗ Óc chó (Walnut) nhập khẩu Bắc Mỹ.</p>
-                    <a href="#" class="p-link">Xem chi tiết</a>
-                </div>
-                <div class="project-visual reveal-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/56c7553f86db4343d995ac6c/1595963560706-0QZ5QZ5QZ5QZ5QZ5QZ5Q/Office+Interior+Design+Singapore.jpg" alt="Sky Tower">
-                </div>
-            </div>
-            <div class="project-row reverse">
-                <div class="project-info fade-in-up">
-                    <span class="p-year">2023</span>
-                    <h3>VinFast<br>Global Office</h3>
-                    <p>Không gian mở (Open Space) kết hợp các pod làm việc riêng tư. Sử dụng tông màu gỗ sồi sáng.</p>
-                    <a href="#" class="p-link">Xem chi tiết</a>
-                </div>
-                <div class="project-visual reveal-image">
-                    <img src="https://thietkevanphong.pro/wp-content/uploads/2020/09/van-phong-giam-doc1.jpg" alt="VinFast Office">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="editorial-reviews">
         <div class="container">
@@ -318,8 +321,117 @@
             </div>
         </div>
     </section>
+<section class="brand-story-magazine" id="story">
+    <div class="container">
+        <div class="story-grid-layout">
+            
+            <div class="story-text-col">
+                <span class="sub-gold">THE LEGACY</span>
+                <h2 class="font-playfair">Hành Trình <br><em>Kiến Tạo Di Sản</em></h2>
+                
+                <p class="story-desc">
+                    Không chỉ là nội thất, UrbanOak là câu chuyện về sự ám ảnh với sự hoàn hảo. Từ năm 2014, chúng tôi đã chọn con đường khó khăn nhất: Chế tác thủ công những phiến gỗ sồi hàng trăm năm tuổi để tạo ra những "ngai vàng" thực thụ cho giới lãnh đạo.
+                </p>
 
-    <section class="partners-section">
+                <div class="story-quote">
+                    <p>"Chúng tôi không bán bàn ghế. Chúng tôi bán sự đẳng cấp của uy quyền."</p>
+                    <span class="founder-name">— Founder, UrbanOak.</span>
+                </div>
+
+                <a href="about.html" class="btn-link-arrow">
+                    Đọc toàn bộ câu chuyện <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="story-visual-col">
+                <div class="img-main">
+                    <img src="https://www.weworthdesign.com/data/watermark/20230106/63b7ba7376960_.webp" alt="UrbanOak Workshop">
+                </div>
+                <div class="img-detail">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.W29-Pw3PVdWpP63vqbMD4AHaFk?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Wood Detail">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <section class="journal-section" id="blog">
+        <div class="container">
+            <div class="window-header text-center">
+                <span class="sub-gold">THE JOURNAL</span>
+                <h3>Cảm Hứng <br><em>& Xu Hướng</em></h3>
+            </div>
+            
+            <div class="journal-grid">
+                
+                <article class="journal-card">
+                    <a href="https://vnexpress.net/noi-that-van-phong-huong-toi-trai-nghiem-cam-xuc-4716832.html" target="_blank" class="j-img-wrapper">
+                        <div class="j-img-inner">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Biophilic Office">
+                        </div>
+                    </a>
+                    <div class="j-content">
+                        <span class="j-date">VNEXPRESS • 15 DEC 2024</span>
+                        <h3><a href="https://vnexpress.net/noi-that-van-phong-huong-toi-trai-nghiem-cam-xuc-4716832.html" target="_blank">Nội thất văn phòng hướng tới trải nghiệm cảm xúc</a></h3>
+                        <a href="https://vnexpress.net/noi-that-van-phong-huong-toi-trai-nghiem-cam-xuc-4716832.html" target="_blank" class="read-more">Đọc bài viết</a>
+                    </div>
+                </article>
+
+                <article class="journal-card">
+                    <a href="https://www.elledecoration.vn/architecture/design-news/xu-huong-thiet-ke-noi-that-2024" target="_blank" class="j-img-wrapper">
+                        <div class="j-img-inner">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=800" alt="Oak Investment">
+                        </div>
+                    </a>
+                    <div class="j-content">
+                        <span class="j-date">ELLE DECOR • 20 NOV 2024</span>
+                        <h3><a href="https://www.elledecoration.vn/architecture/design-news/xu-huong-thiet-ke-noi-that-2024" target="_blank">Tại sao bàn Gỗ tự nhiên là khoản đầu tư tốt nhất?</a></h3>
+                        <a href="https://www.elledecoration.vn/architecture/design-news/xu-huong-thiet-ke-noi-that-2024" target="_blank" class="read-more">Đọc bài viết</a>
+                    </div>
+                </article>
+
+                <article class="journal-card">
+                    <a href="https://www.tapchikientruc.com.vn/chuyen-muc/kientruc-xahoi/xu-huong-thiet-ke-van-phong-hien-dai.html" target="_blank" class="j-img-wrapper">
+                        <div class="j-img-inner">
+                            <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=800" alt="Minimalism">
+                        </div>
+                    </a>
+                    <div class="j-content">
+                        <span class="j-date">ARCH DAILY • 05 OCT 2024</span>
+                        <h3><a href="https://www.tapchikientruc.com.vn/chuyen-muc/kientruc-xahoi/xu-huong-thiet-ke-van-phong-hien-dai.html" target="_blank">Nghệ thuật tối giản trong không gian lãnh đạo</a></h3>
+                        <a href="https://www.tapchikientruc.com.vn/chuyen-muc/kientruc-xahoi/xu-huong-thiet-ke-van-phong-hien-dai.html" target="_blank" class="read-more">Đọc bài viết</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-editorial" id="contact">
+        <div class="container">
+            <div class="editorial-row">
+                
+                <div class="nl-text">
+                    <span class="sub-gold">THE LETTER</span>
+                    <h2 class="font-playfair">Kết Nối Với <br><em>UrbanOak.</em></h2>
+                </div>
+
+                <div class="nl-form-wrapper">
+                    <p class="nl-intro">Nhận ưu đãi và thông tin về nội thất UrbanOak.</p>
+                    
+                    <form class="editorial-form">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button type="submit">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    
+                    <p class="spam-note">Không spam. Chỉ có cảm hứng.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+ <section class="partners-section">
         <div class="container">
             <p class="section-label-center">TRUSTED BY VISIONARIES</p>
             <div class="partner-grid">
@@ -332,80 +444,24 @@
         </div>
     </section>
 
-    <section class="brand-story-section">
-        <div class="container">
-            <div class="story-content">
-                <div class="story-text fade-in-up">
-                    <span class="story-label">OUR STORY</span>
-                    <h2 class="story-title">Câu Chuyện Về<br>Sự Hoàn Hảo</h2>
-                    <p class="story-desc">Từ năm 2014, UrbanOak đã không ngừng theo đuổi sứ mệnh mang đến những không gian làm việc đẳng cấp thượng lưu. Mỗi sản phẩm là một tác phẩm nghệ thuật.</p>
-                    <a href="about.html" class="btn-luxury-text">Đọc Câu Chuyện <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="story-image fade-in-up">
-                    <div class="glass-frame">
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4c5389125429593.611950ca4f402.jpg" alt="UrbanOak Story">
-                    </div>
-                </div>
-            </div>
+    <div class="floating-buttons">
+        <div class="floating-btn fb-btn" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
         </div>
-    </section>
-    <section class="journal-section" id="blog">
-        <div class="container">
-            <div class="section-header-split fade-in-up">
-                <h2>The <span class="text-outline">Journal</span></h2>
-                <a href="blog.html" class="link-underline">Đọc tất cả bài viết</a>
-            </div>
-            
-            <div class="journal-grid">
-                <article class="journal-card fade-in-up">
-                    <a href="#" class="j-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Blog 1">
-                    </a>
-                    <div class="j-content">
-                        <span class="j-date">DEC 15, 2024</span>
-                        <h3><a href="#">Xu hướng văn phòng "Biophilic" 2025</a></h3>
-                        <a href="#" class="read-more">Đọc tiếp</a>
-                    </div>
-                </article>
-                <article class="journal-card fade-in-up" style="transition-delay: 0.1s;">
-                    <a href="#" class="j-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=800" alt="Blog 2">
-                    </a>
-                    <div class="j-content">
-                        <span class="j-date">NOV 20, 2024</span>
-                        <h3><a href="#">Tại sao bàn Gỗ Sồi là khoản đầu tư tốt nhất?</a></h3>
-                        <a href="#" class="read-more">Đọc tiếp</a>
-                    </div>
-                </article>
-                <article class="journal-card fade-in-up" style="transition-delay: 0.2s;">
-                    <a href="#" class="j-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=800" alt="Blog 3">
-                    </a>
-                    <div class="j-content">
-                        <span class="j-date">OCT 05, 2024</span>
-                        <h3><a href="#">Nghệ thuật tối giản trong không gian lãnh đạo</a></h3>
-                        <a href="#" class="read-more">Đọc tiếp</a>
-                    </div>
-                </article>
-            </div>
+        <div class="floating-btn zalo-btn" title="Zalo"></div>
+        <div class="floating-btn call-btn" title="Gọi ngay">
+            <i class="fas fa-phone-alt"></i>
         </div>
-    </section>
+        <div class="floating-btn scroll-top-btn" title="Lên đầu trang">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
 
-    <section class="newsletter-minimal" id="contact">
-        <div class="container">
-            <div class="newsletter-wrapper fade-in-up">
-                <h2>Đừng bỏ lỡ<br>cảm hứng mới</h2>
-                <form class="minimal-form">
-                    <input type="email" placeholder="Email của bạn..." required>
-                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
-                </form>
-                <p class="n-note">Nhận các xu hướng thiết kế và ưu đãi độc quyền. Không spam.</p>
-            </div>
-        </div>
-    </section>
+    <div id="footer-placeholder"></div>
+
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="assets/js/db.js"></script>
-    <script src="trangchu.js" defer></script>
+    <script src="assets/js/trangchu.js"></script>
 </body>
 </html>

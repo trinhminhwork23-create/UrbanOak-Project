@@ -2054,34 +2054,7 @@ footer {
    NEW UPGRADES (FINAL TOUCH)
    ========================================= */
 
-/* --- HYBRID LUXURY CURSOR CSS --- */
-/* 2. Container chính của cursor custom */
-#magic-cursor {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 99999;
-    transition: opacity 0.3s ease;
-}
 
-/* KHI BODY CÓ CLASS NÀY -> ẨN CURSOR CUSTOM ĐI */
-body.hide-custom-cursor #magic-cursor {
-    opacity: 0;
-}
-
-/* 3. Vòng tròn chính (The Ball) */
-#ball {
-    position: fixed;
-    top: 0; left: 0;
-    width: 12px; height: 12px;
-    background: #fff;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s;
-    mix-blend-mode: exclusion;
-}
 
 /* === SCROLL PROGRESS INDICATOR (Vertical Dots) === */
 .scroll-indicator {

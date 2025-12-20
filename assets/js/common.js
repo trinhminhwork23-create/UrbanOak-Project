@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function injectHeaderFooter() {
     if (document.getElementById('header')) return;
     
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('UrbanOak_User'));
     const userDisplay = currentUser 
         ? `<a href="#" id="userDisplay" title="${currentUser.fullname}">
             <i class="fas fa-user"></i> <span>${currentUser.username}</span>
@@ -64,15 +64,10 @@ function injectHeaderFooter() {
                     ${userDisplay}
                     
                     <div class="cart-container">
-                        <a href="#" id="cartIcon">
+                        <a href="cart.html" id="cartIcon">
                             <i class="fas fa-shopping-bag"></i>
                             <span class="cart-count" id="cartCount">0</span>
                         </a>
-                        <div class="mini-cart-dropdown">
-                            <div id="miniCartContent">
-                                <p>Giỏ hàng trống</p>
-                            </div>
-                        </div>
                     </div>
                     
                     <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -246,12 +241,12 @@ function initUserDisplay() {
     const userDisplay = document.getElementById('userDisplay');
     if (!userDisplay) return;
     
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('UrbanOak_User'));
     if (currentUser) {
         userDisplay.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm(`Xin chào ${currentUser.fullname}!\nBạn có muốn đăng xuất?`)) {
-                localStorage.removeItem('currentUser');
+                localStorage.removeItem('UrbanOak_User');
                 window.location.reload();
             }
         });
@@ -266,7 +261,7 @@ function initCartDisplay() {
     const cartCount = document.getElementById('cartCount');
     if (!cartCount) return;
     
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem('UrbanOakCart')) || [];
     const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
     cartCount.textContent = totalItems;
     

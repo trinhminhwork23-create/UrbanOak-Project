@@ -1,38 +1,9 @@
 /* Cart CSS - Luxury Style */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f1e4dc;
-    color: #2c1810;
-}
-
+/* Cart specific styles */
 .container {
     max-width: 1200px;
-}
-
-/* Home Link */
-.home-link {
-    color: #5c3a1d;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background-color: #fff8f0;
-    border: 1px solid #e8c89a;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.home-link:hover {
-    color: #5c3a1d;
-    background-color: #f2cfb1;
-    transform: translateY(-2px);
 }
 
 /* Headers */
@@ -129,6 +100,19 @@ h2 {
     padding: 8px;
     font-weight: 600;
     color: #5c3a1d;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .quantity-input:focus {

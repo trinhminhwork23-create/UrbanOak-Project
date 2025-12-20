@@ -48,9 +48,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Hiển thị giỏ hàng trống
-    const listContainer = document.querySelector('.list');
-    listContainer.innerHTML = '<p class="text-muted text-center py-4">Giỏ hàng trống</p>';
+    // Hiển thị sản phẩm từ giỏ hàng
+    loadCheckoutItems();
+
+    function loadCheckoutItems() {
+        const cartItems = JSON.parse(localStorage.getItem('UrbanOakCart')) || [];
+        const listContainer = document.querySelector('.list');
+        const totalQuantityEl = document.querySelector('.totalQuantity');
+        const totalPriceEl = document.querySelector('.totalPrice');
+        
+        if (cartItems.length === 0) {
+            listContainer.innerHTML = '<p class="text-muted text-center py-4">Giỏ hàng trống</p>';
+            totalQuantityEl.textContent = '0';
+            totalPriceEl.textContent = '0đ';
+            return;
+        }
+        
+        let totalQuantity = 0;
+        let totalPrice = 0;
+        
+        listContainer.innerHTML = '';
+        
+        cartItems.forEach(item => {
+            const price = parseInt(item.price.replace(/[^\d]/g, ''));
+            const itemTotal = price * item.quantity;
+            totalQuantity += item.quantity;
+            totalPrice += itemTotal;
+            
+            const itemHTML = `
+                <div class="checkout-item d-flex align-items-center mb-4 p-4 border rounded">
+                    <img src="${item.img}" alt="${item.title}" class="me-4" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
+                    <div class="flex-grow-1">
+                        <h5 class="mb-2">${item.title}</h5>
+                        <div class="text-muted fs-6">${price.toLocaleString('vi-VN')}đ</div>
+                    </div>
+                    <div class="text-center mx-4">
+                        <span class="badge bg-secondary fs-6 px-3 py-2">x${item.quantity}</span>
+                    </div>
+                    <div class="text-end">
+                        <div class="fw-bold text-primary fs-5">${itemTotal.toLocaleString('vi-VN')}đ</div>
+                    </div>
+                </div>
+            `;
+            
+            listContainer.innerHTML += itemHTML;
+        });
+        
+        totalQuantityEl.textContent = totalQuantity;
+        totalPriceEl.textContent = totalPrice.toLocaleString('vi-VN') + 'đ';
+    }
 
     // Xử lý form submit
     checkoutForm.addEventListener('submit', function(e) {
@@ -69,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             address: document.getElementById('address').value,
             country: document.getElementById('country').value,
             city: document.getElementById('city').value,
-            cart: JSON.parse(localStorage.getItem('cartProducts')) || [],
+            cart: JSON.parse(localStorage.getItem('UrbanOakCart')) || [],
             orderDate: new Date().toISOString(),
             totalAmount: document.querySelector('.totalPrice').textContent
         };
@@ -77,13 +123,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Lưu đơn hàng
         console.log('Đơn hàng:', formData);
         
-        // Hiển thị thông báo thành công
-        alert('Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+        // Hiển thị popup thành công
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
         
-        // Chuyển về trang chủ
-        window.location.href = 'trangchu.html';
+        // Xóa giỏ hàng sau khi đặt hàng thành công
+        localStorage.removeItem('UrbanOakCart');
     });
 
+    // Function chuyển về trang chủ
+    window.goToHomePage = function() {
+        // Cập nhật lại icon giỏ hàng về 0
+        const cartCount = document.getElementById('cartCount');
+        if (cartCount) {
+            cartCount.textContent = '0';
+            cartCount.style.display = 'none';
+        }
+        window.location.href = 'trangchu.html';
+    };
     
     // Thêm animation cho form elements
     const formElements = document.querySelectorAll('.form-control, .form-select');

@@ -2946,13 +2946,13 @@ html.lenis { height: auto; }
     margin-bottom: 50px;
     padding-right: 20px;
 }
-.header-content h2 {
+.scroll-header-content h2 {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     color: #fff;
     line-height: 1.1;
 }
-.header-content em {
+.scroll-header-content em {
     color: #D4B98C; /* Vàng Gold */
     font-style: italic;
 }
@@ -3126,7 +3126,7 @@ html.lenis { height: auto; }
 /* Responsive */
 @media (max-width: 768px) {
     .prod-card-luxury { flex: 0 0 280px; height: 400px; }
-    .header-content h2 { font-size: 2.5rem; }
+    .scroll-header-content h2 { font-size: 2.5rem; }
     .scroll-nav { display: none; } /* Ẩn nút trên mobile cho gọn */
 }
 /* --- PHILOSOPHY SPLIT SECTION --- */

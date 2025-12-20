@@ -19,15 +19,15 @@
         <div class="col-12 col-lg-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <h2 class="h4 mb-4"><i class="bi bi-bag-check me-2"></i>Danh sách sản phẩm</h2>
-                    <div class="list">
+                    <h2 class="h4 mb-4"><i class="bi bi-bag-check me-2"></i>Đơn hàng của bạn</h2>
+                    <div class="list" style="font-size: 0.9rem;">
                         </div>
                 </div>
             </div>
         </div>
 
         <div class="col-12 col-lg-4">
-            <div class="card border-0 shadow-sm">
+            <div class="card border-0 shadow-sm sticky-top" style="top: 2rem;">
                 <div class="card-body">
                     <h2 class="h4 mb-4"><i class="bi bi-credit-card me-2"></i>Thông tin đặt hàng</h2>
                     <form class="needs-validation" novalidate>
@@ -61,6 +61,15 @@
                             </select>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="payment" class="form-label">Phương thức thanh toán</label>
+                            <select class="form-select" id="payment" required>
+                                <option value="">Chọn...</option>
+                                <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                                <option value="bank">Chuyển khoản ngân hàng</option>
+                            </select>
+                        </div>
+
                         <hr class="my-4">
 
                         <div class="d-flex justify-content-between mb-2">
@@ -68,15 +77,66 @@
                             <span class="totalQuantity fw-bold">0</span>
                         </div>
                         <div class="d-flex justify-content-between mb-4">
-                            <span>Thành tiền:</span>
-                            <span class="totalPrice fw-bold text-primary">0</span>
+                            <span style="font-size: 1.2rem; font-weight: 600;">Tổng tiền:</span>
+                            <span class="totalPrice fw-bold text-primary" style="font-size: 1.5rem;">0</span>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 buttonCheckout">
+                        <button type="submit" class="btn btn-primary w-100 buttonCheckout" style="padding: 18px 0; font-size: 1.3rem; font-weight: 600;">
                             Đặt hàng
                         </button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none; border-radius: 20px; background: linear-gradient(135deg, #f8f6f0 0%, #ffffff 100%); box-shadow: 0 20px 60px rgba(92, 58, 29, 0.15);">
+            <div class="modal-body text-center" style="padding: 60px 40px;">
+                <!-- Luxury Icon -->
+                <div class="mb-4" style="position: relative;">
+                    <div style="width: 120px; height: 120px; margin: 0 auto; background: linear-gradient(135deg, #5c3a1d, #8b6332); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(92, 58, 29, 0.3);">
+                        <span style="font-size: 5rem; color: #ffffff; font-weight: bold; line-height: 1;">✓</span>
+                    </div>
+                    <div style="position: absolute; top: -10px; right: calc(50% - 70px); width: 20px; height: 20px; background: #dfc3ae; border-radius: 50%; opacity: 0.8;"></div>
+                    <div style="position: absolute; bottom: -5px; left: calc(50% - 80px); width: 15px; height: 15px; background: #8b6332; border-radius: 50%; opacity: 0.6;"></div>
+                </div>
+                
+                <!-- Luxury Typography -->
+                <h2 class="mb-3" style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.2rem; color: #5c3a1d; letter-spacing: -0.5px;">
+                    Đặt hàng thành công
+                </h2>
+                
+                <div style="width: 60px; height: 2px; background: linear-gradient(90deg, #5c3a1d, #8b6332); margin: 0 auto 30px; border-radius: 1px;"></div>
+                
+                <p class="mb-4" style="font-size: 1.1rem; color: #6b5b4f; line-height: 1.6; max-width: 400px; margin: 0 auto 40px;">
+                    Cảm ơn bạn đã tin tưởng <strong style="color: #5c3a1d;">UrbanOak</strong>.<br>
+                    Chúng tôi sẽ xử lý đơn hàng và liên hệ với bạn trong thời gian sớm nhất.
+                </p>
+                
+                <!-- Luxury Button -->
+                <button type="button" class="btn" onclick="goToHomePage()" 
+                        style="background: linear-gradient(135deg, #5c3a1d, #8b6332); 
+                               border: none; 
+                               color: #f8f6f0; 
+                               padding: 15px 40px; 
+                               font-size: 1.1rem; 
+                               font-weight: 600; 
+                               border-radius: 50px; 
+                               box-shadow: 0 8px 25px rgba(92, 58, 29, 0.3); 
+                               transition: all 0.3s ease; 
+                               letter-spacing: 0.5px;"
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 35px rgba(92, 58, 29, 0.4)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(92, 58, 29, 0.3)'">
+                    <i class="fas fa-home me-2"></i>Quay về trang chủ
+                </button>
+                
+                <!-- Decorative Elements -->
+                <div style="position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; border: 2px solid #dfc3ae; border-radius: 50%; opacity: 0.3;"></div>
+                <div style="position: absolute; bottom: 20px; right: 20px; width: 30px; height: 30px; border: 2px solid #8b6332; border-radius: 50%; opacity: 0.2;"></div>
             </div>
         </div>
     </div>

@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     let id = new URLSearchParams(window.location.search).get('id');
     
-    // Nếu không có ID, lấy product đầu tiên
+    // Nếu không có ID, lấy ghế WINSTON (sản phẩm đầu tiên)
     if (!id) {
-        const allProducts = getAllProducts();
-        id = allProducts.length > 0 ? allProducts[0].id : null;
+        id = 'chair-winston-vip'; // Ghế Giám Đốc WINSTON - 28.9 triệu
     }
     
     const product = getProductById(id);
@@ -21,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         return;
     }
+
+    // Lưu sản phẩm hiện tại vào biến global
+    window.currentProduct = product;
 
     // Update product info
     document.getElementById('product-title').textContent = product.name;

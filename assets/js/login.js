@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Đăng nhập thành công
             showMessage('loginMessage', "Đăng nhập thành công! Đang vào UrbanOak...", true);
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('UrbanOak_User', JSON.stringify(user));
 
             // Chuyển hướng về trang chủ
             setTimeout(() => {

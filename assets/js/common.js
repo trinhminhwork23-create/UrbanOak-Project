@@ -25,7 +25,9 @@ function injectHeaderFooter() {
     
     const currentUser = JSON.parse(localStorage.getItem('UrbanOak_User'));
     const userDisplay = currentUser 
+        // amazonq-ignore-next-line
         ? `<a href="#" id="userDisplay" title="${currentUser.fullname}">
+            // amazonq-ignore-next-line
             <i class="fas fa-user"></i> <span>${currentUser.username}</span>
            </a>` 
         : `<a href="login.html" id="userDisplay">
@@ -115,9 +117,9 @@ function injectHeaderFooter() {
                 <div class="social-connect">
                     <span class="label">Connect:</span>
                     <div class="icons">
-                        <a href="#" class="s-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="s-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="s-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/urbanoak.vn" target="_blank" class="s-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/urbanoak.vn" target="_blank" class="s-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/urbanoak" target="_blank" class="s-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>

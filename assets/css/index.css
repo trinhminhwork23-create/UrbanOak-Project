@@ -1675,6 +1675,22 @@ footer {
     .tier-card.featured {
         transform: scale(1);
     }
+    
+    /* FIX MOBILE: = Video hero full screen */
+    .hero-video-section {
+        height: 100vh;
+    }
+    
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.75;
+    }
+    
+    .video-overlay-dark {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(11,11,11,0.9));
+    }
 }
 
 @media (max-width: 768px) {
@@ -1697,6 +1713,17 @@ footer {
     
     .liquid-blob {
         filter: blur(60px);
+    }
+    
+    /* FIX MOBILE: Video hero full screen */
+    .hero-video-section {
+        height: 100vh;
+    }
+    
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 /* --- 1. INFINITE MARQUEE --- */
@@ -3554,4 +3581,55 @@ body {
 .process-section-beige .sub-gold {
     color: #9C8258 !important;
 }
+/* ==============================================
+   FIX GIAO DIỆN MOBILE & VIDEO FULL MÀN HÌNH
+   ============================================== */
 
+@media (max-width: 992px) {
+    /* 1. Xử lý Header thành trong suốt và đè lên video */
+    #header-placeholder {
+        position: absolute; /* Đặt header nằm đè lên */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100; /* Cao hơn video */
+        background: transparent !important; /* Xóa màu nền nếu có */
+    }
+
+    /* Nếu Header có background màu đen/trắng thì ép nó trong suốt */
+    #header-placeholder header, 
+    #header-placeholder .navbar {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. Ép Video Section Full Màn Hình (dùng dvh thay vì vh) */
+    .hero-video-section {
+        height: 100vh; /* Fallback cho trình duyệt cũ */
+        height: 100dvh !important; /* Dynamic Viewport Height - Tràn viền bất chấp thanh địa chỉ */
+        min-height: 100dvh;
+        width: 100%;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        position: relative;
+        top: 0;
+    }
+
+    /* 3. Chỉnh video không bị méo */
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Quan trọng: Zoom video để lấp đầy, chấp nhận cắt 2 bên */
+        object-position: center;
+    }
+
+    /* 4. Đẩy nội dung chữ lên một chút để không bị che bởi thanh công cụ dưới */
+    .hero-content {
+        padding-bottom: 80px; /* Trừ hao phần thanh công cụ của iPhone */
+    }
+
+    /* 5. Fix nút "Khám phá thêm" nằm gọn gàng */
+    .scroll-down {
+        bottom: 120px; /* Đẩy cao lên tránh bị thanh home ảo của iPhone che */
+    }
+}

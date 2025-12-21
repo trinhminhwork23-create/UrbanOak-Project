@@ -25,9 +25,7 @@ function injectHeaderFooter() {
     
     const currentUser = JSON.parse(localStorage.getItem('UrbanOak_User'));
     const userDisplay = currentUser 
-        // amazonq-ignore-next-line
         ? `<a href="#" id="userDisplay" title="${currentUser.fullname}">
-            // amazonq-ignore-next-line
             <i class="fas fa-user"></i> <span>${currentUser.username}</span>
            </a>` 
         : `<a href="login.html" id="userDisplay">

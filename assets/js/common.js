@@ -259,11 +259,11 @@ function initFloatingButtons() {
         if (btn.classList.contains('scroll-top-btn')) {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (btn.classList.contains('call-btn')) {
-            window.location.href = 'tel:0901234567';
+            window.location.href = 'tel:0903200355';
         } else if (btn.classList.contains('fb-btn')) {
             window.open('https://facebook.com', '_blank');
         } else if (btn.classList.contains('zalo-btn')) {
-             window.open('https://zalo.me/0901234567', '_blank');
+             window.open('https://zalo.me/0968176026', '_blank');
         }
     });
 }

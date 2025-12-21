@@ -847,3 +847,152 @@ body::before {
         font-size: 1rem;
     }
 }
+
+
+/* Advanced Filters Section */
+.advanced-filters {
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr auto;
+    gap: 20px;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group label i {
+    color: var(--primary-gold);
+}
+
+.filter-group input,
+.filter-group select {
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding: 12px 16px;
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 8px;
+    background: var(--surface-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+}
+
+.btn-reset {
+    padding: 12px 24px;
+    background: var(--surface-secondary);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-reset:hover {
+    background: var(--primary-gold);
+    color: var(--surface-primary);
+    border-color: var(--primary-gold);
+    transform: translateY(-2px);
+}
+
+/* Badge Filters */
+.filter-badges {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(139, 115, 85, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.badge-filter-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    background: var(--surface-secondary);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.badge-filter-btn:hover {
+    background: rgba(139, 115, 85, 0.1);
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+    transform: translateY(-2px);
+}
+
+.badge-filter-btn.active {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--surface-primary);
+    font-weight: 600;
+}
+
+/* Responsive for Advanced Filters */
+@media (max-width: 992px) {
+    .filter-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .btn-reset {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .advanced-filters {
+        padding: 25px;
+    }
+    
+    .filter-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-badges {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+}

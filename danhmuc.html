@@ -73,6 +73,44 @@
                     </div>
                 </div>
             </div>
+
+            <div class="advanced-filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label><i class="fas fa-search"></i> Tìm kiếm</label>
+                        <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-sort"></i> Sắp xếp</label>
+                        <select id="sortSelect">
+                            <option value="default">Mặc định</option>
+                            <option value="price-asc">Giá: Thấp → Cao</option>
+                            <option value="price-desc">Giá: Cao → Thấp</option>
+                            <option value="name-asc">Tên: A → Z</option>
+                            <option value="name-desc">Tên: Z → A</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> Khoảng giá</label>
+                        <select id="priceFilter">
+                            <option value="all">Tất cả</option>
+                            <option value="0-10">Dưới 10 triệu</option>
+                            <option value="10-30">10 - 30 triệu</option>
+                            <option value="30-50">30 - 50 triệu</option>
+                            <option value="50-100">50 - 100 triệu</option>
+                            <option value="100">Trên 100 triệu</option>
+                        </select>
+                    </div>
+
+                    <button id="resetFilters" class="btn-reset">
+                        <i class="fas fa-redo"></i> Reset ở đây
+                    </button>
+                </div>
+
+                <div class="filter-badges" id="badgeFilters"></div>
+            </div>
         </div>
     </section>
 

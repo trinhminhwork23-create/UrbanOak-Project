@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cartCount.textContent = '0';
             cartCount.style.display = 'none';
         }
-        window.location.href = 'trangchu.html';
+        window.location.href = 'index.html';
     };
     
     // Thêm animation cho form elements

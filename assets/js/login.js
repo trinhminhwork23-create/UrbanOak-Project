@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Chuyển hướng về trang chủ
             setTimeout(() => {
-                window.location.href = 'trangchu.html';
+                window.location.href = 'index.html';
             }, 1000);
         });
     }

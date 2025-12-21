@@ -37,14 +37,14 @@ function injectHeaderFooter() {
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="trangchu.html">
+                    <a href="index.html">
                         <h1 class="brand-logo" style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;">URBANOAK.</h1>
                     </a>
                 </div>
                 
                 <nav class="menu-luxury" id="menu">
                     <ul>
-                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
                         <li><a href="about.html">Giới thiệu</a></li>
                         <li><a href="danhmuc.html">Sản phẩm</a></li>
                         <li><a href="chinhsach.html">Chính sách</a></li>
@@ -89,7 +89,7 @@ function injectHeaderFooter() {
         <div class="container footer-container">
             <div class="footer-main-content">
                 <nav class="staircase-nav">
-                    <a href="trangchu.html" class="stair-link"><span class="num">01</span> Trang chủ <div class="line"></div></a>
+                    <a href="index.html" class="stair-link"><span class="num">01</span> Trang chủ <div class="line"></div></a>
                     <a href="danhmuc.html" class="stair-link"><span class="num">02</span> Sản phẩm <div class="line"></div></a>
                     <a href="about.html" class="stair-link"><span class="num">03</span> Giới thiệu <div class="line"></div></a>
                     <a href="chinhsach.html" class="stair-link"><span class="num">04</span> Chính&nbsp;sách <div class="line"></div></a>
@@ -196,7 +196,7 @@ function initMobileMenu() {
                         <i class="fas fa-times"></i>
                     </button>
                     <ul class="mobile-menu-nav">
-                        <li><a href="trangchu.html">Trang chủ</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
                         <li><a href="about.html">Giới thiệu</a></li>
                         <li><a href="danhmuc.html">Sản phẩm</a></li>
                         <li><a href="chinhsach.html">Chính sách</a></li>
